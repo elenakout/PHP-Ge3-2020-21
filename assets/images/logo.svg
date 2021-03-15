@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="181" height="165" viewBox="0 0 181 165">
+  <g id="Group_7" data-name="Group 7" transform="translate(-448 -545)">
+    <g id="XMLID_1_" transform="translate(429 545)">
+      <path id="XMLID_36_" d="M82.4,90.2V31.5l-3.6-2.3-5.5,8.3-6,55.8Z" fill="#e9ecef"/>
+      <path id="XMLID_35_" d="M104.4,85.9,104,45.7l-2.9-1.9-4.3,7L94.7,87.9Z" fill="#e9ecef"/>
+      <g id="XMLID_2_">
+        <path id="XMLID_34_" d="M147.2,93.5,145,72.3,142.9,71,140,75.8l.8,15.6Z" fill="#e9ecef"/>
+        <path id="XMLID_33_" d="M136.7,89.8l-2.2-24.3-2.1-1.3L129,69.7l.3,17.4Z" fill="#e9ecef"/>
+        <path id="XMLID_32_" d="M156.7,97.2,153,77.6l-1.7-1.2-2.4,3.9,1.2,14.4Z" fill="#e9ecef"/>
+        <path id="XMLID_31_" d="M118.4,83.2l3.9,1.2-1.1-27.6-2.4-1.6-3.9,5.9L114.5,84Z" fill="#e9ecef"/>
+        <path id="XMLID_30_" d="M153.8,67.2,80.1,10.9l-15.7,13-.8,12.4,16.5-13L155,73.9Z" fill="#e9ecef"/>
+        <path id="XMLID_91_" d="M155.3,62,130.8,28.8,80.1,0,60.3,16.5l-.8,6.2L80.1,6.2l76.6,60.2Zm-12.2-9.7L127,33.4,101.7,20.2,88.5,9.5l41.4,22.2,23.9,30.5Z" fill="#e9ecef"/>
+      </g>
+    </g>
+    <text id="ΠΑΝΕΠΙΣΤΗΜΙΟ" transform="translate(476 674)" fill="#e9ecef" font-size="16" font-family="Roboto-Regular, Roboto" letter-spacing="0.033em"><tspan x="0" y="0">ΠΑΝΕΠΙΣΤΗΜΙΟ</tspan></text>
+    <text id="ΘΕΣΣΑΛΟΝΙΚΗΣ" transform="translate(448 703)" fill="#e9ecef" font-size="24" font-family="Roboto-Regular, Roboto" letter-spacing="0.02em"><tspan x="0" y="0">ΘΕΣΣΑΛΟΝΙΚΗΣ</tspan></text>
+  </g>
+</svg>
