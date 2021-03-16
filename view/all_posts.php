@@ -7,7 +7,7 @@
 <!-- Περιεχόμενο Σελίδας - Main -->
 <main class="main">
   <h2 class="page-title">Ανακοινωσεις</h2>
-  <section class="container">
+  <section class="container posts">
 
   <?php foreach ($results as $result) {
     $id = $result['ID'];
@@ -16,26 +16,23 @@
     $image = $result['Image'];
     $altText = $result['Alt-text'];
   ?>
-  <article class="card">
-    <img
-      class="card__image"
-      src="./assets/images/<?= $image ?>"
-      alt="<?= $altText ?>"
-    />
-    <div class="card__content">
-      <a href="./post1.html" class="card__title"
+    <article class="post">
+      <img
+        class="post__image"
+        src="./assets/images/<?= $image ?>"
+        alt="<?= $altText ?>"
+      />
+      <a href="./post1.html" class="post__title"
         ><?= $title ?></a
       >
-      <p class="card__text"><?= substrwords($description,500) ?></p>
-    </div>
-  </article>
-
-
-
+      <p class="post__text">
+        <?= substrwords($description,450) ?>
+      </p>
+    </article>
   <?php } ?>
-    <a href="./posts.php" class="btn">ολες οι ανακοινωσεις</a>
   </section>
 </main>
+
 
 <?php
   include('./view/footer.php');
