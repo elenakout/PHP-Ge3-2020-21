@@ -7,7 +7,7 @@
       </div>
       <div class="info">
         <a href="./terms.html">Όροι χρήσης</a> <span>|</span>
-        <a href="./privacy.html" target="pdf-frame">Πολιτική Απορρήτου</a>
+        <a href="./privacy.php">Πολιτική Απορρήτου</a>
       </div>
     </footer>
   </body>

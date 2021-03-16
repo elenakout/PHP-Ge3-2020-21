@@ -1,5 +1,8 @@
-<?php include('./view/header.php') ?>
-<?php include('./view/navbar.php') ?>
+<?php
+  require('./model/database.php');
+
+  include('./view/header.php');
+  include('./view/navbar.php');
 
 
-<?php include('./view/footer.php') ?>
+  include('./view/footer.php');
