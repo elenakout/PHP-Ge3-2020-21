@@ -6,7 +6,7 @@
         <p>Email: info@university.org</p>
       </div>
       <div class="info">
-        <a href="./terms.html">Όροι χρήσης</a> <span>|</span>
+        <a href="./terms.php">Όροι χρήσης</a> <span>|</span>
         <a href="./privacy.php">Πολιτική Απορρήτου</a>
       </div>
     </footer>
