@@ -15,7 +15,7 @@
           </ul>
         </li>
         <li class="nav__item">
-          <a href="./regulation.html" class="nav__link">κανονισμος σπουδων</a>
+          <a href="./regulation.php" class="nav__link">κανονισμος σπουδων</a>
         </li>
       </ul>
     </nav>
