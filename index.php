@@ -1,8 +1,9 @@
 <?php
   require('./model/database.php');
+  require('./model/post_db.php');
 
-  include('./view/header.php');
-  include('./view/navbar.php');
+  $results = get_limit_posts();
 
 
-  include('./view/footer.php');
+
+  include('./view/home_posts.php');
