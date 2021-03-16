@@ -5,3 +5,5 @@
 <p><?= $error_message ?></p>
 <br>
 <?php include('footer.php') ?>
+
+// TODO refactor error page

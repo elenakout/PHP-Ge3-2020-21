@@ -4,6 +4,5 @@
 
   $results = get_limit_posts();
 
-
-
   include('./view/home_posts.php');
+  // TODO if else statement if not posts show error page
