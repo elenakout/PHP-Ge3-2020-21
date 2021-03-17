@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- O τίτλος της σελίδας -->
     <title>ΠΑΝΕΠΙΣΤΗΜΙΟ ΘΕΣΣΑΛΟΝΙΚΗΣ</title>
-    <link rel="stylesheet" href="./view/styles/main.css" />
+    <link rel="stylesheet" href="view/styles/main.css"/>
   </head>
   <body>
     <!-- Επικεφαλίδα - Header -->
     <header class="header">
-      <a href="./index.html">
+      <a href=".">
         <img
           class="header__logo"
-          src="./assets/images/logo.svg"
+          src="assets/images/logo.svg"
           alt="logo university thessaloniki"
         />
       </a>
