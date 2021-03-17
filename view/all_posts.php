@@ -11,10 +11,10 @@
 
   <?php foreach ($results as $result) {
     $id = $result['ID'];
-    $title = $result['Title'];
-    $description = $result['Description'];
-    $image = $result['Image'];
-    $altText = $result['Alt-text'];
+    $title = $result['title'];
+    $description = $result['description'];
+    $image = $result['image'];
+    $altText = $result['altText'];
   ?>
     <article class="post">
       <img
@@ -22,7 +22,7 @@
         src="./assets/images/<?= $image ?>"
         alt="<?= $altText ?>"
       />
-      <a href="./post1.html" class="post__title"
+      <a href="./post.php?id=<?= $id ?>" class="post__title"
         ><?= $title ?></a
       >
       <p class="post__text">
