@@ -5,7 +5,7 @@
       <a href="./index.php" class="nav__link">αρχικη</a>
     </li>
     <li class="nav__item">
-      <a href="view/classes.php" class="nav__link">μαθηματα</a>
+      <a href="./classes.php" class="nav__link">μαθηματα</a>
     </li>
     <li class="nav__item dropdown">
       <a href="#" class="nav__link">προσωπικο</a>
