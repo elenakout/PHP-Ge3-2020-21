@@ -10,8 +10,8 @@
     <li class="nav__item dropdown">
       <a href="#" class="nav__link">προσωπικο</a>
       <ul>
-        <li class="nav__link"><a href="./teachers.html">διδασκοντες</a></li>
-        <li class="nav__link"><a href="./stuff.html">Γραμματεια</a></li>
+        <li class="nav__link"><a href="./teachers.php">διδασκοντες</a></li>
+        <li class="nav__link"><a href="./stuff.php">Γραμματεια</a></li>
       </ul>
     </li>
     <li class="nav__item">
