@@ -23,5 +23,11 @@
         <h2 class="title">Δημοσια Ιστορια</h2>
         <h1 class="title">Πανεπιστημιο Θεσσαλονικης</h1>
       </div>
-      <a href="./signin.html" class="btn btn-outline">εισοδος</a>
+      <?php if($name){ ?>
+      <?= $name ?>
+      <?= $role ?>
+      <a href="./logout.php" class="btn btn-outline">εξοδος</a>
+      <?php } else{ ?>
+      <a href="./login.php" class="btn btn-outline">εισοδος</a>
+      <?php } ?>
     </header>
