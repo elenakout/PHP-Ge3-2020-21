@@ -2,20 +2,22 @@
 session_start();
 
 $name = '';
+$role = '';
 
-
-if(isset($_SESSION["name"])){
-  echo $_SESSION["name"];
-  echo $_SESSION["loggedin"];
-  echo $_SESSION["name"];
-  echo $_SESSION["lastName"];
-  echo $_SESSION["role"];
-  echo $_SESSION["userId"];
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
   $name = $_SESSION["name"];
   $role = $_SESSION['role'];
+}else {
+  header("location: index.php");
+  exit;
 }
-
 
 
 include('./view/header.php');
 include('./view/navbar.php');
+
+if($role === 'teacher') {
+
+}
+
+include('./view/footer.php');

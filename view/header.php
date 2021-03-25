@@ -24,10 +24,13 @@
         <h1 class="title">Πανεπιστημιο Θεσσαλονικης</h1>
       </div>
       <?php if($name){ ?>
+      <div>
       <?= $name ?>
       <?= $role ?>
       <a href="./logout.php" class="btn btn-outline">εξοδος</a>
+
       <?php } else{ ?>
+      </div>
       <a href="./login.php" class="btn btn-outline">εισοδος</a>
       <?php } ?>
     </header>
