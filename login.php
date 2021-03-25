@@ -45,6 +45,7 @@
       $_SESSION["lastName"] = $user["lastName"];
       $_SESSION["role"] = $user["role"];
       $_SESSION["userId"] = $user["ID"];
+      $_SESSION["avatar"] = $user["avatar"];
 
       $role = $user['role'];
       // Επιλογή σελίδας ανάλογα με το ρόλο του χρήστη
