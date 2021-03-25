@@ -1,6 +1,11 @@
 <?php
   require('./model/database.php');
   require('./model/teacher_db.php');
+  require('./model/student_db.php');
+  require('./model/admin_db.php');
+  require('./model/class_db.php');
+
+
   session_start();
 
   // Αρχικοποίηση μεταβλητών
@@ -29,11 +34,14 @@
       include('./view/adminTeachers.php');
       break;
     case 'admins':
+      $admins = get_all_admins();
       include('./view/adminStuff.php');
       break;
     case 'classes':
+      $semester1 = get_classes_by_semester(1);
       include('./view/adminClasses.php');
       break;
     default:
+      $students = get_all_students();
       include('./view/adminStudents.php');
   }

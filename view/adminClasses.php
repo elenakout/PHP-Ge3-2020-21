@@ -11,6 +11,12 @@
 <a href="./dashboardAdmin.php?page=classes" class="post__title">Classes</a>
 </aside>
 <h1>Classes</h1>
+<?php foreach ($semester1 as $class) {
+    $id = $class['ID'];
+    $title = $class['title'];
+  ?>
+  <p><?= $title ?></p>
+  <?php } ?>
 </main>
 
 <?php
