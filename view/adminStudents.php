@@ -12,11 +12,11 @@
 </aside>
 <h1>Students</h1>
 <?php foreach ($students as $student) {
-    $id = $student['ID'];
-    $name = $student['name'];
-  ?>
-  <p><?= $name ?></p>
-  <?php } ?>
+  $id = $student['ID'];
+  $name = $student['name'];
+?>
+<p><?= $name ?></p>
+<?php } ?>
 </main>
 
 <?php
