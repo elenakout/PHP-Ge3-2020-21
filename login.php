@@ -5,14 +5,25 @@
   //Αρχικοποίηση session
   session_start();
 
-  // Έλεγχος άν ο χρήστης είναι ήδη συνδεμένος τον κάνουμε redirect στην αρχική οθόνη
+  // Έλεγχος άν ο χρήστης είναι ήδη συνδεμένος
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: index.php");
-    exit;
-  }
+    $role = $_SESSION['role'];
+      // Επιλογή σελίδας ανάλογα με το ρόλο του χρήστη
+      switch($role) {
+        case 'teacher':
+          header("location: dashboardTeacher.php");
+          break;
+        case 'student':
+          header("location: dashboardStudent.php");
+          break;
+        default:
+          header("location: dashboardAdmin.php");
+      }
+    }
+
 
   // Αρχικοποίηση μεταβλητών
-  $email = $password = $error = $name = $lastName = "";
+  $email = $password = $error = $name = $lastName = $role = "";
   $userId = null;
 
   // Επεξεργασία δεδομένων φόρμας κατά την υποβολή της φόρμας
@@ -35,7 +46,18 @@
       $_SESSION["role"] = $user["role"];
       $_SESSION["userId"] = $user["ID"];
 
-      header("location: dashboardAdmin.php");
+      $role = $user['role'];
+      // Επιλογή σελίδας ανάλογα με το ρόλο του χρήστη
+      switch($role) {
+        case 'teacher':
+          header("location: dashboardTeacher.php");
+          break;
+        case 'student':
+          header("location: dashboardStudent.php");
+          break;
+        default:
+          header("location: dashboardAdmin.php");
+      }
     }
 
   }

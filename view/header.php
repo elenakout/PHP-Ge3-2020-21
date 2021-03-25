@@ -27,7 +27,9 @@
       <div>
       <?= $name ?>
       <?= $role ?>
+      &#8744;
       <a href="./logout.php" class="btn btn-outline">εξοδος</a>
+      <a href="./login.php" class="btn btn-outline">dashboard</a>
 
       <?php } else{ ?>
       </div>

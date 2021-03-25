@@ -4,13 +4,19 @@
 
   session_start();
 
-  $name = $role = '';
+  // Αρχικοποίηση μεταβλητών
+  $name = $role = $userId = $avatart = '';
+
+  // Τα τρία ποιό πρόσφατα άρθρα
   $results = get_limit_posts();
   $page = 'home';
 
-  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+
+  // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
+  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $name = $_SESSION["name"];
-    $role = $_SESSION["role"];
+    $role = $_SESSION['role'];
+    $avatar = $_SESSION['avatar'];
   }
 
   include('./view/home_posts.php');

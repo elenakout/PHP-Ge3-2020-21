@@ -14,7 +14,7 @@
       $phone = $result['phone'];
       $email = $result['email'];
       $avatar = $result['avatar'];
-
+      $gender = $result['gender'];
     ?>
     <article class="list">
       <img
@@ -22,7 +22,7 @@
         alt="<?= $name.$lastname ?> Καθηγητής"
       />
       <p><?= $name?> <?= $lastname ?></p>
-      <p>Καθηγητής</p>
+      <p><?= $gender === 'male' ? 'Καθηγητής' : 'Καθηγήτρια' ?></p>
       <p><?= $email ?></p>
       <p><?= $phone ?></p>
     </article>

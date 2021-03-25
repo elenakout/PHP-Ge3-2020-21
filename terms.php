@@ -1,13 +1,16 @@
 <?php
   session_start();
 
-  $name = '';
-  $role = '';
+  // Αρχικοποίηση μεταβλητών
+  $name = $role = $userId = $avatart = '';
 
+  // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $name = $_SESSION["name"];
     $role = $_SESSION['role'];
+    $avatar = $_SESSION['avatar'];
   }
+
   include('./view/header.php');
   include('./view/navbar.php');
 ?>
