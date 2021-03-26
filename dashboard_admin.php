@@ -31,17 +31,17 @@
   switch($page) {
     case 'teachers':
       $teachers = get_all_teachers();
-      include('./view/adminTeachers.php');
+      include('./view/admin_teachers.php');
       break;
     case 'admins':
       $admins = get_all_admins();
-      include('./view/adminStuff.php');
+      include('./view/admin_stuff.php');
       break;
     case 'classes':
       $semester1 = get_classes_by_semester(1);
-      include('./view/adminClasses.php');
+      include('./view/admin_classes.php');
       break;
     default:
       $students = get_all_students();
-      include('./view/adminStudents.php');
+      include('./view/admin_students.php');
   }

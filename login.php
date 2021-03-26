@@ -8,17 +8,20 @@
   // Έλεγχος άν ο χρήστης είναι ήδη συνδεμένος
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     $role = $_SESSION['role'];
-      // Επιλογή σελίδας ανάλογα με το ρόλο του χρήστη
-      switch($role) {
-        case 'teacher':
-          header("location: dashboardTeacher.php");
-          break;
-        case 'student':
-          header("location: dashboardStudent.php");
-          break;
-        default:
-          header("location: dashboardAdmin.php");
-      }
+    // Επιλογή σελίδας ανάλογα με το ρόλο του χρήστη
+    switch($role) {
+      case 'teacher':
+        header("location: dashboard_teacher.php");
+        break;
+      case 'student':
+        header("location: dashboard_student.php");
+        break;
+      case 'admin':
+        header("location: dashboard_admin.php");
+        break;
+      default:
+        header("location: index.php");
+    }
     }
 
 
@@ -47,20 +50,8 @@
       $_SESSION["userId"] = $user["ID"];
       $_SESSION["avatar"] = $user["avatar"];
 
-      $role = $user['role'];
-      // Επιλογή σελίδας ανάλογα με το ρόλο του χρήστη
-      switch($role) {
-        case 'teacher':
-          header("location: dashboardTeacher.php");
-          break;
-        case 'student':
-          header("location: dashboardStudent.php");
-          break;
-        default:
-          header("location: dashboardAdmin.php");
-      }
+      header('location: login.php');
     }
-
   }
 
   include('./view/form_login.php');

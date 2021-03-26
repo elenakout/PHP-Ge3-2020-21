@@ -1,0 +1,1 @@
+<h1>register user controller</h1>

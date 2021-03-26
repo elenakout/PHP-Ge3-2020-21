@@ -5,10 +5,10 @@
 
 <main class="main">
   <aside>
-  <a href="./dashboardAdmin.php" class="post__title">Students</a>
-  <a href="./dashboardAdmin.php?page=teachers" class="post__title">Teachers</a>
-  <a href="./dashboardAdmin.php?page=admins" class="post__title">Admins</a>
-  <a href="./dashboardAdmin.php?page=classes" class="post__title">Classes</a>
+  <a href="./dashboard_admin.php" class="post__title">Students</a>
+  <a href="./dashboard_admin.php?page=teachers" class="post__title">Teachers</a>
+  <a href="./dashboard_admin.php?page=admins" class="post__title">Admins</a>
+  <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
   </aside>
   <h1>Teachers</h1>
 
