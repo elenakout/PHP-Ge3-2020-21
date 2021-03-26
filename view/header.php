@@ -6,6 +6,7 @@
     <!-- O τίτλος της σελίδας -->
     <title>ΠΑΝΕΠΙΣΤΗΜΙΟ ΘΕΣΣΑΛΟΝΙΚΗΣ</title>
     <link rel="stylesheet" href="view/styles/main.css"/>
+    <script src="./view/js/index.js"></script>
   </head>
   <body>
     <!-- Επικεφαλίδα - Header -->

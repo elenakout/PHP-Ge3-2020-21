@@ -10,6 +10,6 @@
         <a href="./privacy.php">Πολιτική Απορρήτου</a>
       </div>
     </footer>
-    <script src="./view/js/index.js"></script>
+
   </body>
 </html>

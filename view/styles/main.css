@@ -338,6 +338,7 @@ th {
 }
 
 .form input[type='email'],
+.form input[type='text'],
 .form input[type='password'] {
   outline: none;
   display: block;
@@ -492,4 +493,24 @@ th {
 .table_students {
   width: 100%;
   margin-top: 2rem;
+}
+
+.form_input {
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+  background: transparent;
+  margin-bottom: 2rem;
+  height: 45px;
+}
+
+.field_semester {
+  display: none;
+}
+
+.show {
+  display: block;
 }

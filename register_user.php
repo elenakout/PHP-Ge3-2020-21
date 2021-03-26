@@ -20,5 +20,8 @@
     exit;
   }
 
+  $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
+
+
 
   include('./view/form_register.php');
