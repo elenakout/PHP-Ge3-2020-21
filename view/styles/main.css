@@ -514,3 +514,7 @@ th {
 .show {
   display: block;
 }
+
+option:first {
+  color: var(--primary);
+}
