@@ -1,5 +1,7 @@
 <?php
   include('./utils/generators.php');
+  include('./model/database.php');
+  include('./model/student_db.php');
 
   session_start();
 
@@ -32,12 +34,28 @@
     $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
   }
 
+  if($action === 'create'){
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+  }
+
   if($action === 'submit') {
-    $email = email_generator( $regNum, $role );
+    $email = email_generator( $regNum, $userrole );
     $password = random_password();
+    $count = 0;
     include('./view/form_confirm_register.php');
   } else if($action === 'create') {
-    include('./view/form_register.php');
+    $students = create_student($username, $lastname, $email, $password, $regNum, $gender, $userrole);
+    foreach($students as $student){
+      $studentId = $student['ID'];
+      $count = add_student_semester($studentId, $semester);
+    }
+    if($count) {
+      header("location: dashboard_admin.php");
+    }else {
+      $error_message = 'Η εισαγωγή του χρήστη δε πραγματοποιήθηκε σωστά';
+      include('./view/error.php');
+    }
   }else {
     include('./view/form_register.php');
   }
