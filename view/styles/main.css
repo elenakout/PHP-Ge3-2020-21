@@ -511,10 +511,22 @@ th {
   display: none;
 }
 
-.show {
-  display: block;
-}
 
 option:first {
   color: var(--primary);
+}
+
+.error_name,
+.error_lastname,
+.error_regnum,
+.error_gender,
+.error_role {
+  display: none;
+  color: red;
+  font-size: 1.2rem;
+  margin-top: -15px;
+}
+
+.show {
+  display: block;
 }
