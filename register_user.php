@@ -23,14 +23,16 @@
     exit;
   }
 
+  $userrole = filter_input(INPUT_GET, 'role', FILTER_SANITIZE_STRING);
+
   $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
   $username = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
   $lastname = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
   $regNum = filter_input(INPUT_POST, 'regNum', FILTER_SANITIZE_STRING);
   $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
-  $userrole = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING);
+  $roleuser = filter_input(INPUT_POST, 'roleuser', FILTER_SANITIZE_STRING);
   $semester = '0';
-  if($userrole === 'student') {
+  if($roleuser === 'student') {
     $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
   }
 
@@ -40,21 +42,16 @@
   }
 
   if($action === 'submit') {
-    $email = email_generator( $regNum, $userrole );
+    $email = email_generator( $regNum, $roleuser );
     $password = random_password();
-    $count = 0;
     include('./view/form_confirm_register.php');
   } else if($action === 'create') {
-    $students = create_student($username, $lastname, $email, $password, $regNum, $gender, $userrole);
-    foreach($students as $student){
-      $studentId = $student['ID'];
-      $count = add_student_semester($studentId, $semester);
-    }
-    if($count) {
+    $studentId = create_student($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
+    register_student_to_semester($studentId, $semester);
+    if($studentId) {
       header("location: dashboard_admin.php");
     }else {
       $error_message = 'Η εισαγωγή του χρήστη δε πραγματοποιήθηκε σωστά';
-      include('./view/error.php');
     }
   }else {
     include('./view/form_register.php');

@@ -4,8 +4,13 @@
 ?>
 
 <main class="main">
+<h1>Εγγραφή <?= $roleuser ?></h1>
 <form action="./register_user.php" method="post" class="form">
   <input type="hidden" name="action" value="create">
+  <input type="hidden" name="roleuser" value="<?= $roleuser ?>">
+  <?php if($roleuser == 'student') { ?>
+    <h2>user semester: <?= $semester ?></h2>
+  <?php } ?>
   <input type="text" name="name" placeholder="Όνομα" value="<?= $username ?>">
   <input type="text" name="lastName" placeholder="Επίθετο" value="<?= $lastname ?>">
   <input type="text" name="regNum" placeholder="Αριθμός Μητρώου" value="<?= $regNum ?>">
@@ -14,12 +19,7 @@
     <option value="male" <?php if($gender == 'male'){echo("selected");}?>>Άρρεν</option>
     <option value="female" <?php if($gender == 'female'){echo("selected");}?>>Θήλυ</option>
   </select>
-  <select name="role" id="role" class="form_input" onchange="select_student(value)">
-    <option value="admin" <?php if($userrole == 'admin'){echo("selected");}?>>Γραμματεία</option>
-    <option value="teacher" <?php if($userrole == 'teacher'){echo("selected");}?>>Καθηγητής</option>
-    <option value="student" <?php if($userrole == 'student'){echo("selected");}?>>Φοιτητής</option>
-  </select>
-  <?php if($semester != '0') { ?>
+  <?php if($roleuser == 'student') { ?>
   <select name="semester" id="semester" class="form_input">
     <option value="1" <?php if($semester == '1'){echo("selected");}?>>1</option>
     <option value="2" <?php if($semester == '2'){echo("selected");}?>>2</option>

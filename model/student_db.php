@@ -31,18 +31,29 @@ function create_student($username, $lastname, $email, $password, $regNum, $gende
   $statement->bindValue(':regNum', $regNum);
   $statement->bindValue(':gender', $gender);
   $statement->bindValue(':role', $userrole);
-  if ($statement->execute()) {
-    $student = $statement->fetchAll();
+  $statement->execute();
+    $id = $db->lastInsertId();
     $statement->closeCursor();
-  };
 
-  return $student;
+
+  return $id;
 }
 
-function add_student_semester($id, $semester){
+function register_student_to_semester($id, $semester){
   global $db;
-  $query = "";
-
+  $count = 0;
+  $query = "INSERT INTO semesterregistration
+              (semesterNum, studentId)
+            VALUES
+              (:semester, :userid)";
+  $statement = $db->prepare($query);
+  $statement->bindValue(':semester', $semester);
+  $statement->bindValue(':userid', $id);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
 }
 
 function insert_city($newcity, $countrycode, $district, $newpopulation) {
