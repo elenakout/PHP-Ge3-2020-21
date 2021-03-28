@@ -25,8 +25,8 @@
         </tr>
       </thead>
       <tbody>
-
-        <?php foreach ($students as $index => $value){
+      <!-- Φοιτητές εξάμηνο 1 -->
+        <?php foreach ($stdSem1 as $index => $value){
           $id = $value['ID'];
           $name = $value['name'];
           $lastName = $value['lastName'];
@@ -34,14 +34,67 @@
           $phone = $value['phone'];
           $regnum = $value['regNum'];
           $avatar = $value['avatar'];
+          $semesterNum = $value['semesterNum'];
         ?>
         <tr>
           <?php if($index === 0) { ?>
-          <td rowspan="<?= count($students)?>">1</td>
+          <td rowspan="<?= count($stdSem1)?>"><?= $semesterNum ?></td>
           <?php } ?>
           <td class="left">
             <a href="./post.php?id=<?= $id ?>" >
-              <?= $name ?> <?= $lastName ?>
+            <?= $lastName ?> <?= $name ?>
+            </a>
+          </td>
+          <td class="left"><?= $email ?></td>
+          <td class="width-5"><?= $phone ?></td>
+          <td class="left width-10"><?= $regnum ?></td>
+        </tr>
+        <?php } ?>
+
+        <!-- Φοιτητές εξάμηνο 2 -->
+        <?php foreach ($stdSem2 as $index => $value){
+          $id = $value['ID'];
+          $name = $value['name'];
+          $lastName = $value['lastName'];
+          $email = $value['email'];
+          $phone = $value['phone'];
+          $regnum = $value['regNum'];
+          $avatar = $value['avatar'];
+          $semesterNum = $value['semesterNum'];
+        ?>
+        <tr>
+          <?php if($index === 0) { ?>
+          <td rowspan="<?= count($stdSem2)?>"><?= $semesterNum ?></td>
+          <?php } ?>
+          <td class="left">
+            <a href="./post.php?id=<?= $id ?>" >
+            <?= $lastName ?> <?= $name ?>
+            </a>
+          </td>
+          <td class="left"><?= $email ?></td>
+          <td class="width-5"><?= $phone ?></td>
+          <td class="left width-10"><?= $regnum ?></td>
+        </tr>
+        <?php } ?>
+
+        <!-- Φοιτητές εξάμηνο 3 -->
+        <?php foreach ($stdSem3 as $index => $value){
+          $id = $value['ID'];
+          $name = $value['name'];
+          $lastName = $value['lastName'];
+          $email = $value['email'];
+          $phone = $value['phone'];
+          $regnum = $value['regNum'];
+          $avatar = $value['avatar'];
+          $semesterNum = $value['semesterNum'];
+        ?>
+        <tr>
+          <?php if($index === 0) { ?>
+          <td rowspan="<?= count($stdSem3)?>"><?= $semesterNum ?></td>
+          <?php } ?>
+          <td class="left">
+            <a href="./post.php?id=<?= $id ?>" >
+            <?= $lastName ?> <?= $name ?>
             </a>
           </td>
           <td class="left"><?= $email ?></td>

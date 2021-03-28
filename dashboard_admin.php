@@ -42,6 +42,8 @@
       include('./view/admin_classes.php');
       break;
     default:
-      $students = get_all_students();
+      $stdSem1 = get_students_by_semester(1);
+      $stdSem2 = get_students_by_semester(2);
+      $stdSem3 = get_students_by_semester(3);
       include('./view/admin_students.php');
   }
