@@ -29,3 +29,16 @@ function user_login($email, $password) {
   }
 
 }
+
+function get_user_by_id($userId) {
+  global $db;
+  $query = 'SELECT *
+            FROM user
+            WHERE ID = :userId';
+  $statement = $db->prepare($query);
+  $statement->bindParam(":userId", $userId);
+  $statement->execute();
+  $user = $statement->fetch();
+  $statement->closeCursor();
+  return $user;
+}

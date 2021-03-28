@@ -2,6 +2,8 @@
   include('./utils/generators.php');
   include('./model/database.php');
   include('./model/student_db.php');
+  include('./model/teacher_db.php');
+  include('./model/admin_db.php');
 
   session_start();
 
@@ -23,6 +25,7 @@
     exit;
   }
 
+  // Ανάθεση μεταβλητών όταν υποβληθεί η φόρμα
   $userrole = filter_input(INPUT_GET, 'role', FILTER_SANITIZE_STRING);
 
   $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
@@ -41,18 +44,40 @@
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
   }
 
+  // Αν η φόρμα υποβληθεί δημιουργούμε αντίστοιχο email χρήστη και τυχαίο password
   if($action === 'submit') {
     $email = email_generator( $regNum, $roleuser );
     $password = random_password();
     include('./view/form_confirm_register.php');
+    // Οταν επιβεβαώνουμε την εγγρφή του χρήστη εκτελούμε τη μέθοδο για δημιουργία χρήστη ανάλογα με το ρόλο του χρήστη
   } else if($action === 'create') {
-    $studentId = create_student($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
-    register_student_to_semester($studentId, $semester);
-    if($studentId) {
-      header("location: dashboard_admin.php");
-    }else {
-      $error_message = 'Η εισαγωγή του χρήστη δε πραγματοποιήθηκε σωστά';
-    }
+      switch($roleuser) {
+        case 'student':
+          $studentId = create_student($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
+          register_student_to_semester($studentId, $semester);
+          if($studentId) {
+            header("location: dashboard_admin.php");
+          }else {
+            $error_message = 'Η εισαγωγή του χρήστη δε πραγματοποιήθηκε σωστά';
+          }
+          break;
+        case 'teacher':
+          $count = create_teacher($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
+          if($count) {
+            header("location: dashboard_admin.php");
+          }else {
+            $error_message = 'Η εισαγωγή του χρήστη δε πραγματοποιήθηκε σωστά';
+          }
+          break;
+        case 'admin':
+          $count = create_admin($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
+          if($count) {
+            header("location: dashboard_admin.php");
+          }else {
+            $error_message = 'Η εισαγωγή του χρήστη δε πραγματοποιήθηκε σωστά';
+          }
+      }
+  // Άν η φόρμα δεν έχει υποβληθεί και δεν έχουν ανατεθεί τιμές στις μεταβλητές εμφανίζουμε την ρχική φόρμα δημιουργίας χρήστη.
   }else {
     include('./view/form_register.php');
   }

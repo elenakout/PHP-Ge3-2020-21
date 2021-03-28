@@ -41,7 +41,7 @@
           <td rowspan="<?= count($stdSem1)?>"><?= $semesterNum ?></td>
           <?php } ?>
           <td class="left">
-            <a href="./post.php?id=<?= $id ?>" >
+            <a href="./dashboard_admin.php?page=profile&userId=<?= $id ?>" >
             <?= $lastName ?> <?= $name ?>
             </a>
           </td>
@@ -67,7 +67,7 @@
           <td rowspan="<?= count($stdSem2)?>"><?= $semesterNum ?></td>
           <?php } ?>
           <td class="left">
-            <a href="./post.php?id=<?= $id ?>" >
+            <a href="./dashboard_admin.php?page=profile&userId=<?= $id ?>" >
             <?= $lastName ?> <?= $name ?>
             </a>
           </td>
@@ -93,7 +93,7 @@
           <td rowspan="<?= count($stdSem3)?>"><?= $semesterNum ?></td>
           <?php } ?>
           <td class="left">
-            <a href="./post.php?id=<?= $id ?>" >
+            <a href="./dashboard_admin.php?page=profile&userId=<?= $id ?>" >
             <?= $lastName ?> <?= $name ?>
             </a>
           </td>
