@@ -12,7 +12,7 @@
       <a href="./dashboard_dmin.php?page=classes" class="post__title">Classes</a>
     </aside>
     <div class="admin_main">
-    <a href="./register_user.php?role=admin" class="btn">Εγγραφή Γραμματείας</a>
+    <a href="./admin_users.php?role=admin" class="btn">Εγγραφή Γραμματείας</a>
   <table class="table_students">
       <thead>
         <tr>

@@ -12,7 +12,7 @@
       <a href="./dashboard_dmin.php?page=classes" class="post__title">Classes</a>
     </aside>
     <div class="admin_main">
-      <form name="update" action="./update_user.php" method="post" class="form">
+      <form name="update" action="./admin_users.php" method="post" class="form">
         <input type="hidden" name="action" value="submit">
         <input type="hidden" name="roleuser" value="<?= $user['role'] ?>">
         <input type="hidden" name="userId" value="<?= $user['ID'] ?>">

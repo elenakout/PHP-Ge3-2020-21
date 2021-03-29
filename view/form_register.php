@@ -4,7 +4,7 @@
 ?>
 
 <main class="main">
-  <form name="register" action="./register_user.php" method="post" class="form" onsubmit="return validateForm()">
+  <form name="register" action="./admin_users.php" method="post" class="form" onsubmit="return validateForm()">
     <input type="hidden" name="action" value="submit">
     <input type="hidden" name="roleuser" value="<?= $userrole ?>">
     <input type="text" name="name" placeholder="Όνομα">
