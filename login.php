@@ -1,6 +1,6 @@
 <?php
   require('./model/database.php');
-  require('./model/auth_db.php');
+  require('./model/user_db.php');
 
   //Αρχικοποίηση session
   session_start();
@@ -22,8 +22,7 @@
       default:
         header("location: index.php");
     }
-    }
-
+  }
 
   // Αρχικοποίηση μεταβλητών
   $email = $password = $error = $name = $lastName = $role = "";

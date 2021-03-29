@@ -1,8 +1,27 @@
 <?php
   require('./utils/generators.php');
   require('./model/database.php');
-  require('./model/auth_db.php');
-  require('./utils/active_user');
+  require('./model/user_db.php');
+
+  session_start();
+
+  // Αρχικοποίηση μεταβλητών
+  $name = $role = $userId = $avatar = '';
+
+  // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
+  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    $name = $_SESSION["name"];
+    $role = $_SESSION['role'];
+    $avatar = $_SESSION['avatar'];
+    // Έλαγχος αν ο χρήστης είναι admin
+    if($role != 'admin') {
+      header("location: index.php");
+      exit;
+    }
+  }else {
+    header("location: index.php");
+    exit;
+  }
 
 
   $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);

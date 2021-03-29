@@ -1,8 +1,29 @@
 <?php
   require('./model/database.php');
   require('./model/user_db.php');
-  require('./utils/active_user.php');
+  require('./model/student_db.php');
   require('./utils/generators.php');
+
+
+  session_start();
+
+  // Αρχικοποίηση μεταβλητών
+  $name = $role = $userId = $avatar = $action = '';
+
+  // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
+  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    $name = $_SESSION["name"];
+    $role = $_SESSION['role'];
+    $avatar = $_SESSION['avatar'];
+    // Έλαγχος αν ο χρήστης είναι admin
+    if($role != 'admin') {
+      header("location: index.php");
+      exit;
+    }
+  }else {
+    header("location: index.php");
+    exit;
+  }
 
 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -23,11 +44,12 @@
     }
     if($action === 'update') {
       $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_STRING);
+      $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     }
   }
 
   if($_SERVER["REQUEST_METHOD"] == "GET"){
-    $userrole = filter_input(INPUT_GET, 'role', FILTER_SANITIZE_STRING);
+    $roleuser = filter_input(INPUT_GET, 'role', FILTER_SANITIZE_STRING);
   }
 
   switch($action) {
@@ -43,8 +65,11 @@
         register_student_to_semester($id, $semester);
       }
       header("location: dashboard_admin.php");
+      break;
     case 'update':
       update_user($username, $lastname, $regNum, $gender, $email, $userId);
+      header("location: dashboard_admin.php");
+      break;
     default:
     include('./view/form_register.php');
     break;

@@ -13,7 +13,7 @@
     </aside>
     <div class="admin_main">
       <form name="update" action="./admin_users.php" method="post" class="form">
-        <input type="hidden" name="action" value="submit">
+        <input type="hidden" name="action" value="update">
         <input type="hidden" name="roleuser" value="<?= $user['role'] ?>">
         <input type="hidden" name="userId" value="<?= $user['ID'] ?>">
         <input type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>">

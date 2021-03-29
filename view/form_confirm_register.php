@@ -5,7 +5,7 @@
 
 <main class="main">
   <h1>Εγγραφή <?= $roleuser ?></h1>
-  <form action="./admin_users.php" method="post" class="form" onsubmit="return validateForm()>
+  <form action="./admin_users.php" method="post" class="form" onsubmit="return validateForm()">
     <input type="hidden" name="action" value="create">
     <input type="hidden" name="roleuser" value="<?= $roleuser ?>">
     <?php if($roleuser == 'student') { ?>
