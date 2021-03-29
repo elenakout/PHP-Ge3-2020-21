@@ -26,7 +26,7 @@
         <label for="email">Email</label>
         <input type="text" name="email" id="email" placeholder="Όνομα" value="<?= $user['email'] ?>">
         <input type="submit" value="υποβολη" class="btn" />
-        <a href="./reset_password.php" class="btn">επαναφορα κωδικού προσβασης</a>
+        <a href="./reset_password.php?userId=<?= $user['ID'] ?>" class="btn">επαναφορα κωδικού προσβασης</a>
       </form>
 
 

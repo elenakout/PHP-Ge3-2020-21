@@ -42,3 +42,19 @@ function get_user_by_id($userId) {
   $statement->closeCursor();
   return $user;
 }
+
+function reset_user_password($id, $newPassword) {
+  global $db;
+  $hashpassword = password_hash($newPassword, PASSWORD_DEFAULT);
+  $query = 'UPDATE user
+            SET password = :newpassword
+            WHERE ID = :id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':id', $id);
+  $statement->bindValue(':newpassword', $hashpassword);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}

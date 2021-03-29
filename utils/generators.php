@@ -6,7 +6,7 @@
     $suffix = '@uni.thess.gr';
 
     if($role === 'student'){
-        $prefix = 'std';
+        $prefix = 'stu';
     }
 
     if($role === 'teacher'){

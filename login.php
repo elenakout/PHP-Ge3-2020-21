@@ -32,7 +32,7 @@
   // Επεξεργασία δεδομένων φόρμας κατά την υποβολή της φόρμας
   if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-    $email = trim($_POST["email"]);
+    $email = trim(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING));
     $password = trim($_POST["password"]);
 
     // αυθεντικοποίηση χρήστη
