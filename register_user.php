@@ -15,7 +15,7 @@
     $name = $_SESSION["name"];
     $role = $_SESSION['role'];
     $avatar = $_SESSION['avatar'];
-
+    // Έλαγχος αν ο χρήστης είναι admin
     if($role != 'admin') {
       header("location: index.php");
       exit;
@@ -76,6 +76,10 @@
           }else {
             $error_message = 'Η εισαγωγή του χρήστη δε πραγματοποιήθηκε σωστά';
           }
+          break;
+        default:
+          header('location: dashboard_admin.php');
+          break;
       }
   // Άν η φόρμα δεν έχει υποβληθεί και δεν έχουν ανατεθεί τιμές στις μεταβλητές εμφανίζουμε την ρχική φόρμα δημιουργίας χρήστη.
   }else {

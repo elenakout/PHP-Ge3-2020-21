@@ -12,9 +12,23 @@
       <a href="./dashboard_dmin.php?page=classes" class="post__title">Classes</a>
     </aside>
     <div class="admin_main">
+      <form name="update" action="./update_user.php" method="post" class="form">
+        <input type="hidden" name="action" value="submit">
+        <input type="hidden" name="roleuser" value="<?= $user['role'] ?>">
+        <input type="hidden" name="userId" value="<?= $user['ID'] ?>">
+        <input type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>">
+        <input type="text" name="lastName" placeholder="Επίθετο" value="<?= $user['lastName'] ?>">
+        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου" value="<?= $user['regNum'] ?>">
+        <select name="gender" id="gender" class="form_input">
+          <option value="male" <?php if($user['gender'] == 'male'){echo("selected");}?>>Άρρεν</option>
+          <option value="female" <?php if($user['gender'] == 'female'){echo("selected");}?>>Θήλυ</option>
+        </select>
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="Όνομα" value="<?= $user['email'] ?>">
+        <input type="submit" value="υποβολη" class="btn" />
+        <a href="./reset_password.php" class="btn">επαναφορα κωδικού προσβασης</a>
+      </form>
 
-    <a href="./register_user.php?role=admin" class="btn">Εγγραφή Γραμματείας</a>
-    <h1><?= $user['name'] ?> <?= $user['lastName'] ?></h1>
 
     </div>
 

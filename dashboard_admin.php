@@ -45,7 +45,6 @@
       break;
     case 'student_profile':
       $student = get_student_info($studentId);
-
       break;
     case 'profile':
       $user = get_user_by_id($userId);

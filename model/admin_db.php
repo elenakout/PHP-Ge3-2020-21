@@ -33,3 +33,23 @@ function create_admin($username, $lastname, $email, $password, $regNum, $gender,
   $statement->closeCursor();
   return $count;
 }
+
+function update_admin($username, $lastname, $regNum, $gender, $email, $userId) {
+  global $db;
+  $count = 0;
+  $query = 'UPDATE user
+            SET name = :name, lastName = :lastname, regNum = :regnum,
+              gender = :gender, email = :email WHERE ID = :id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':id', $userId);
+  $statement->bindValue(':name', $username);
+  $statement->bindValue(':lastname', $lastname);
+  $statement->bindValue(':regnum', $regNum);
+  $statement->bindValue(':gender', $gender);
+  $statement->bindValue(':email', $email);
+  if ($statement->execute()) {
+      $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}
