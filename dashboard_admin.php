@@ -28,6 +28,7 @@
   if($_SERVER["REQUEST_METHOD"] == "GET"){
     $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
     $userId = filter_input(INPUT_GET, 'userId', FILTER_SANITIZE_STRING);
+    $classId = filter_input(INPUT_GET, 'classId', FILTER_SANITIZE_STRING);
   }
 
 
@@ -52,6 +53,11 @@
     case 'profile':
       $user = get_user_by_id($userId);
       include('./view/admin_profile.php');
+      break;
+    case 'class':
+      $teachers = get_users_by_role('teacher');
+      $class = get_class_by_id($classId);
+      include('./view/admin_class.php');
       break;
     default:
       $stdSem1 = get_students_by_semester(1);

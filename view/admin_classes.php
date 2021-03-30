@@ -12,8 +12,8 @@
       <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
     </aside>
     <div class="admin_main">
-      <a href="./admin_users.php?role=admin" class="btn">Δημιουργία Μαθήματος</a>
-      <table>
+      <a href="./admin_classes.php" class="btn">Δημιουργία Μαθήματος</a>
+      <table class="table_students">
         <thead>
           <tr>
             <th>Εξάμηνο</th>
@@ -26,6 +26,7 @@
         <tbody>
           <!-- Μθήματα Εξάμηνο 1 -->
           <?php foreach ($semester1 as $index => $value){
+          $id = $value['ID'];
           $title = $value['title'];
           $points = $value['points'];
           $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
@@ -37,7 +38,7 @@
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester1)?>"><?= $semester ?></td>
               <?php } ?>
-              <td class="left"><?= $title ?></td>
+              <td class="left"><a href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
               <td class="left width-10"><?= $mandarory ?></td>
@@ -46,6 +47,7 @@
 
           <!-- Μθήματα Εξάμηνο 2 -->
           <?php foreach ($semester2 as $index => $value){
+          $id = $value['ID'];
           $title = $value['title'];
           $points = $value['points'];
           $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
@@ -57,7 +59,7 @@
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester2)?>"><?= $semester ?></td>
               <?php } ?>
-              <td class="left"><?= $title ?></td>
+              <td class="left"><a href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
               <td class="left width-10"><?= $mandarory ?></td>
@@ -66,6 +68,7 @@
 
           <!-- Μθήματα Εξάμηνο 3 -->
           <?php foreach ($semester3 as $index => $value){
+          $id = $value['ID'];
           $title = $value['title'];
           $points = $value['points'];
           $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
@@ -77,7 +80,7 @@
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester3) ?>"><?= $semester ?></td>
               <?php } ?>
-              <td class="left"><?= $title ?></td>
+              <td class="left"><a href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
               <td class="left width-10"><?= $mandarory ?></td>
