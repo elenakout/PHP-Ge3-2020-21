@@ -2,7 +2,6 @@
   require('./model/database.php');
   require('./model/user_db.php');
   require('./model/student_db.php');
-  require('./model/admin_db.php');
   require('./model/class_db.php');
 
   session_start();
