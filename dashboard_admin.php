@@ -1,7 +1,6 @@
 <?php
   require('./model/database.php');
   require('./model/user_db.php');
-  require('./model/teacher_db.php');
   require('./model/student_db.php');
   require('./model/admin_db.php');
   require('./model/class_db.php');
@@ -34,12 +33,12 @@
 
 
   switch($page) {
-    case 'teachers':
-      $teachers = get_all_teachers();
+    case 'teacher':
+      $teachers = get_users_by_role($page);
       include('./view/admin_teachers.php');
       break;
-    case 'admins':
-      $admins = get_all_admins();
+    case 'admin':
+      $admins = get_users_by_role($page);
       include('./view/admin_stuff.php');
       break;
     case 'classes':

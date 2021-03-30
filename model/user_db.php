@@ -84,6 +84,19 @@ function get_user_by_id($userId) {
   return $user;
 }
 
+function get_users_by_role($role) {
+  global $db;
+  $query = 'SELECT *
+            FROM user
+            WHERE role = :userrole';
+  $statement = $db->prepare($query);
+  $statement->bindParam(":userrole", $role);
+  $statement->execute();
+  $users = $statement->fetchAll();
+  $statement->closeCursor();
+  return $users;
+}
+
 function reset_user_password($id, $newPassword) {
   global $db;
   $hashpassword = password_hash($newPassword, PASSWORD_DEFAULT);
