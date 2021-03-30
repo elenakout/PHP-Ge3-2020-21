@@ -9,7 +9,7 @@
       <a href="./dashboard_admin.php" class="post__title">Students</a>
       <a href="./dashboard_admin.php?page=teacher" class="post__title">Teachers</a>
       <a href="./dashboard_admin.php?page=admin" class="post__title">Admins</a>
-      <a href="./dashboard_dmin.php?page=classes" class="post__title">Classes</a>
+      <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
     </aside>
     <div class="admin_main">
     <a href="./admin_users.php?role=teacher" class="btn">Εγγραφή Καθηγητή</a>

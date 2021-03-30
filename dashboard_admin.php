@@ -42,10 +42,12 @@
       break;
     case 'classes':
       $semester1 = get_classes_by_semester(1);
+      $semester2 = get_classes_by_semester(2);
+      $semester3 = get_classes_by_semester(3);
       include('./view/admin_classes.php');
       break;
     case 'student_profile':
-      $student = get_student_info($studentId);
+      // $student = get_student_info($studentId);
       break;
     case 'profile':
       $user = get_user_by_id($userId);
