@@ -20,6 +20,11 @@
     <span class="help-block"><?php echo $error; ?></span>
     <span class="help-block"><?php echo $name; ?></span>
     <span class="help-block"><?php echo $lastName; ?></span>
+
+    <p>admin: adm483713@uni.thess.gr password: fe4cfffe</p>
+    <p>student: stu203042@uni.thess.gr password: aa15a8c6</p>
+
+
 </main>
 
 <?php

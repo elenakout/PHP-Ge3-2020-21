@@ -27,29 +27,6 @@ function get_students_by_semester($semester){
   return $results;
 }
 
-// function create_student($username, $lastname, $email, $password, $regNum, $gender, $userrole){
-//   global $db;
-//   $hashpassword = password_hash($password, PASSWORD_DEFAULT);
-//   $query = "INSERT INTO user
-//               (name, lastName, email, password, regNum, gender, role)
-//             VALUES
-//               (:name, :lastname, :email, :hashpassword, :regNum, :gender, :role )";
-//   $statement = $db->prepare($query);
-//   $statement->bindValue(':name', $username);
-//   $statement->bindValue(':lastname', $lastname);
-//   $statement->bindValue(':email', $email);
-//   $statement->bindValue(':hashpassword', $hashpassword);
-//   $statement->bindValue(':regNum', $regNum);
-//   $statement->bindValue(':gender', $gender);
-//   $statement->bindValue(':role', $userrole);
-//   $statement->execute();
-//   $id = $db->lastInsertId();
-//   $statement->closeCursor();
-
-
-//   return $id;
-// }
-
 function register_student_to_semester($id, $semester){
   global $db;
   $count = 0;
@@ -65,4 +42,17 @@ function register_student_to_semester($id, $semester){
   };
   $statement->closeCursor();
   return $count;
+}
+
+function get_student_semester($id) {
+  global $db;
+  $query = 'SELECT semesterNum
+            FROM semesterregistration
+            WHERE studentId = :studentid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':studentid', $id);
+  $statement->execute();
+  $semester = $statement->fetch();
+  $statement->closeCursor();
+  return $semester;
 }
