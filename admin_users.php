@@ -70,6 +70,9 @@
       break;
     case 'update':
       update_user($username, $lastname, $regNum, $gender, $email, $userId);
+      if($roleuser === 'student'){
+        update_student_semester($userId, $semester);
+      }
       header("location: dashboard_admin.php");
       break;
     default:

@@ -57,20 +57,6 @@ function get_student_semester($id) {
   return $semester;
 }
 
-function get_student_classes($id) {
-  global $db;
-  $query = 'SELECT R.state, R.grade, C.title
-            FROM classregistration R
-            LEFT JOIN class C ON R.classId = C.ID
-            WHERE studentId = :studentid';
-  $statement = $db->prepare($query);
-  $statement->bindValue(':studentid', $id);
-  $statement->execute();
-  $classes = $statement->fetchAll();
-  $statement->closeCursor();
-  return $classes;
-}
-
 function get_student_classes_by_semester($id, $semester) {
   global $db;
   $query = 'SELECT R.state, R.grade, C.ID, C.title, C.points, C.mandatory, C.classSemester, T.name, T.lastName
@@ -85,4 +71,21 @@ function get_student_classes_by_semester($id, $semester) {
   $classes = $statement->fetchAll();
   $statement->closeCursor();
   return $classes;
+}
+
+function update_student_semester($id, $semester){
+  global $db;
+  $count = 0;
+  $query = 'UPDATE semesterregistration
+            SET semesterNum = :semester
+            WHERE studentId = :id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':id', $id);
+  $statement->bindValue(':semester', $semester);
+  if ($statement->execute()) {
+      $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+
 }

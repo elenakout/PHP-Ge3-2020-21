@@ -27,6 +27,14 @@ include('./view/navbar.php');
                                     echo ("selected");
                                   } ?>>Θήλυ</option>
         </select>
+        <?php if($user['role'] === 'student') { ?>
+          <select name="semester" id="semester" class="form_input">
+            <option value="" disabled selected hidden>Παρακαλώ επιλέξτε εξάμηνο φοίτησης</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        <?php } ?>
         <label for="email">Email</label>
         <input type="text" name="email" id="email" placeholder="Όνομα" value="<?= $user['email'] ?>">
         <input type="submit" value="υποβολη" class="btn" />
