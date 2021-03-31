@@ -60,6 +60,11 @@ th {
   text-align: left;
 }
 
+.white {
+  background-color: white;
+  color: var(--text-dark);
+}
+
 .width-5 {
   width: 5%;
 }
@@ -75,6 +80,12 @@ th {
   pointer-events: none;
   background-color: rgb(151, 150, 150);
   color: #001e42;
+}
+
+.passed {
+  pointer-events: none;
+  background-color: rgb(4, 128, 10);
+  color: #f1f1f1;
 }
 
 /* BUTTONS */

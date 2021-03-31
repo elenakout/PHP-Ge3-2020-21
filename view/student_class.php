@@ -39,17 +39,31 @@ include('./view/navbar.php');
           $semester = $value['classSemester'];
           $name = $value['name'];
           $lastname = $value['lastName'];
+          $grade = $value['grade'];
+          $state = $value['state'];
+          $passed = $value['grade'] > 5;
           ?>
-            <tr>
+            <tr <?php if($passed){ echo "class='passed'"; }?>>
               <?php if($index === 0) { ?>
-                <td rowspan="<?= count($semester1)?>"><?= $semester ?></td>
+                <td class="white" rowspan="<?= count($semester1)?>"><?= $semester ?></td>
               <?php } ?>
               <td class="left"><?= $title ?></td>
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
-              <td class="left width-10"><?= $mandarory ?></td>
-              <td class="left width-10">0</td>
-              <td class="left width-10">Εγγραφή</td>
+              <td class="width-5"><?= $mandarory ?></td>
+              <td class="width-5"><?php echo($grade > 0 ? $grade : '-') ?></td>
+              <?php if($passed) { ?>
+                <td class="width-10"></td>
+              <?php } else { ?>
+              <td class="width-5">
+                <?php
+                  if($state === 'unregistered'){ ?>
+                    <a href="./dashboard_student.php?action=register&studentId=<?= $userId ?>&classId=<?= $id ?>">Εγγραφή</a>
+                <?php  } else { ?>
+                    <a href="./dashboard_student.php">Κατάργηση εγγραφής</a>
+                <?php } ?>
+              </td>
+              <?php } ?>
             </tr>
           <?php } ?>
 
@@ -62,17 +76,30 @@ include('./view/navbar.php');
           $semester = $value['classSemester'];
           $name = $value['name'];
           $lastname = $value['lastName'];
+          $active = (int)$stusemester['semesterNum'] < (int)$semester;
+          $passed = $value['grade'] > 5;
           ?>
-            <tr <?php if((int)$stusemester['semesterNum'] < (int)$semester ){ echo "class='disabled'"; } ?>>
+            <tr <?php if($active){ echo "class='disabled'"; } ?>>
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester2)?>"><?= $semester ?></td>
               <?php } ?>
               <td class="left"><?= $title ?></td>
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
-              <td class="left width-10"><?= $mandarory ?></td>
-              <td class="left width-10">0</td>
-              <td class="left width-10">Εγγραφή</td>
+              <td class="width-5"><?= $mandarory ?></td>
+              <td class="width-5"><?php echo($grade > 0 ? $grade : '-') ?></td>
+              <?php if($passed || $active) { ?>
+                <td class="width-10"></td>
+              <?php } else { ?>
+                <td class="width-5">
+                  <?php
+                    if($state === 'unregistered'){ ?>
+                      <a href="./dashboard_student.php">Εγγραφή</a>
+                  <?php  } else if($state === 'unregistered') { ?>
+                      <a href="./dashboard_student.php">Κατάργηση εγγραφής</a>
+                  <?php } ?>
+                </td>
+              <?php } ?>
             </tr>
           <?php } ?>
 
@@ -85,17 +112,30 @@ include('./view/navbar.php');
           $semester = $value['classSemester'];
           $name = $value['name'];
           $lastname = $value['lastName'];
+          $active = (int)$stusemester['semesterNum'] < (int)$semester;
+          $passed = $value['grade'] > 5;
           ?>
-            <tr <?php if((int)$stusemester['semesterNum'] < (int)$semester ){ echo "class='disabled'"; } ?>>
+            <tr <?php if($active){ echo "class='disabled'"; } ?>>
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester3) ?>"><?= $semester ?></td>
               <?php } ?>
               <td class="left"><?= $title ?></td>
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
-              <td class="left width-10"><?= $mandarory ?></td>
-              <td class="left width-10">0</td>
-              <td class="left width-10">Εγγραφή</td>
+              <td class="width-5"><?= $mandarory ?></td>
+              <td class=" width-5"><?php echo($grade > 0 ? $grade : '-') ?></td>
+              <?php if($passed || $active) { ?>
+                <td class="width-10"></td>
+              <?php } else { ?>
+                <td class="width-5">
+                  <?php
+                    if($state === 'unregistered'){ ?>
+                      <a href="./dashboard_student.php">Εγγραφή</a>
+                  <?php  } else if($state === 'unregistered') { ?>
+                      <a href="./dashboard_student.php">Κατάργηση εγγραφής</a>
+                  <?php } ?>
+                </td>
+              <?php } ?>
             </tr>
           <?php } ?>
 
