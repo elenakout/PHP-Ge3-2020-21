@@ -1,16 +1,16 @@
 <?php
 
-function get_all_students() {
-  global $db;
-  $query = 'SELECT *
-            FROM user
-            WHERE role = "student"';
-  $statement = $db->prepare($query);
-  $statement->execute();
-  $results = $statement->fetchAll();
-  $statement->closeCursor();
-  return $results;
-}
+// function get_all_students() {
+//   global $db;
+//   $query = 'SELECT *
+//             FROM user
+//             WHERE role = "student"';
+//   $statement = $db->prepare($query);
+//   $statement->execute();
+//   $results = $statement->fetchAll();
+//   $statement->closeCursor();
+//   return $results;
+// }
 
 function get_students_by_semester($semester){
   global $db;
@@ -55,4 +55,34 @@ function get_student_semester($id) {
   $semester = $statement->fetch();
   $statement->closeCursor();
   return $semester;
+}
+
+function get_student_classes($id) {
+  global $db;
+  $query = 'SELECT R.state, R.grade, C.title
+            FROM classregistration R
+            LEFT JOIN class C ON R.classId = C.ID
+            WHERE studentId = :studentid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':studentid', $id);
+  $statement->execute();
+  $classes = $statement->fetchAll();
+  $statement->closeCursor();
+  return $classes;
+}
+
+function get_student_classes_by_semester($id, $semester) {
+  global $db;
+  $query = 'SELECT R.state, R.grade, C.ID, C.title, C.points, C.mandatory, C.classSemester, T.name, T.lastName
+            FROM classregistration R
+            LEFT JOIN class C ON R.classId = C.ID
+            LEFT JOIN user T on R.teacherId = T.ID
+            WHERE R.studentId = :studentid AND C.classSemester = :semester';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':studentid', $id);
+  $statement->bindValue(':semester', $semester);
+  $statement->execute();
+  $classes = $statement->fetchAll();
+  $statement->closeCursor();
+  return $classes;
 }

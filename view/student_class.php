@@ -14,7 +14,8 @@ include('./view/navbar.php');
     <section class="admin_main">
       <div>
       <h2>Statistics</h2>
-      <p>Semester: <?= $semester['semesterNum'] ?></p>
+      <p>Semester: <?= $stusemester['semesterNum'] ?></p>
+
       </div>
       <table class="table_students">
         <thead>
@@ -62,7 +63,7 @@ include('./view/navbar.php');
           $name = $value['name'];
           $lastname = $value['lastName'];
           ?>
-            <tr>
+            <tr <?php if((int)$stusemester['semesterNum'] < (int)$semester ){ echo "class='disabled'"; } ?>>
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester2)?>"><?= $semester ?></td>
               <?php } ?>
@@ -70,6 +71,8 @@ include('./view/navbar.php');
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
               <td class="left width-10"><?= $mandarory ?></td>
+              <td class="left width-10">0</td>
+              <td class="left width-10">Εγγραφή</td>
             </tr>
           <?php } ?>
 
@@ -83,7 +86,7 @@ include('./view/navbar.php');
           $name = $value['name'];
           $lastname = $value['lastName'];
           ?>
-            <tr>
+            <tr <?php if((int)$stusemester['semesterNum'] < (int)$semester ){ echo "class='disabled'"; } ?>>
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester3) ?>"><?= $semester ?></td>
               <?php } ?>
@@ -91,6 +94,8 @@ include('./view/navbar.php');
               <td class="left"><?= $name ?> <?= $lastname ?></td>
               <td class="width-5"><?= $points ?></td>
               <td class="left width-10"><?= $mandarory ?></td>
+              <td class="left width-10">0</td>
+              <td class="left width-10">Εγγραφή</td>
             </tr>
           <?php } ?>
 

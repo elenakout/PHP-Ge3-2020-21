@@ -32,10 +32,10 @@
       break;
 
     default:
-      $semester = get_student_semester($userId);
-      $semester1 = get_classes_by_semester(1);
-      $semester2 = get_classes_by_semester(2);
-      $semester3 = get_classes_by_semester(3);
+      $stusemester = get_student_semester($userId);
+      $semester1 = get_student_classes_by_semester($userId, 1);
+      $semester2 = get_student_classes_by_semester($userId, 2);
+      $semester3 = get_student_classes_by_semester($userId, 3);
       include('./view/student_class.php');
       break;
   }

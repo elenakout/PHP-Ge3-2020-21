@@ -2,6 +2,7 @@
   require('./model/database.php');
   require('./model/user_db.php');
   require('./model/student_db.php');
+  require('./model/class_db.php');
   require('./utils/generators.php');
 
 
@@ -63,6 +64,7 @@
       $id = create_user($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
       if($roleuser == 'student'){
         register_student_to_semester($id, $semester);
+        add_classes($id);
       }
       header("location: dashboard_admin.php");
       break;

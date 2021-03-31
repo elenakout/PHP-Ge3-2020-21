@@ -1,5 +1,16 @@
 <?php
 
+function get_all_classes() {
+  global $db;
+  $query = 'SELECT *
+            FROM class';
+  $statement = $db->prepare($query);
+  $statement->execute();
+  $results = $statement->fetchAll();
+  $statement->closeCursor();
+  return $results;
+}
+
 function get_classes_by_semester($semester) {
   global $db;
   $query = 'SELECT C.ID, C.title, C.points, C.mandatory, C.classSemester, T.name, T.lastName
@@ -68,4 +79,27 @@ function get_class_by_id($id)
   $class = $statement->fetch();
   $statement->closeCursor();
   return $class;
+}
+
+function add_classes($id) {
+  $classes = get_all_classes();
+  global $db;
+  $count = 0;
+  foreach($classes as $class) {
+    $teacherId = $class['teacherId'];
+    $classId = $class['ID'];
+    $query = "INSERT INTO classregistration
+                (studentId, teacherId, classId)
+              VALUES
+                (:studentid, :teacherid, :classid)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':studentid', $id);
+    $statement->bindValue(':teacherid', $teacherId);
+    $statement->bindValue(':classid', $classId);
+    if ($statement->execute()) {
+      $count = $statement->rowCount();
+    };
+  }
+  $statement->closeCursor();
+  return $count;
 }
