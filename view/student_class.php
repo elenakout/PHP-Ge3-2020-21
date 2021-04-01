@@ -9,14 +9,15 @@ include('./view/navbar.php');
       <p>avatar <?= $avatar ?> </p>
       <p>userid <?= $userId ?> </p>
       <p>name <?= $lastname ?> <?= $name ?> </p>
-      <p>Επεξεργασία προφίλ</p>
+      <a href="./dashboard_student.php?action=profile">Επεξεργασία προφίλ</a>
+      <a href="./dashboard_student.php">Μαθήματα</a>
     </aside>
     <section class="admin_main">
       <div>
       <h2>Statistics</h2>
       <p>Semester: <?= $stusemester['semesterNum'] ?> Βασικά μαθήματα με προβιβάσιμο βαθμό: <?= $manPass ?></p>
-      <p>Βασικά μαθήματα για πτυχίο: <?= 8 - $manPass ?> Μαθήματα που έχουν δηλωθεί: <?= $regClass - $manPass - $nomanPass ?> Μαθήματα Επιλογής με προβιβάσιμο βαθμό: <?= $nomanPass ?></p>
-      <p>Μαθήματα επιλογής για πτυχίο: <?= 2 - $nomanPass ?> Διδακτικές Μονάδες: <?= 5 * $manPass + $nomanPass ?> Διδακτικές μονάδες για πτυχίο: <?= 45 - (5 * $manPass + $nomanPass)  ?> </p>
+      <p>Βασικά μαθήματα για πτυχίο: <?= $manRem ?> Μαθήματα που έχουν δηλωθεί: <?= $registerClasses ?> Μαθήματα Επιλογής με προβιβάσιμο βαθμό: <?= $nomanPass ?></p>
+      <p>Μαθήματα επιλογής για πτυχίο: <?= $nomanRem ?> Διδακτικές Μονάδες: <?= $points ?> Διδακτικές μονάδες για πτυχίο: <?= $pointsRem  ?> </p>
       </div>
       <table class="table_students">
         <thead>

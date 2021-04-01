@@ -84,6 +84,19 @@ function get_user_by_id($userId) {
   return $user;
 }
 
+function get_user_address($userId) {
+  global $db;
+  $query = 'SELECT *
+            FROM address
+            WHERE userId = :id';
+  $statement = $db->prepare($query);
+  $statement->bindParam(":id", $userId);
+  $statement->execute();
+  $address = $statement->fetch();
+  $statement->closeCursor();
+  return $address;
+}
+
 function get_users_by_role($role) {
   global $db;
   $query = 'SELECT *

@@ -1,5 +1,6 @@
 <?php
   require('./model/database.php');
+  require('./model/user_db.php');
   require('./model/class_db.php');
   require('./model/student_db.php');
 
@@ -32,25 +33,35 @@
     $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
   }
 
+  if($_SERVER["REQUEST_METHOD"] == "GET"){
+    $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+  }
+
   switch ($action) {
     case 'register':
       $count = register_student_to_class($regid);
-      // $reg = get_regclass($regid);
       header("location: dashboard_student.php");
-      // include('./view/student_test.php');
       break;
     case 'unregister':
       $count = unregister_student_to_class($regid);
-      // $reg = get_regclass($regid);
       header("location: dashboard_student.php");
-      // include('./view/student_test.php');
+      break;
+    case 'profile':
+      $student = get_user_by_id($userId);
+      $address = get_user_address($userId);
+      include('./view/student_profile.php');
       break;
     default:
       $classes = get_student_classes($userId);
       $stusemester = get_student_semester($userId);
       $manPass = mandatory_passed($classes);
+      $manRem = 8 - $manPass;
       $regClass = register_classes($classes);
       $nomanPass = nomandatory_passed($classes);
+      $registerClasses = $regClass - $manPass - $nomanPass;
+      $nomanRem = 2 - $nomanPass;
+      $points = 5 * $manPass + $nomanPass;
+      $pointsRem = 45 - (5 * $manPass + $nomanPass);
       $semester1 = get_student_classes_by_semester($userId, 1);
       $semester2 = get_student_classes_by_semester($userId, 2);
       $semester3 = get_student_classes_by_semester($userId, 3);
