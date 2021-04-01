@@ -51,6 +51,21 @@ function create_user($username, $lastname, $email, $password, $regNum, $gender, 
   return $id;
 }
 
+function create_address($id) {
+  global $db;
+  $query = 'INSERT INTO address
+              (userId)
+            VALUES
+              (:userid)';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':userid', $id);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}
+
 function update_user($username, $lastname, $regNum, $gender, $email, $userId){
   global $db;
   $count = 0;

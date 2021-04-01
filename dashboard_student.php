@@ -31,6 +31,10 @@
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
+    if($action === 'update'){
+      $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
+      $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
+    }
   }
 
   if($_SERVER["REQUEST_METHOD"] == "GET"){
@@ -50,6 +54,11 @@
       $student = get_user_by_id($userId);
       $address = get_user_address($userId);
       include('./view/student_profile.php');
+      break;
+    case 'update':
+      update_student_info($userId);
+      update_student_address($userId);
+      header("location: dashboard_student.php");
       break;
     default:
       $classes = get_student_classes($userId);

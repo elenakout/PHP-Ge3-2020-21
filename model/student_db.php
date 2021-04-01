@@ -91,6 +91,10 @@ function update_student_semester($id, $semester){
   return $count;
 }
 
+function update_student_info($studentid){}
+
+function update_student_address($studentid){}
+
 function mandatory_passed($classes){
   $count = 0;
   foreach($classes as $class) {

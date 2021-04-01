@@ -62,6 +62,7 @@
       break;
     case 'create':
       $id = create_user($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
+      create_address($id);
       if($roleuser == 'student'){
         register_student_to_semester($id, $semester);
         add_classes($id);
