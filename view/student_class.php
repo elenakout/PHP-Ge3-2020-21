@@ -14,8 +14,9 @@ include('./view/navbar.php');
     <section class="admin_main">
       <div>
       <h2>Statistics</h2>
-      <p>Semester: <?= $stusemester['semesterNum'] ?></p>
-
+      <p>Semester: <?= $stusemester['semesterNum'] ?> Βασικά μαθήματα με προβιβάσιμο βαθμό: <?= $manPass ?></p>
+      <p>Βασικά μαθήματα για πτυχίο: <?= 8 - $manPass ?> Μαθήματα που έχουν δηλωθεί: <?= $regClass - $manPass - $nomanPass ?> Μαθήματα Επιλογής με προβιβάσιμο βαθμό: <?= $nomanPass ?></p>
+      <p>Μαθήματα επιλογής για πτυχίο: <?= 2 - $nomanPass ?> Διδακτικές Μονάδες: <?= 5 * $manPass + $nomanPass ?> Διδακτικές μονάδες για πτυχίο: <?= 45 - (5 * $manPass + $nomanPass)  ?> </p>
       </div>
       <table class="table_students">
         <thead>
@@ -32,16 +33,16 @@ include('./view/navbar.php');
         <tbody>
           <!-- Μθήματα Εξάμηνο 1 -->
           <?php foreach ($semester1 as $index => $value){
-          $id = $value['ID'];
-          $title = $value['title'];
-          $points = $value['points'];
-          $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
-          $semester = $value['classSemester'];
-          $name = $value['name'];
-          $lastname = $value['lastName'];
-          $grade = $value['grade'];
-          $state = $value['state'];
-          $passed = $value['grade'] > 5;
+            $regid = $value['regId'];
+            $title = $value['title'];
+            $points = $value['points'];
+            $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
+            $semester = $value['classSemester'];
+            $name = $value['name'];
+            $lastname = $value['lastName'];
+            $grade = $value['grade'];
+            $register = $value['register'];
+            $passed = $grade >= 5;
           ?>
             <tr <?php if($passed){ echo "class='passed'"; }?>>
               <?php if($index === 0) { ?>
@@ -57,10 +58,18 @@ include('./view/navbar.php');
               <?php } else { ?>
               <td class="width-5">
                 <?php
-                  if($state === 'unregistered'){ ?>
-                    <a href="./dashboard_student.php?action=register&studentId=<?= $userId ?>&classId=<?= $id ?>">Εγγραφή</a>
+                  if(!$register){ ?>
+                    <form name="register" action="./dashboard_student.php" method="post" class="form">
+                      <input type="hidden" name="action" value="register">
+                      <input type="hidden" name="regId" value="<?= $regid ?>">
+                      <input type="submit" value="εγγραφη" class="btn"/>
+                    </form>
                 <?php  } else { ?>
-                    <a href="./dashboard_student.php">Κατάργηση εγγραφής</a>
+                  <form name="register" action="./dashboard_student.php" method="post" class="form">
+                    <input type="hidden" name="action" value="unregister">
+                    <input type="hidden" name="regId" value="<?= $regid ?>">
+                    <input type="submit" value="καταργηση εγγραφης" class="btn"/>
+                  </form>
                 <?php } ?>
               </td>
               <?php } ?>
@@ -69,17 +78,19 @@ include('./view/navbar.php');
 
           <!-- Μθήματα Εξάμηνο 2 -->
           <?php foreach ($semester2 as $index => $value){
-          $id = $value['ID'];
-          $title = $value['title'];
-          $points = $value['points'];
-          $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
-          $semester = $value['classSemester'];
-          $name = $value['name'];
-          $lastname = $value['lastName'];
-          $active = (int)$stusemester['semesterNum'] < (int)$semester;
-          $passed = $value['grade'] > 5;
+            $regid = $value['regId'];
+            $title = $value['title'];
+            $points = $value['points'];
+            $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
+            $semester = $value['classSemester'];
+            $name = $value['name'];
+            $lastname = $value['lastName'];
+            $grade = $value['grade'];
+            $register = $value['register'];
+            $active = (int)$stusemester['semesterNum'] < (int)$semester;
+            $passed = $grade >= 5;
           ?>
-            <tr <?php if($active){ echo "class='disabled'"; } ?>>
+            <tr <?php if($active){ echo "class='disabled'"; }; if($passed){ echo "class='passed'"; }; ?>>
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester2)?>"><?= $semester ?></td>
               <?php } ?>
@@ -93,10 +104,18 @@ include('./view/navbar.php');
               <?php } else { ?>
                 <td class="width-5">
                   <?php
-                    if($state === 'unregistered'){ ?>
-                      <a href="./dashboard_student.php">Εγγραφή</a>
-                  <?php  } else if($state === 'unregistered') { ?>
-                      <a href="./dashboard_student.php">Κατάργηση εγγραφής</a>
+                    if(!$register){ ?>
+                      <form name="register" action="./dashboard_student.php" method="post" class="form">
+                        <input type="hidden" name="action" value="register">
+                        <input type="hidden" name="regId" value="<?= $regid ?>">
+                        <input type="submit" value="εγγραφη" class="btn"/>
+                      </form>
+                  <?php  } else { ?>
+                    <form name="register" action="./dashboard_student.php" method="post" class="form">
+                      <input type="hidden" name="action" value="unregister">
+                      <input type="hidden" name="regId" value="<?= $regid ?>">
+                      <input type="submit" value="καταργηση εγγραφης" class="btn"/>
+                    </form>
                   <?php } ?>
                 </td>
               <?php } ?>
@@ -105,17 +124,19 @@ include('./view/navbar.php');
 
           <!-- Μθήματα Εξάμηνο 3 -->
           <?php foreach ($semester3 as $index => $value){
-          $id = $value['ID'];
-          $title = $value['title'];
-          $points = $value['points'];
-          $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
-          $semester = $value['classSemester'];
-          $name = $value['name'];
-          $lastname = $value['lastName'];
-          $active = (int)$stusemester['semesterNum'] < (int)$semester;
-          $passed = $value['grade'] > 5;
+            $regid = $value['regId'];
+            $title = $value['title'];
+            $points = $value['points'];
+            $mandarory = $value['mandatory'] == 1 ? 'Βασικο' : 'Επιλογής';
+            $semester = $value['classSemester'];
+            $name = $value['name'];
+            $lastname = $value['lastName'];
+            $grade = $value['grade'];
+            $register = $value['register'];
+            $active = (int)$stusemester['semesterNum'] < (int)$semester;
+            $passed = $grade >= 5;
           ?>
-            <tr <?php if($active){ echo "class='disabled'"; } ?>>
+            <tr <?php if($active){ echo "class='disabled'"; }; if($passed){ echo "class='passed'"; }; ?>>
               <?php if($index === 0) { ?>
                 <td rowspan="<?= count($semester3) ?>"><?= $semester ?></td>
               <?php } ?>
@@ -129,10 +150,18 @@ include('./view/navbar.php');
               <?php } else { ?>
                 <td class="width-5">
                   <?php
-                    if($state === 'unregistered'){ ?>
-                      <a href="./dashboard_student.php">Εγγραφή</a>
-                  <?php  } else if($state === 'unregistered') { ?>
-                      <a href="./dashboard_student.php">Κατάργηση εγγραφής</a>
+                    if(!$register){ ?>
+                      <form name="register" action="./dashboard_student.php" method="post" class="form">
+                        <input type="hidden" name="action" value="register">
+                        <input type="hidden" name="regId" value="<?= $regid ?>">
+                        <input type="submit" value="εγγραφη" class="btn"/>
+                      </form>
+                  <?php  } else { ?>
+                    <form name="register" action="./dashboard_student.php" method="post" class="form">
+                      <input type="hidden" name="action" value="unregister">
+                      <input type="hidden" name="regId" value="<?= $regid ?>">
+                      <input type="submit" value="καταργηση εγγραφης" class="btn"/>
+                    </form>
                   <?php } ?>
                 </td>
               <?php } ?>

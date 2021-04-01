@@ -103,3 +103,33 @@ function add_classes($id) {
   $statement->closeCursor();
   return $count;
 }
+
+function register_student_to_class($id) {
+  global $db;
+  $count = 0;
+  $query = "UPDATE classregistration
+            SET  register = true
+            WHERE ID = :regid";
+  $statement = $db->prepare($query);
+  $statement->bindValue(':regid', $id);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}
+
+function unregister_student_to_class($id) {
+  global $db;
+  $count = 0;
+  $query = 'UPDATE classregistration
+            SET  register = false, grade = 0
+            WHERE ID = :regid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':regid', $id);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}

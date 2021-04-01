@@ -8,6 +8,7 @@
 
   // Αρχικοποίηση μεταβλητών
   $name = $role = $userId = $avatar = $action = '';
+  $count = 0;
 
   // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -26,13 +27,30 @@
     exit;
   }
 
-  switch ($action) {
-    case 'value':
-      # code...
-      break;
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
+    $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
+  }
 
+  switch ($action) {
+    case 'register':
+      $count = register_student_to_class($regid);
+      // $reg = get_regclass($regid);
+      header("location: dashboard_student.php");
+      // include('./view/student_test.php');
+      break;
+    case 'unregister':
+      $count = unregister_student_to_class($regid);
+      // $reg = get_regclass($regid);
+      header("location: dashboard_student.php");
+      // include('./view/student_test.php');
+      break;
     default:
+      $classes = get_student_classes($userId);
       $stusemester = get_student_semester($userId);
+      $manPass = mandatory_passed($classes);
+      $regClass = register_classes($classes);
+      $nomanPass = nomandatory_passed($classes);
       $semester1 = get_student_classes_by_semester($userId, 1);
       $semester2 = get_student_classes_by_semester($userId, 2);
       $semester3 = get_student_classes_by_semester($userId, 3);
