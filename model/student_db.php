@@ -75,6 +75,22 @@ function get_student_classes($id) {
   return $classes;
 }
 
+function update_student_grade($regId, $grade) {
+  global $db;
+  $count = 0;
+  $query = 'UPDATE classregistration
+            SET grade = :grade
+            WHERE ID = :id';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':id', $regId);
+  $statement->bindValue(':grade', $grade);
+  if ($statement->execute()) {
+      $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}
+
 function update_student_semester($id, $semester){
   global $db;
   $count = 0;
@@ -91,7 +107,21 @@ function update_student_semester($id, $semester){
   return $count;
 }
 
-
+function get_teacher_students($teacherId){
+  global $db;
+  $query = 'SELECT R.ID as regId, R.grade, R.register, S.ID as stdId, S.name, S.lastName, S.regNum, S.avatar, C.ID as classId, C.title, C.classSemester
+            FROM classregistration R
+            LEFT JOIN user S ON R.studentId = S.ID
+            LEFT JOIN class C ON R.classId = C.ID
+            WHERE R.teacherId = :teacherid AND R.register = true
+            ORDER BY C.classSemester AND S.lastName ASC';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':teacherid', $teacherId);
+  $statement->execute();
+  $students = $statement->fetchAll();
+  $statement->closeCursor();
+  return $students;
+}
 
 function mandatory_passed($classes){
   $count = 0;

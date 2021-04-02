@@ -25,6 +25,19 @@ function get_classes_by_semester($semester) {
   return $results;
 }
 
+function get_teacher_classes($teacherId){
+  global $db;
+  $query = 'SELECT ID, title, classSemester
+            FROM class
+            WHERE teacherId = :teacherid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':teacherid', $teacherId);
+  $statement->execute();
+  $classes = $statement->fetchAll();
+  $statement->closeCursor();
+  return $classes;
+}
+
 function create_class($title, $description, $points, $mandatory, $teacher, $semester)
 {
   global $db;

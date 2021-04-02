@@ -23,6 +23,7 @@
 
     <p>admin: adm483713@uni.thess.gr password: fe4cfffe</p>
     <p>student: 	stu907654@uni.thess.gr password: demo1234</p>
+    <p>teacher: 	sep028331@uni.thess.gr password: demo1234</p>
 
 
 </main>
