@@ -7,8 +7,8 @@
   <section class="admin_students">
     <aside class="admin_aside">
       <a href="./dashboard_admin.php" class="post__title">Students</a>
-      <a href="./dashboard_admin.php?page=teachers" class="post__title">Teachers</a>
-      <a href="./dashboard_admin.php?page=admins" class="post__title">Admins</a>
+      <a href="./dashboard_admin.php?page=teacher" class="post__title">Teachers</a>
+      <a href="./dashboard_admin.php?page=admin" class="post__title">Admins</a>
       <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
 
     </aside>
