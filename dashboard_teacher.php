@@ -32,12 +32,30 @@
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
     $grade = filter_input(INPUT_POST, 'grade', FILTER_SANITIZE_NUMBER_INT);
+    if($action === 'update'){
+      $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
+      $birthday = trim($_POST["birthday"]);
+      $street = filter_input(INPUT_POST, 'street', FILTER_SANITIZE_STRING);
+      $strnum = filter_input(INPUT_POST, 'strnum', FILTER_SANITIZE_STRING);
+      $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
+      $postalcode = filter_input(INPUT_POST, 'postalcode', FILTER_SANITIZE_STRING);
+    }
   }
 
+  if($_SERVER["REQUEST_METHOD"] == "GET"){
+    $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
+  }
 
   switch ($action) {
-    case 'update_info':
-      # code...
+    case 'update':
+      update_user_info($userId, $phone, $birthday);
+      update_user_address($userId, $street, $strnum, $city, $postalcode);
+      header("location: dashboard_teacher.php");
+      break;
+    case 'profile':
+      $teacher = get_user_by_id($userId);
+      $address = get_user_address($userId);
+      include('./view/teacher_profile.php');
       break;
     case 'submit_grade':
       update_student_grade($regid, $grade);
