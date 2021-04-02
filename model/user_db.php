@@ -108,7 +108,7 @@ function update_user_address($userId, $street, $strnum, $city, $postalcode) {
   global $db;
   $count = 0;
   $query = 'UPDATE address
-            SET street = :street, strnum = :strnum, city = :city, postaCode = :postalcode
+            SET street = :street, strnum = :strnum, city = :city, postalCode = :postalcode
             WHERE userId = :userid';
   $statement = $db->prepare($query);
   $statement->bindValue(':userid', $userId);

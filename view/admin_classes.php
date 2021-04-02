@@ -10,6 +10,7 @@
       <a href="./dashboard_admin.php?page=teachers" class="post__title">Teachers</a>
       <a href="./dashboard_admin.php?page=admins" class="post__title">Admins</a>
       <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
+
     </aside>
     <div class="admin_main">
       <a href="./admin_classes.php" class="btn">Δημιουργία Μαθήματος</a>

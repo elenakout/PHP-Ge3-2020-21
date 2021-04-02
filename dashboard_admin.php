@@ -48,10 +48,26 @@
       include('./view/admin_classes.php');
       break;
     case 'student_profile':
-      // $student = get_student_info($studentId);
+      $user = get_user_by_id($userId);
+      $address = get_user_address($userId);
+      $classes = get_student_classes($userId);
+      $stusemester = get_student_semester($userId);
+      $manPass = mandatory_passed($classes);
+      $manRem = 8 - $manPass;
+      $regClass = register_classes($classes);
+      $nomanPass = nomandatory_passed($classes);
+      $registerClasses = $regClass - $manPass - $nomanPass;
+      $nomanRem = 2 - $nomanPass;
+      $points = 5 * $manPass + $nomanPass;
+      $pointsRem = 45 - (5 * $manPass + $nomanPass);
+      $semester1 = get_student_classes_by_semester($userId, 1);
+      $semester2 = get_student_classes_by_semester($userId, 2);
+      $semester3 = get_student_classes_by_semester($userId, 3);
+      include('./view/admin_student_profile.php');
       break;
     case 'profile':
       $user = get_user_by_id($userId);
+      $address = get_user_address($userId);
       include('./view/admin_profile.php');
       break;
     case 'class':

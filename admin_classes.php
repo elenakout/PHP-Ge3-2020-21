@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
   $points = filter_input(INPUT_POST, 'points', FILTER_SANITIZE_STRING);
-  $mandatory = filter_input(INPUT_POST, 'mandatory', FILTER_SANITIZE_NUMBER_INT);
+  $mandatory = $_POST["mandatory"];
   $teacher = filter_input(INPUT_POST, 'teacher', FILTER_SANITIZE_STRING);
   $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
   $classId = filter_input(INPUT_POST, 'classId', FILTER_SANITIZE_STRING);

@@ -1,6 +1,6 @@
 <?php
   require('./model/database.php');
-  require('./model/teacher_db.php');
+  require('./model/user_db.php');
 
   session_start();
 
@@ -15,7 +15,7 @@
   }
 
 
-  $results = get_all_teachers();
+  $results = get_users_by_role('teacher');
   $title = 'Διδασκοντες';
 
   include('./view/list_stuff.php');

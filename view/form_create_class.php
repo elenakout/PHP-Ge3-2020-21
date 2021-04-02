@@ -4,6 +4,7 @@ include('./view/navbar.php');
 ?>
 
 <main class="main">
+<p>Mandatory: <?= $mandatory ?></p>
   <form name="register" action="./admin_classes.php" method="post" class="form" onsubmit="return validateForm()">
     <input type="hidden" name="action" value="create">
 

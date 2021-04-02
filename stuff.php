@@ -1,6 +1,6 @@
 <?php
   require('./model/database.php');
-  require('./model/admin_db.php');
+  require('./model/user_db.php');
 
   session_start();
 
@@ -15,7 +15,7 @@
   }
 
 
-  $results = get_all_admins();
+  $results = get_users_by_role("admin");
   $title = 'Γραμματεια';
 
   include('./view/list_stuff.php');
