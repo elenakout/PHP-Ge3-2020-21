@@ -33,7 +33,11 @@
     $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
     if($action === 'update'){
       $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
-      $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_NUMBER_INT);
+      $birthday = trim($_POST["birthday"]);
+      $street = filter_input(INPUT_POST, 'street', FILTER_SANITIZE_STRING);
+      $strnum = filter_input(INPUT_POST, 'strnum', FILTER_SANITIZE_STRING);
+      $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
+      $postalcode = filter_input(INPUT_POST, 'postalcode', FILTER_SANITIZE_STRING);
     }
   }
 
@@ -56,8 +60,8 @@
       include('./view/student_profile.php');
       break;
     case 'update':
-      update_student_info($userId);
-      update_student_address($userId);
+      update_user_info($userId, $phone, $birthday);
+      update_user_address($userId, $street, $strnum, $city, $postalcode);
       header("location: dashboard_student.php");
       break;
     default:

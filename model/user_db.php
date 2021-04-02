@@ -71,7 +71,8 @@ function update_user($username, $lastname, $regNum, $gender, $email, $userId){
   $count = 0;
   $query = 'UPDATE user
             SET name = :name, lastName = :lastname, regNum = :regnum,
-              gender = :gender, email = :email WHERE ID = :id';
+              gender = :gender, email = :email
+            WHERE ID = :id';
   $statement = $db->prepare($query);
   $statement->bindValue(':id', $userId);
   $statement->bindValue(':name', $username);
@@ -81,6 +82,42 @@ function update_user($username, $lastname, $regNum, $gender, $email, $userId){
   $statement->bindValue(':email', $email);
   if ($statement->execute()) {
       $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}
+
+function update_user_info($userId, $phone, $birthday) {
+  global $db;
+  $count = 0;
+  $query = 'UPDATE user
+            SET phone = :phone, birthday = :birthday
+            WHERE ID = :userid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':userid', $userId);
+  $statement->bindValue(':phone', $phone);
+  $statement->bindValue(':birthday', $birthday);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}
+
+function update_user_address($userId, $street, $strnum, $city, $postalcode) {
+  global $db;
+  $count = 0;
+  $query = 'UPDATE address
+            SET street = :street, strnum = :strnum, city = :city, postaCode = :postalcode
+            WHERE userId = :userid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':userid', $userId);
+  $statement->bindValue(':street', $street);
+  $statement->bindValue(':strnum', $strnum);
+  $statement->bindValue(':city', $city);
+  $statement->bindValue(':postalcode', $postalcode);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
   };
   $statement->closeCursor();
   return $count;

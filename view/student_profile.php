@@ -21,7 +21,7 @@ include('./view/navbar.php');
         <label for="birthday">Ημερομηνία Γέννησης</label>
         <input type="date" id="birthday" name="birthday" value="<?= $student['birthday'] ?>">
 
-        <input type="text" name="avatar" placeholder="avatar" value="<?= $student['avatar'] ?>">
+        <!-- <input type="text" name="avatar" placeholder="avatar" value="<?= $student['avatar'] ?>"> -->
 
         <input type="text" name="street" placeholder="Οδός" value="<?= $address['street'] ?>">
         <input type="text" name="strnum" placeholder="Αριθμός" value="<?= $address['strnum'] ?>">
