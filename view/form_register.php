@@ -26,7 +26,7 @@
           src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
     <div class="dashboard__form">
-      <form name="create" action="./admin_users.php" method="post" class="form"
+      <form name="create" action="./admin_users.php" method="POST" class="form"
         onsubmit="return validateCreateForm()">
 
         <input type="hidden" name="action" value="submit">

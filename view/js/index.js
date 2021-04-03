@@ -5,6 +5,8 @@ function validateCreateForm() {
   let gender = document.forms["create"]["gender"];
   let semester = document.forms["create"]["semester"];
 
+  console.log(usrname, lastname, regnum, gender, semester);
+
   let name_error = document.querySelector('.error_name');
   let lastname_error = document.querySelector('.error_lastname');
   let regnum_error = document.querySelector('.error_regnum');
@@ -13,8 +15,8 @@ function validateCreateForm() {
   let gender_error = document.querySelector('.error_gender');
   let semester_error = document.querySelector('.error_semester');
 
-  if (usrname.value.trim() === '' || usrname.value === null) {
-    console.log(email.innerHTML);
+  if (usrname.value === '' || usrname.value === null) {
+    console.log('empty');
     usrname.style.borderBottom = "1px solid red";
     usrname.focus();
     name_error.classList.add('show');
@@ -24,7 +26,7 @@ function validateCreateForm() {
     name_error.classList.remove('show');
   }
 
-  if (lastname.value.trim() === '' || lastname.value === null) {
+  if (lastname.value === '' || lastname.value === null) {
     lastname.style.borderBottom = "1px solid red";
     lastname.focus();
     lastname_error.classList.add('show');
@@ -34,7 +36,7 @@ function validateCreateForm() {
     lastname_error.classList.remove('show');
   }
 
-  if (regnum.value.trim() === '' || regnum.value === null) {
+  if (regnum.value === '' || regnum.value === null) {
     console.log("length", regnum.value)
     regnum.style.borderBottom = "1px solid red";
     regnum.focus();
@@ -45,7 +47,7 @@ function validateCreateForm() {
     regnum_error.classList.remove('show');
   }
 
-  if (regnum.value.trim().length < 6) {
+  if (regnum.value.length < 6) {
     regnum.style.borderBottom = "1px solid red";
     regnum.focus();
     regnum_length_error.classList.add('show');
@@ -109,7 +111,6 @@ function validateForm() {
   let password_length_error = document.querySelector('.error_length_password');
 
   if (usrname.value.trim() === '' || usrname.value === null) {
-    console.log(email.innerHTML);
     usrname.style.borderBottom = "1px solid red";
     usrname.focus();
     name_error.classList.add('show');
