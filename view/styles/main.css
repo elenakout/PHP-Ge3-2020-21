@@ -134,6 +134,12 @@ th {
   transition: all 0.3s ease-in-out;
 }
 
+.btn-small {
+  padding: 3px 6px;
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+
 .exit {
   margin-left: 1rem;
 }
@@ -416,9 +422,7 @@ th {
   padding: 2rem 4rem;
 }
 
-.form input[type='email'],
-.form input[type='text'],
-.form input[type='password'] {
+.form_input {
   outline: none;
   display: block;
   width: 100%;
@@ -429,6 +433,7 @@ th {
   margin-bottom: 2rem;
   height: 45px;
 }
+
 
 .form__demo {
   /* text-align: center; */
@@ -448,6 +453,16 @@ th {
   width: 100%;
   font-size: 1.2rem;
   padding-bottom: 8px;
+}
+
+.checkbox__label {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-left: 5px;
+}
+
+input[type='checkbox'] {
+  margin: 2rem 0;
 }
 
 /* Όλες οι ανακοινώσεις - All Posts */
@@ -645,7 +660,7 @@ th {
 }
 
 .dashboard__main {
-  flex-basis: 85%;
+  flex-basis: 83%;
   /* border: 1px solid blue; */
   height: 100%;
   height: 100%;
@@ -669,27 +684,16 @@ th {
 
 }
 
-.form_input {
-  outline: none;
-  display: block;
-  width: 100%;
-  padding: 7px;
-  border: none;
-  border-bottom: 1px solid var(--primary);
-  background: transparent;
-  margin-bottom: 2rem;
-  height: 45px;
+
+.form__profile {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.checkbox__label {
-  font-size: 1.4rem;
-  color: var(--text-dark);
-  margin-left: 5px;
-}
-
-input[type='checkbox'] {
-  margin: 2rem 0;
-}
 
 
 
@@ -726,4 +730,8 @@ option:first {
 .show {
   display: block;
   margin-bottom: 5px;
+}
+
+.dashboard_profile {
+  flex-direction: row;
 }

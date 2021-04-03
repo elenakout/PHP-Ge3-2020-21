@@ -32,17 +32,18 @@
         <input type="hidden" name="roleuser" value="<?= $roleuser ?>">
 
         <label for="name">Όνομα</label>
-        <input type="text" name="name" placeholder="Όνομα" id="name" value="<?= $username ?>">
+        <input type="text" name="name" placeholder="Όνομα" id="name" value="<?= $username ?>"
+          class="form_input">
         <p class="error_name">Παρακαλώ πληκρολογήστε όνομα</p>
 
         <label for="lastname">Επίθετο</label>
         <input type="text" name="lastName" id="lastname" placeholder="Επίθετο"
-          value="<?= $userlastname ?>">
+          value="<?= $userlastname ?>" class="form_input">
         <p class="error_lastname">Παρακαλώ πληκρολογήστε επίθετο</p>
 
         <label for="regNum">Αριθμός Μητρώου</label>
         <input type="text" name="regNum" id="regNum" placeholder="Αριθμός Μητρώου"
-          value="<?= $regNum ?>">
+          value="<?= $regNum ?>" class="form_input">
         <p class="error_regnum">Παρακαλώ πληκρολογήστε αριθμό μητρώου</p>
         <p class="error_regnum_length">Ο αριθμός μητρώου πρέπει να έχει 6 χαρακτήρες</p>
         <p class="error_regnum_numbers">Ο αριθμός μητρώου πρέπει να είναι αριθμός</p>
@@ -64,12 +65,12 @@
 
         <label for="email">Email</label>
         <input type="email" name="email" id="email" placeholder="Email" value="<?= $email ?>"
-          required>
+          required class="form_input">
         <p class="error_email">Παρακαλώ εισάγετε email</p>
 
         <label for="password">Κωδικός Πρόσβασης</label>
         <input type="text" name="password" id="password" placeholder="Κωδικός"
-          value="<?= $password ?>" minlength="8" required>
+          value="<?= $password ?>" minlength="8" required class="form_input">
         <p class="error_password">Παρακαλώ εισάγετε κωδικό πρόσβασης</p>
         <p class="error_length_password">Ο κωδικός πρόσβασης πρέπει να έχει τουλαχιστο 8 χαρακτήρες
         </p>

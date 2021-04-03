@@ -31,7 +31,7 @@ include('./view/navbar.php');
         onsubmit="return validateClassForm()">
         <input type="hidden" name="action" value="create">
 
-        <input type="text" name="title" placeholder="Τίτλος">
+        <input type="text" name="title" placeholder="Τίτλος" class="form_input">
         <p class="error_title">Παρακαλώ πληκρολογήστε τίτλο</p>
 
         <textarea id="description" name="description" rows="4" cols="80" class="form_input"

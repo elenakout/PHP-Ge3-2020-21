@@ -37,12 +37,12 @@ include('./view/navbar.php');
           placeholder="Περιγραφή Μαθήματος"> <?= $class['description'] ?></textarea>
 
         <input type="text" name="points" placeholder="Διαδακτικές Μονάδες"
-          value="<?= $class['points'] ?>">
+          value="<?= $class['points'] ?>" class="form_input">
         <p class="error_regnum">Παρακαλώ πληκρολογήστε διδακτικές μονάδες</p>
 
         <label for="mandatory">Βασικό</label>
         <input type="checkbox" id="mandatory" name="mandatory" value=1
-          <?php if ($class['mandatory']) {echo ("checked");} ?>>
+          <?php if ($class['mandatory']) {echo ("checked");} ?> class="form_input">
 
         <select name="teacher" id="teacher" class="form_input">
           <option value="" disabled selected hidden>Παρακαλώ επιλέξτε καθηγητή</option>

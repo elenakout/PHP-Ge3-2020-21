@@ -31,11 +31,11 @@
 
         <input type="hidden" name="action" value="submit">
         <input type="hidden" name="roleuser" value="<?= $roleuser ?>">
-        <input type="text" name="name" placeholder="Όνομα">
+        <input type="text" name="name" placeholder="Όνομα" class="form_input">
         <p class="error_name">Παρακαλώ πληκρολογήστε όνομα</p>
-        <input type="text" name="lastName" placeholder="Επίθετο">
+        <input type="text" name="lastName" placeholder="Επίθετο" class="form_input">
         <p class="error_lastname">Παρακαλώ πληκρολογήστε επίθετο</p>
-        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου">
+        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου" class="form_input">
         <p class="error_regnum">Παρακαλώ πληκρολογήστε αριθμό μητρώου</p>
         <p class="error_regnum_length">Ο αριθμός μητρώου πρέπει να έχει 6 χαρακτήρες</p>
         <p class="error_regnum_numbers">Ο αριθμός μητρώου πρέπει να είναι αριθμός</p>
