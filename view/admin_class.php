@@ -4,32 +4,52 @@ include('./view/navbar.php');
 ?>
 
 <main class="main">
-  <section class="admin_students">
-    <aside class="admin_aside">
-      <a href="./dashboard_admin.php" class="post__title">Students</a>
-      <a href="./dashboard_admin.php?page=teacher" class="post__title">Teachers</a>
-      <a href="./dashboard_admin.php?page=admin" class="post__title">Admins</a>
-      <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
+  <section class="dashboard">
+    <aside class="dashboard__aside">
+      <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>" />
+      <div class="aside__info">
+        <p><?= $lastname ?></p>
+        <p><?= $name ?></p>
+        <?php if($role === 'admin') { ?>
+        <p><span>Γραμματεία</span></p>
+        <?php }else { ?>
+        <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
+        <?php } ?>
+      </div>
+      <a href="./dashboard_admin.php" class="dashboard__link"><img
+          src="./assets/icons/user-avatar-filled.svg" alt="avatar icon"> Μαθητές</a>
+      <a href="./dashboard_admin.php?page=teacher" class="dashboard__link"><img
+          src="./assets/icons/teacher-ico.svg" alt="avatar icon">Καθηγητές</a>
+      <a href="./dashboard_admin.php?page=admin" class="dashboard__link"><img
+          src="./assets/icons/admin-ico.svg" alt="avatar icon">Γραμματεία</a>
+      <a href="./dashboard_admin.php?page=classes" class="dashboard__link"><img
+          src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
-    <div class="admin_main">
-      <form name="register" action="./admin_classes.php" method="post" class="form" onsubmit="return validateForm()">
+    <div class="dashboard__main">
+      <form name="register" action="./admin_classes.php" method="post" class="form"
+        onsubmit="return validateForm()">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="classId" value="<?= $class['ID'] ?>">
 
         <input type="text" name="title" placeholder="Τίτλος" value="<?= $class['title'] ?>">
 
-        <textarea id="description" name="description" rows="7" cols="80" class="form_input" placeholder="Περιγραφή Μαθήματος"> <?= $class['description'] ?></textarea>
+        <textarea id="description" name="description" rows="7" cols="80" class="form_input"
+          placeholder="Περιγραφή Μαθήματος"> <?= $class['description'] ?></textarea>
 
-        <input type="text" name="points" placeholder="Διαδακτικές Μονάδες" value="<?= $class['points'] ?>">
+        <input type="text" name="points" placeholder="Διαδακτικές Μονάδες"
+          value="<?= $class['points'] ?>">
         <p class="error_regnum">Παρακαλώ πληκρολογήστε διδακτικές μονάδες</p>
 
         <label for="mandatory">Βασικό</label>
-        <input type="checkbox" id="mandatory" name="mandatory" value=1 <?php if ($class['mandatory']) {echo ("checked");} ?>>
+        <input type="checkbox" id="mandatory" name="mandatory" value=1
+          <?php if ($class['mandatory']) {echo ("checked");} ?>>
 
         <select name="teacher" id="teacher" class="form_input">
           <option value="" disabled selected hidden>Παρακαλώ επιλέξτε καθηγητή</option>
           <?php foreach ($teachers as $teacher) { ?>
-            <option value="<?= $teacher['ID'] ?>" <?php if ($class['teacherId'] == $teacher['ID']) {echo ("selected");} ?>><?= $teacher['lastName'] ?> <?= $teacher['name'] ?></option>
+          <option value="<?= $teacher['ID'] ?>"
+            <?php if ($class['teacherId'] == $teacher['ID']) {echo ("selected");} ?>>
+            <?= $teacher['lastName'] ?> <?= $teacher['name'] ?></option>
           <?php } ?>
         </select>
 

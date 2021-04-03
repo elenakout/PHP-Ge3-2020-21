@@ -599,7 +599,7 @@ th {
 .dashboard__link {
   width: 100%;
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 5px 0;
   /* background-color: var(--primary-dark); */
   color: var(--primary-dark);
   text-decoration: none;
@@ -627,8 +627,8 @@ th {
   border-radius: initial;
 }
 
-.admin_main {
-  flex-basis: 80%;
+.dashboard__main {
+  flex-basis: 85%;
   /* border: 1px solid blue; */
   height: 100%;
   height: 100%;
@@ -638,9 +638,9 @@ th {
   align-items: baseline;
 }
 
-.table_students {
+.table__dashboard {
   width: 100%;
-  margin-top: 2rem;
+
 }
 
 .form_input {

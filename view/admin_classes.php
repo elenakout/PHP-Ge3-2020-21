@@ -4,17 +4,31 @@
 ?>
 
 <main class="main">
-  <section class="admin_students">
-    <aside class="admin_aside">
-      <a href="./dashboard_admin.php" class="post__title">Students</a>
-      <a href="./dashboard_admin.php?page=teacher" class="post__title">Teachers</a>
-      <a href="./dashboard_admin.php?page=admin" class="post__title">Admins</a>
-      <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
-
+  <section class="dashboard">
+    <aside class="dashboard__aside">
+      <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>" />
+      <div class="aside__info">
+        <p><?= $lastname ?></p>
+        <p><?= $name ?></p>
+        <?php if($role === 'admin') { ?>
+        <p><span>Γραμματεία</span></p>
+        <?php }else { ?>
+        <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
+        <?php } ?>
+      </div>
+      <a href="./dashboard_admin.php" class="dashboard__link "><img
+          src="./assets/icons/user-avatar-filled.svg" alt="avatar icon"> Μαθητές</a>
+      <a href="./dashboard_admin.php?page=teacher" class="dashboard__link"><img
+          src="./assets/icons/teacher-ico.svg" alt="avatar icon">Καθηγητές</a>
+      <a href="./dashboard_admin.php?page=admin" class="dashboard__link"><img
+          src="./assets/icons/admin-ico.svg" alt="avatar icon">Γραμματεία</a>
+      <a href="./dashboard_admin.php?page=classes" class="dashboard__link link__active"><img
+          src="./assets/icons/book-ico-alt.svg" alt="avatar icon">Μαθήματα</a>
+      <a href="./admin_classes.php" class="dashboard__link link__active"><img
+          src="./assets/icons/insert-alt.svg" alt="avatar icon">Δημιουργία Μαθήματος</a>
     </aside>
-    <div class="admin_main">
-      <a href="./admin_classes.php" class="btn">Δημιουργία Μαθήματος</a>
-      <table class="table_students">
+    <div class="dashboard__main">
+      <table class="dashboard__table">
         <thead>
           <tr>
             <th>Εξάμηνο</th>
@@ -35,15 +49,16 @@
           $name = $value['name'];
           $lastname = $value['lastName'];
           ?>
-            <tr>
-              <?php if($index === 0) { ?>
-                <td rowspan="<?= count($semester1)?>"><?= $semester ?></td>
-              <?php } ?>
-              <td class="left"><a href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
-              <td class="left"><?= $name ?> <?= $lastname ?></td>
-              <td class="width-5"><?= $points ?></td>
-              <td class="left width-10"><?= $mandarory ?></td>
-            </tr>
+          <tr>
+            <?php if($index === 0) { ?>
+            <td rowspan="<?= count($semester1)?>" class="width-5"><?= $semester ?></td>
+            <?php } ?>
+            <td class="left"><a
+                href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
+            <td class="left"><?= $name ?> <?= $lastname ?></td>
+            <td class="width-5"><?= $points ?></td>
+            <td class="left width-10"><?= $mandarory ?></td>
+          </tr>
           <?php } ?>
 
           <!-- Μθήματα Εξάμηνο 2 -->
@@ -56,15 +71,16 @@
           $name = $value['name'];
           $lastname = $value['lastName'];
           ?>
-            <tr>
-              <?php if($index === 0) { ?>
-                <td rowspan="<?= count($semester2)?>"><?= $semester ?></td>
-              <?php } ?>
-              <td class="left"><a href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
-              <td class="left"><?= $name ?> <?= $lastname ?></td>
-              <td class="width-5"><?= $points ?></td>
-              <td class="left width-10"><?= $mandarory ?></td>
-            </tr>
+          <tr>
+            <?php if($index === 0) { ?>
+            <td rowspan="<?= count($semester2)?>" class="width-5"><?= $semester ?></td>
+            <?php } ?>
+            <td class="left"><a
+                href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
+            <td class="left"><?= $name ?> <?= $lastname ?></td>
+            <td class="width-5"><?= $points ?></td>
+            <td class="left width-10"><?= $mandarory ?></td>
+          </tr>
           <?php } ?>
 
           <!-- Μθήματα Εξάμηνο 3 -->
@@ -77,15 +93,16 @@
           $name = $value['name'];
           $lastname = $value['lastName'];
           ?>
-            <tr>
-              <?php if($index === 0) { ?>
-                <td rowspan="<?= count($semester3) ?>"><?= $semester ?></td>
-              <?php } ?>
-              <td class="left"><a href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
-              <td class="left"><?= $name ?> <?= $lastname ?></td>
-              <td class="width-5"><?= $points ?></td>
-              <td class="left width-10"><?= $mandarory ?></td>
-            </tr>
+          <tr>
+            <?php if($index === 0) { ?>
+            <td rowspan="<?= count($semester3) ?>" class="width-5"><?= $semester ?></td>
+            <?php } ?>
+            <td class="left"><a
+                href="./dashboard_admin.php?page=class&classId=<?= $id ?>"><?= $title ?></a></td>
+            <td class="left"><?= $name ?> <?= $lastname ?></td>
+            <td class="width-5"><?= $points ?></td>
+            <td class="left width-10"><?= $mandarory ?></td>
+          </tr>
           <?php } ?>
 
         </tbody>
