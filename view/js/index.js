@@ -1,13 +1,12 @@
 
-
 function validateForm() {
   let usrname = document.forms["register"]["name"];
   let lastname = document.forms["register"]["lastName"];
   let regnum = document.forms["register"]["regNum"];
   let gender = document.forms["register"]["gender"];
   let semester = document.forms["register"]["semester"];
-  let email = document.forms["register"]["email"];
   let password = document.forms["register"]["password"];
+  let email = document.forms["register"]["email"];
 
   let name_error = document.querySelector('.error_name');
   let lastname_error = document.querySelector('.error_lastname');
@@ -21,6 +20,7 @@ function validateForm() {
   let password_length_error = document.querySelector('.error_length_password');
 
   if (usrname.value === '' || usrname.value === null) {
+    console.log(email.innerHTML);
     usrname.style.borderBottom = "1px solid red";
     usrname.focus();
     name_error.classList.add('show');
@@ -118,6 +118,6 @@ function validateForm() {
     password_length_error.classList.remove('show');
   }
 
-  return false;
+  return true;
 
 }

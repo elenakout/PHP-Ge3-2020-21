@@ -1,8 +1,11 @@
 <?php include('header.php') ?>
 <?php include('navbar.php') ?>
-<h2>Error</h2>
-<br>
-<p><?= $error_message ?></p>
+<main class="main container">
+  <h2 class="errorpage__title">Παρουσιάστηκε κάποιο σφάλμα</h2>
+  <p class="errorpage__error"><?= $error_message ?></p>
+  <a href="<?= $link?>" class="btn">επιστροφη</a>
+</main>
+
 
 <br>
 <?php include('footer.php') ?>

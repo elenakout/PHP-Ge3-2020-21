@@ -63,7 +63,8 @@
         <?php } ?>
 
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="Email" value="<?= $email ?>">
+        <input type="email" name="email" id="email" placeholder="Email" value="<?= $email ?>"
+          required>
         <p class="error_email">Παρακαλώ εισάγετε email</p>
 
         <label for="password">Κωδικός Πρόσβασης</label>

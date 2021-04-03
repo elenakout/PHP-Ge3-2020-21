@@ -62,6 +62,7 @@
       include('./view/form_confirm_register.php');
       break;
     case 'create':
+      if($username && $userlastname && $email && $password && $regNum && $gender && $roleuser){
       $id = create_user($username, $userlastname, $email, $password, $regNum, $gender, $roleuser);
       create_address($id);
       if($roleuser == 'student'){
@@ -69,6 +70,11 @@
         add_classes($id);
       }
       header("location: dashboard_admin.php");
+      } else {
+        $error_message = 'Η εγγραφή του χρήστη απέτυχε.';
+        $link = "dashboard_admin.php";
+        include('view/error.php');
+      }
       break;
     case 'update':
       update_user($username, $userlastname, $regNum, $gender, $email, $userId);

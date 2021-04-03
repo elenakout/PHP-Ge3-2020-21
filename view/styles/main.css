@@ -299,6 +299,18 @@ th {
   margin: 2rem 0;
 }
 
+.errorpage__title {
+  font-size: 2rem;
+  color: red;
+  margin-bottom: 4rem;
+}
+
+.errorpage__error {
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+  margin-bottom: 4rem;
+}
+
 /******* Αρχική Σελίδα - Index Page ******/
 
 .card {
