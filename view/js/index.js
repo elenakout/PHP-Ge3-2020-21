@@ -6,6 +6,8 @@ function validateForm() {
   let regnum = document.forms["register"]["regNum"];
   let gender = document.forms["register"]["gender"];
   let semester = document.forms["register"]["semester"];
+  let email = document.forms["register"]["email"];
+  let password = document.forms["register"]["password"];
 
   let name_error = document.querySelector('.error_name');
   let lastname_error = document.querySelector('.error_lastname');
@@ -14,6 +16,9 @@ function validateForm() {
   let regnum_numbers_error = document.querySelector('.error_regnum_numbers');
   let gender_error = document.querySelector('.error_gender');
   let semester_error = document.querySelector('.error_semester');
+  let email_error = document.querySelector('.error_email');
+  let password_error = document.querySelector('.error_password');
+  let password_length_error = document.querySelector('.error_length_password');
 
   if (usrname.value === '' || usrname.value === null) {
     usrname.style.borderBottom = "1px solid red";
@@ -56,7 +61,7 @@ function validateForm() {
     regnum_length_error.classList.remove('show');
   }
 
-  if (regnum.value.match(/^[0-9]+$/) != null) {
+  if (regnum.value.match(/^[0-9]+$/) == null) {
     regnum.style.borderBottom = "1px solid red";
     regnum.focus();
     regnum_numbers_error.classList.add('show');
@@ -85,7 +90,34 @@ function validateForm() {
     semester.style.borderBottom = "1px solid var(--primary)";
     semester_error.classList.remove('show');
   }
+  if (email.value === ' ' || email.value === null) {
+    email.style.borderBottom = "1px solid red";
+    email.focus();
+    email_error.classList.add('show');
+    return false;
+  } else {
+    email.style.borderBottom = "1px solid var(--primary)";
+    email_error.classList.remove('show');
+  }
+  if (password.value === ' ' || password.value === null) {
+    password.style.borderBottom = "1px solid red";
+    password.focus();
+    password_error.classList.add('show');
+    return false;
+  } else {
+    password.style.borderBottom = "1px solid var(--primary)";
+    password_error.classList.remove('show');
+  }
+  if (password.value.length < 8) {
+    password.style.borderBottom = "1px solid red";
+    password.focus();
+    password_length_error.classList.add('show');
+    return false;
+  } else {
+    password.style.borderBottom = "1px solid var(--primary)";
+    password_length_error.classList.remove('show');
+  }
 
-  return true;
+  return false;
 
 }

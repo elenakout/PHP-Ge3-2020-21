@@ -163,6 +163,11 @@ th {
   font-size: 1.8rem;
 }
 
+.subtitle {
+  font-weight: 300;
+  font-size: 1.4rem
+}
+
 .header__user {
   display: flex;
   flex-direction: column;
@@ -643,6 +648,10 @@ th {
   flex-basis: 85%;
 }
 
+.form_dashboard {
+  flex-wrap: wrap;
+}
+
 .table__dashboard {
   width: 100%;
 
@@ -676,7 +685,10 @@ option:first {
 .error_role,
 .error_regnum_length,
 .error_semester,
-.error_regnum_numbers {
+.error_regnum_numbers,
+.error_email,
+.error_password,
+.error_length_password {
   display: none;
   color: red;
   font-size: 1.2rem;

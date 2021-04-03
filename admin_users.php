@@ -31,7 +31,7 @@
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     $username = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-    $lastname = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
+    $userlastname = filter_input(INPUT_POST, 'lastName', FILTER_SANITIZE_STRING);
     $regNum = filter_input(INPUT_POST, 'regNum', FILTER_SANITIZE_STRING);
     $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
     $roleuser = filter_input(INPUT_POST, 'roleuser', FILTER_SANITIZE_STRING);
@@ -62,7 +62,7 @@
       include('./view/form_confirm_register.php');
       break;
     case 'create':
-      $id = create_user($username, $lastname, $email, $password, $regNum, $gender, $roleuser);
+      $id = create_user($username, $userlastname, $email, $password, $regNum, $gender, $roleuser);
       create_address($id);
       if($roleuser == 'student'){
         register_student_to_semester($id, $semester);
@@ -71,7 +71,7 @@
       header("location: dashboard_admin.php");
       break;
     case 'update':
-      update_user($username, $lastname, $regNum, $gender, $email, $userId);
+      update_user($username, $userlastname, $regNum, $gender, $email, $userId);
       header("location: dashboard_admin.php");
       break;
     default:

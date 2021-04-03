@@ -22,14 +22,13 @@
           src="./assets/icons/teacher-ico.svg" alt="avatar icon">Καθηγητές</a>
       <a href="./dashboard_admin.php?page=admin" class="dashboard__link"><img
           src="./assets/icons/admin-ico.svg" alt="avatar icon">Γραμματεία</a>
-      <a href="./dashboard_admin.php?page=classes" class="dashboard__link link__active"><img
-          src="./assets/icons/book-ico-alt.svg" alt="avatar icon">Μαθήματα</a>
-      <a href="./admin_classes.php" class="dashboard__link link__active"><img
-          src="./assets/icons/insert-alt.svg" alt="avatar icon">Δημιουργία Μαθήματος</a>
+      <a href="./dashboard_admin.php?page=classes" class="dashboard__link "><img
+          src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
     <div class="dashboard__form">
       <form name="register" action="./admin_users.php" method="post" class="form"
         onsubmit="return validateForm()">
+
         <input type="hidden" name="action" value="submit">
         <input type="hidden" name="roleuser" value="<?= $roleuser ?>">
         <input type="text" name="name" placeholder="Όνομα">
@@ -55,7 +54,7 @@
         </select>
         <p class="error_semester">Παρακαλώ εισάγετε εξάμηνο φοίτησης</p>
         <?php } ?>
-        <input type="submit" value="δημιουργια" class="btn" />
+        <input type="submit" value="εγγραφη φοιτητη" class="btn" />
       </form>
     </div>
   </section>
