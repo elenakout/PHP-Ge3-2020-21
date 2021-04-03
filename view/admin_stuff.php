@@ -4,8 +4,18 @@
 ?>
 
 <main class="main">
-  <section class="admin_students">
-    <aside class="admin_aside">
+  <section class="dashboard">
+    <aside class="dashboard__aside">
+      <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>"/>
+        <div class="aside__info">
+          <p><?= $lastname ?></p>
+          <p><?= $name ?></p>
+          <?php if($role === 'admin') { ?>
+            <p><span>Γραμματεία</span></p>
+          <?php }else { ?>
+            <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
+          <?php } ?>
+      </div>
       <a href="./dashboard_admin.php" class="post__title">Students</a>
       <a href="./dashboard_admin.php?page=teacher" class="post__title">Teachers</a>
       <a href="./dashboard_admin.php?page=admin" class="post__title">Admins</a>

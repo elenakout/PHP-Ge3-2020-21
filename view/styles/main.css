@@ -177,8 +177,8 @@ th {
 }
 
 .header__image {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 1rem;
@@ -545,24 +545,90 @@ th {
   margin: 0 5px;
 }
 
-/* Admin Dashboard */
+/* Dashboard */
 
-.admin_students {
+.dashboard {
   display: flex;
   justify-content: space-between;
   height: 100%;
 
 }
 
-.admin_aside {
+.dashboard__aside {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid red; */
-  flex-basis: 10%;
+  flex-basis: 15%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* padding: 1rem 2rem; */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.dashboard__aside img {
+  align-self: center;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  margin: 1rem 0;
+}
+
+.aside__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.aside__info p {
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.aside__info p span {
+  color: var(--primary-dark);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.dashboard__link {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 2rem;
+  /* background-color: var(--primary-dark); */
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.dashboard__link:hover {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.link__active {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.dashboard__link img {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 5px;
+  border-radius: initial;
 }
 
 .admin_main {
-  flex-basis: 85%;
+  flex-basis: 80%;
   /* border: 1px solid blue; */
   height: 100%;
   height: 100%;

@@ -4,29 +4,45 @@
 ?>
 
 <main class="main">
-  <section class="admin_students">
-    <aside class="admin_aside">
-      <a href="./dashboard_admin.php" class="post__title">Students</a>
-      <a href="./dashboard_admin.php?page=teacher" class="post__title">Teachers</a>
-      <a href="./dashboard_admin.php?page=admin" class="post__title">Admins</a>
-      <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
+  <section class="dashboard">
+    <aside class="dashboard__aside">
+      <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>" />
+      <div class="aside__info">
+        <p><?= $lastname ?></p>
+        <p><?= $name ?></p>
+        <?php if($role === 'admin') { ?>
+        <p><span>Γραμματεία</span></p>
+        <?php }else { ?>
+        <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
+        <?php } ?>
+      </div>
+      <a href="./dashboard_admin.php" class="dashboard__link link__active"><img
+          src="./assets/icons/user-avatar-filled-alt.svg" alt="avatar icon"> Μαθητές</a>
+      <a href="./dashboard_admin.php?page=teacher" class="dashboard__link"><img
+          src="./assets/icons/teacher-ico.svg" alt="avatar icon">Καθηγητές</a>
+      <a href="./dashboard_admin.php?page=admin" class="dashboard__link"><img
+          src="./assets/icons/admin-ico.svg" alt="avatar icon">Γραμματεία</a>
+      <a href="./dashboard_admin.php?page=classes" class="dashboard__link"><img
+          src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
+      <a href="./admin_users.php?role=student" class="dashboard__link link__active">Εγγραφή
+        Φοιτητή</a>
     </aside>
     <div class="admin_main">
-    <a href="./admin_users.php?role=student" class="btn">Εγγραφή Φοιτητή</a>
-  <table class="table_students">
-      <thead>
-        <tr>
-          <th>Εξάμηνο</th>
-          <th>Ονοματεπώνυμο</th>
-          <th>email</th>
-          <th>Τηλέφωνο</th>
-          <th>Αριθμός μητρώου</th>
 
-        </tr>
-      </thead>
-      <tbody>
-      <!-- Φοιτητές εξάμηνο 1 -->
-        <?php foreach ($stdSem1 as $index => $value){
+      <table class="table_students">
+        <thead>
+          <tr>
+            <th>Εξάμηνο</th>
+            <th>Ονοματεπώνυμο</th>
+            <th>email</th>
+            <th>Τηλέφωνο</th>
+            <th>Αριθμός μητρώου</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Φοιτητές εξάμηνο 1 -->
+          <?php foreach ($stdSem1 as $index => $value){
           $id = $value['ID'];
           $name = $value['name'];
           $lastName = $value['lastName'];
@@ -36,23 +52,23 @@
           $avatar = $value['avatar'];
           $semesterNum = $value['semesterNum'];
         ?>
-        <tr>
-          <?php if($index === 0) { ?>
-          <td rowspan="<?= count($stdSem1)?>"><?= $semesterNum ?></td>
+          <tr>
+            <?php if($index === 0) { ?>
+            <td rowspan="<?= count($stdSem1)?>"><?= $semesterNum ?></td>
+            <?php } ?>
+            <td class="left">
+              <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                <?= $lastName ?> <?= $name ?>
+              </a>
+            </td>
+            <td class="left"><?= $email ?></td>
+            <td class="width-5"><?= $phone ?></td>
+            <td class="left width-10"><?= $regnum ?></td>
+          </tr>
           <?php } ?>
-          <td class="left">
-            <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>" >
-            <?= $lastName ?> <?= $name ?>
-            </a>
-          </td>
-          <td class="left"><?= $email ?></td>
-          <td class="width-5"><?= $phone ?></td>
-          <td class="left width-10"><?= $regnum ?></td>
-        </tr>
-        <?php } ?>
 
-        <!-- Φοιτητές εξάμηνο 2 -->
-        <?php foreach ($stdSem2 as $index => $value){
+          <!-- Φοιτητές εξάμηνο 2 -->
+          <?php foreach ($stdSem2 as $index => $value){
           $id = $value['ID'];
           $name = $value['name'];
           $lastName = $value['lastName'];
@@ -62,23 +78,23 @@
           $avatar = $value['avatar'];
           $semesterNum = $value['semesterNum'];
         ?>
-        <tr>
-          <?php if($index === 0) { ?>
-          <td rowspan="<?= count($stdSem2)?>"><?= $semesterNum ?></td>
+          <tr>
+            <?php if($index === 0) { ?>
+            <td rowspan="<?= count($stdSem2)?>"><?= $semesterNum ?></td>
+            <?php } ?>
+            <td class="left">
+              <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                <?= $lastName ?> <?= $name ?>
+              </a>
+            </td>
+            <td class="left"><?= $email ?></td>
+            <td class="width-5"><?= $phone ?></td>
+            <td class="left width-10"><?= $regnum ?></td>
+          </tr>
           <?php } ?>
-          <td class="left">
-            <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>" >
-            <?= $lastName ?> <?= $name ?>
-            </a>
-          </td>
-          <td class="left"><?= $email ?></td>
-          <td class="width-5"><?= $phone ?></td>
-          <td class="left width-10"><?= $regnum ?></td>
-        </tr>
-        <?php } ?>
 
-        <!-- Φοιτητές εξάμηνο 3 -->
-        <?php foreach ($stdSem3 as $index => $value){
+          <!-- Φοιτητές εξάμηνο 3 -->
+          <?php foreach ($stdSem3 as $index => $value){
           $id = $value['ID'];
           $name = $value['name'];
           $lastName = $value['lastName'];
@@ -88,22 +104,22 @@
           $avatar = $value['avatar'];
           $semesterNum = $value['semesterNum'];
         ?>
-        <tr>
-          <?php if($index === 0) { ?>
-          <td rowspan="<?= count($stdSem3)?>"><?= $semesterNum ?></td>
+          <tr>
+            <?php if($index === 0) { ?>
+            <td rowspan="<?= count($stdSem3)?>"><?= $semesterNum ?></td>
+            <?php } ?>
+            <td class="left">
+              <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                <?= $lastName ?> <?= $name ?>
+              </a>
+            </td>
+            <td class="left"><?= $email ?></td>
+            <td class="width-5"><?= $phone ?></td>
+            <td class="left width-10"><?= $regnum ?></td>
+          </tr>
           <?php } ?>
-          <td class="left">
-            <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>" >
-            <?= $lastName ?> <?= $name ?>
-            </a>
-          </td>
-          <td class="left"><?= $email ?></td>
-          <td class="width-5"><?= $phone ?></td>
-          <td class="left width-10"><?= $regnum ?></td>
-        </tr>
-        <?php } ?>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
     </div>
 
   </section>
