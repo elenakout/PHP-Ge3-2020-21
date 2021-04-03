@@ -638,6 +638,11 @@ th {
   align-items: baseline;
 }
 
+.dashboard__form {
+  justify-self: center;
+  flex-basis: 85%;
+}
+
 .table__dashboard {
   width: 100%;
 
@@ -668,7 +673,10 @@ option:first {
 .error_lastname,
 .error_regnum,
 .error_gender,
-.error_role {
+.error_role,
+.error_regnum_length,
+.error_semester,
+.error_regnum_numbers {
   display: none;
   color: red;
   font-size: 1.2rem;
@@ -677,4 +685,5 @@ option:first {
 
 .show {
   display: block;
+  margin-bottom: 5px;
 }
