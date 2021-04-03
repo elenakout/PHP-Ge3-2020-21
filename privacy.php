@@ -8,6 +8,7 @@
   // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     $name = $_SESSION["name"];
+    $lastname = $_SESSION["lastName"];
     $role = $_SESSION['role'];
     $avatar = $_SESSION['avatar'];
   }

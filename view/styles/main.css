@@ -119,6 +119,25 @@ th {
   color: var(--primary);
 }
 
+.btn-light {
+  background-color: var(--secondary);
+  border: 1px solid var(--secondary);
+  color: var(--text-light);
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.exit {
+  margin-left: 1rem;
+}
+
 /* Κεφαλίδα - Header */
 .header {
   background-color: var(--primary);
@@ -142,6 +161,33 @@ th {
 .title {
   font-weight: 300;
   font-size: 1.8rem;
+}
+
+.header__user {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.header__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.header__image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.header__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Μενού Πλοηγησης - NavBar */
@@ -365,6 +411,26 @@ th {
   background: transparent;
   margin-bottom: 2rem;
   height: 45px;
+}
+
+.form__demo {
+  /* text-align: center; */
+  width: 35%;
+  padding: 2rem 4rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form__demo span {
+  font-weight: bold;
+}
+
+.help-block {
+  color: red;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  padding-bottom: 8px;
 }
 
 /* Όλες οι ανακοινώσεις - All Posts */

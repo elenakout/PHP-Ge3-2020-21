@@ -16,14 +16,17 @@
       <input type="password" name="password" placeholder="Κωδικός" />
       <input type="submit" value="υποβολη" class="btn" />
     </form>
+    <p class="help-block"><?php echo $error; ?> <?php echo $name; ?> <?php echo $lastName; ?></p>
   </div>
-    <span class="help-block"><?php echo $error; ?></span>
-    <span class="help-block"><?php echo $name; ?></span>
-    <span class="help-block"><?php echo $lastName; ?></span>
+  <div class="form__demo">
+    <h2>Λογαριασμοί επίδειξης</h2>
+    <p><span class="span_bold">Admin:</span> adm000000@uni.thess.gr <span class="span_bold">password:</span> demo1234</p>
+    <p><span class="span_bold">Student:</span> stu000000@uni.thess.gr <span class="span_bold">password:</span> demo1234</p>
+    <p><span class="span_bold">Teacher:</span> sep000000@uni.thess.gr <span class="span_bold">password:</span> demo1234</p>
+  </div>
 
-    <p>admin: adm483713@uni.thess.gr password: fe4cfffe</p>
-    <p>student: 	stu907654@uni.thess.gr password: demo1234</p>
-    <p>teacher: 	sep028331@uni.thess.gr password: demo1234</p>
+
+
 
 
 </main>

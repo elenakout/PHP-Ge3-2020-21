@@ -25,13 +25,15 @@
         <h1 class="title">Πανεπιστημιο Θεσσαλονικης</h1>
       </div>
       <?php if($name){ ?>
-      <div>
-      <?= $name ?>
-      <?= $role ?>
-      <?= $avatar ?>
-      &#8744;
-      <a href="./logout.php" class="btn btn-outline">εξοδος</a>
-      <a href="./login.php" class="btn btn-outline">dashboard</a>
+        <div class="header__user">
+          <div class="header__name">
+            <img class="header__image" src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>"/>
+            <p><?= $lastname ?> <?= $name ?></p>
+          </div>
+          <div class="header__buttons">
+            <a href="./login.php" class="btn-light">dashboard</a>
+            <a href="./logout.php" class="btn-light exit">εξοδος</a>
+          </div>
 
       <?php } else{ ?>
       </div>

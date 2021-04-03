@@ -14,6 +14,7 @@
     $name = $_SESSION["name"];
     $role = $_SESSION['role'];
     $avatar = $_SESSION['avatar'];
+    $lastname = $_SESSION["lastName"];
     // Έλαγχος αν ο χρήστης είναι admin
     if($role != 'admin') {
       header("location: index.php");
