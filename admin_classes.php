@@ -6,7 +6,7 @@ require('./model/class_db.php');
 session_start();
 
 // Αρχικοποίηση μεταβλητών
-$name = $role = $avatar = $action = '';
+$name = $role = $avatar = $action = $mandatory = '';
 
 // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -39,19 +39,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-
-
-
 switch ($action) {
   case 'create':
+    if($title && $description && $points && $teacher && $semester){
     create_class($title, $description, $points, $mandatory, $teacher, $semester);
     header("location: dashboard_admin.php?page=classes");
+  } else {
+    $error_message = 'Η δημιουργία του μαθήματος απέτυχε.';
+    $link = "admin_classes.php";
+    include('view/error.php');
+  }
     break;
   case 'update':
+    if($title && $description && $points && $mandatory && $teacher && $semester && $classId){
     update_class($title, $description, $points, $mandatory, $teacher, $semester, $classId);
     header("location: dashboard_admin.php?page=classes");
-    break;
-  case 'delete':
+    } else {
+      $error_message = 'Η επεξεργασία του μαθήματος απέτυχε.';
+      $link = "admin_classes.php";
+      include('view/error.php');
+    }
     break;
   default:
     $teachers = get_users_by_role('teacher');

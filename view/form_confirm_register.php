@@ -69,18 +69,17 @@
 
         <label for="password">Κωδικός Πρόσβασης</label>
         <input type="text" name="password" id="password" placeholder="Κωδικός"
-          value="<?= $password ?>">
+          value="<?= $password ?>" minlength="8" required>
         <p class="error_password">Παρακαλώ εισάγετε κωδικό πρόσβασης</p>
         <p class="error_length_password">Ο κωδικός πρόσβασης πρέπει να έχει τουλαχιστο 8 χαρακτήρες
         </p>
 
-        <input type="submit" value="υποβολη" class="btn" />
-        <a href="./register_user.php" class="btn">πισω</a>
+        <input type="submit" value="εγγραφη χρηστη" class="btn" />
+        <a href="./dashboard_admin.php" class="btn">πισω</a>
       </form>
     </div>
   </section>
 </main>
-
 
 <?php
   include('./view/footer.php');

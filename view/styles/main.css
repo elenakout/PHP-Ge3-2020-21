@@ -681,6 +681,18 @@ th {
   height: 45px;
 }
 
+.checkbox__label {
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-left: 5px;
+}
+
+input[type='checkbox'] {
+  margin: 2rem 0;
+}
+
+
+
 .field_semester {
   display: none;
 }
@@ -700,7 +712,11 @@ option:first {
 .error_regnum_numbers,
 .error_email,
 .error_password,
-.error_length_password {
+.error_length_password,
+.error_title,
+.error_desc,
+.error_teacher,
+.error_semester {
   display: none;
   color: red;
   font-size: 1.2rem;

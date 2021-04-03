@@ -26,8 +26,8 @@
           src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
     <div class="dashboard__form">
-      <form name="register" action="./admin_users.php" method="post" class="form"
-        onsubmit="return validateForm()">
+      <form name="create" action="./admin_users.php" method="post" class="form"
+        onsubmit="return validateCreateForm()">
 
         <input type="hidden" name="action" value="submit">
         <input type="hidden" name="roleuser" value="<?= $roleuser ?>">

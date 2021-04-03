@@ -77,8 +77,14 @@
       }
       break;
     case 'update':
+      if($username && $userlastname && $email && $regNum && $gender && $userId){
       update_user($username, $userlastname, $regNum, $gender, $email, $userId);
       header("location: dashboard_admin.php");
+    } else {
+      $error_message = 'Η διόρθωση των στοιχείων του χρήστη απέτυχε.';
+      $link = "dashboard_admin.php";
+      include('view/error.php');
+    }
       break;
     default:
     include('./view/form_register.php');
