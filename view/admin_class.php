@@ -24,7 +24,7 @@ include('./view/navbar.php');
         <p class="error_regnum">Παρακαλώ πληκρολογήστε διδακτικές μονάδες</p>
 
         <label for="mandatory">Βασικό</label>
-        <input type="checkbox" id="mandatory" name="mandatory" value=true <?php if ($class['mandatory']) {echo ("checked");} ?>>
+        <input type="checkbox" id="mandatory" name="mandatory" value=1 <?php if ($class['mandatory']) {echo ("checked");} ?>>
 
         <select name="teacher" id="teacher" class="form_input">
           <option value="" disabled selected hidden>Παρακαλώ επιλέξτε καθηγητή</option>

@@ -32,7 +32,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $teacher = filter_input(INPUT_POST, 'teacher', FILTER_SANITIZE_STRING);
   $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
   $classId = filter_input(INPUT_POST, 'classId', FILTER_SANITIZE_STRING);
+  if(!$mandatory) {
+    $mandatory = 0;
+  }
 }
+
+
 
 
 

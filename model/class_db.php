@@ -98,6 +98,7 @@ function add_classes($id) {
   $classes = get_all_classes();
   global $db;
   $count = 0;
+  $statement = null;
   foreach($classes as $class) {
     $teacherId = $class['teacherId'];
     $classId = $class['ID'];

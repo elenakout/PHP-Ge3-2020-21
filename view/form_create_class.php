@@ -4,7 +4,7 @@ include('./view/navbar.php');
 ?>
 
 <main class="main">
-<p>Mandatory: <?= $mandatory ?></p>
+
   <form name="register" action="./admin_classes.php" method="post" class="form" onsubmit="return validateForm()">
     <input type="hidden" name="action" value="create">
 
@@ -16,7 +16,7 @@ include('./view/navbar.php');
     <p class="error_regnum">Παρακαλώ πληκρολογήστε διδακτικές μονάδες</p>
 
     <label for="mandatory">Βασικό</label>
-    <input type="checkbox" id="mandatory" name="mandatory" value=true>
+    <input type="checkbox" id="mandatory" name="mandatory" value=1>
 
     <select name="teacher" id="teacher" class="form_input">
       <option value="" disabled selected hidden>Παρακαλώ επιλέξτε καθηγητή</option>
