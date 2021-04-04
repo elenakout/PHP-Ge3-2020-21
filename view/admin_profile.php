@@ -26,16 +26,22 @@ include('./view/navbar.php');
           src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
     <div class="dashboard__form">
-      <form name="update" action="./admin_users.php" method="post" class="form">
+      <form name="update" action="./admin_users.php" method="post" class="form"
+        onsubmit="return validateUserForm()">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="roleuser" value="<?= $user['role'] ?>">
         <input type="hidden" name="userId" value="<?= $user['ID'] ?>">
         <input type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>"
           class="form_input">
+        <p class="error_name">Παρακαλώ πληκρολογήστε όνομα</p>
         <input type="text" name="lastName" placeholder="Επίθετο" value="<?= $user['lastName'] ?>"
           class="form_input">
+        <p class="error_lastname">Παρακαλώ πληκρολογήστε επίθετο</p>
         <input type="text" name="regNum" placeholder="Αριθμός Μητρώου"
           value="<?= $user['regNum'] ?>" class="form_input">
+        <p class="error_regnum">Παρακαλώ πληκρολογήστε αριθμό μητρώου</p>
+        <p class="error_regnum_length">Ο αριθμός μητρώου πρέπει να έχει 6 χαρακτήρες</p>
+        <p class="error_regnum_numbers">Ο αριθμός μητρώου πρέπει να είναι αριθμός</p>
         <select name="gender" id="gender" class="form_input">
           <option value="male" <?php if ($user['gender'] == 'male') {
                                   echo ("selected");
@@ -46,8 +52,9 @@ include('./view/navbar.php');
         </select>
 
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="Όνομα" value="<?= $user['email'] ?>"
+        <input type="text" name="email" id="email" placeholder="Email" value="<?= $user['email'] ?>"
           class="form_input">
+        <p class="error_email">Παρακαλώ εισάγετε email</p>
         <input type="submit" value="επεξεργασια" class="btn btn-dark" />
         <a href="./reset_password.php?userId=<?= $user['ID'] ?>" class="btn btn-dark">επαναφορα
           κωδικου

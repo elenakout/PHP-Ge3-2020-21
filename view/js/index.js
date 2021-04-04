@@ -180,6 +180,7 @@ function validateForm() {
     semester.style.borderBottom = "1px solid var(--primary)";
     semester_error.classList.remove('show');
   }
+
   if (email.value.trim() == "" || email.value === null) {
     email.style.borderBottom = "1px solid red";
     email.focus();
@@ -189,6 +190,7 @@ function validateForm() {
     email.style.borderBottom = "1px solid var(--primary)";
     email_error.classList.remove('show');
   }
+
   if (password.value.trim() == "" || password.value === null) {
     password.style.borderBottom = "1px solid red";
     password.focus();
@@ -198,6 +200,7 @@ function validateForm() {
     password.style.borderBottom = "1px solid var(--primary)";
     password_error.classList.remove('show');
   }
+
   if (password.value.length < 8) {
     password.style.borderBottom = "1px solid red";
     password.focus();
@@ -264,5 +267,111 @@ function validateClassForm() {
     semester.style.borderBottom = "1px solid var(--primary)";
     semester_error.classList.remove('show');
   }
+  return true;
+}
+
+function validatePasswordForm() {
+  let password = document.forms["password"]["password"];
+
+  let password_error = document.querySelector('.error_password');
+  let password_length_error = document.querySelector('.error_length_password');
+
+  if (password.value.trim() == "" || password.value === null) {
+    password.style.borderBottom = "1px solid red";
+    password.focus();
+    password_error.classList.add('show');
+    return false;
+  } else {
+    password.style.borderBottom = "1px solid var(--primary)";
+    password_error.classList.remove('show');
+  }
+
+  if (password.value.length < 8) {
+    password.style.borderBottom = "1px solid red";
+    password.focus();
+    password_length_error.classList.add('show');
+    return false;
+  } else {
+    password.style.borderBottom = "1px solid var(--primary)";
+    password_length_error.classList.remove('show');
+  }
+
+  return true;
+}
+
+function validateUserForm() {
+  let usrname = document.forms["update"]["name"];
+  let lastname = document.forms["update"]["lastName"];
+  let regnum = document.forms["update"]["regNum"];
+  let email = document.forms["update"]["email"];
+
+  let name_error = document.querySelector('.error_name');
+  let lastname_error = document.querySelector('.error_lastname');
+  let regnum_error = document.querySelector('.error_regnum');
+  let regnum_length_error = document.querySelector('.error_regnum_length');
+  let regnum_numbers_error = document.querySelector('.error_regnum_numbers');
+  let email_error = document.querySelector('.error_email');
+
+  if (usrname.value.trim() === '' || usrname.value === null) {
+    usrname.style.borderBottom = "1px solid red";
+    usrname.focus();
+    name_error.classList.add('show');
+    return false;
+  } else {
+    usrname.style.borderBottom = "1px solid var(--primary)";
+    name_error.classList.remove('show');
+  }
+
+  if (lastname.value.trim() === '' || lastname.value === null) {
+    lastname.style.borderBottom = "1px solid red";
+    lastname.focus();
+    lastname_error.classList.add('show');
+    return false;
+  } else {
+    lastname.style.borderBottom = "1px solid var(--primary)";
+    lastname_error.classList.remove('show');
+  }
+
+  if (regnum.value.trim() === '' || regnum.value === null) {
+    console.log("length", regnum.value)
+    regnum.style.borderBottom = "1px solid red";
+    regnum.focus();
+    regnum_error.classList.add('show');
+    return false;
+  } else {
+    regnum.style.borderBottom = "1px solid var(--primary)";
+    regnum_error.classList.remove('show');
+  }
+
+  if (regnum.value.trim().length < 6) {
+    regnum.style.borderBottom = "1px solid red";
+    regnum.focus();
+    regnum_length_error.classList.add('show');
+    return false;
+  } else {
+    regnum.style.borderBottom = "1px solid var(--primary)";
+    regnum_length_error.classList.remove('show');
+  }
+
+  if (regnum.value.match(/^[0-9]+$/) == null) {
+    regnum.style.borderBottom = "1px solid red";
+    regnum.focus();
+    regnum_numbers_error.classList.add('show');
+    return false;
+  } else {
+    regnum.style.borderBottom = "1px solid var(--primary)";
+    regnum_numbers_error.classList.remove('show');
+  }
+
+  if (email.value.trim() == "" || email.value === null) {
+    email.style.borderBottom = "1px solid red";
+    email.focus();
+    email_error.classList.add('show');
+    return false;
+  } else {
+    email.style.borderBottom = "1px solid var(--primary)";
+    email_error.classList.remove('show');
+  }
+
   return true;
 }
