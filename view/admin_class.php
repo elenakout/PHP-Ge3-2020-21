@@ -26,16 +26,18 @@ include('./view/navbar.php');
           src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
     <div class="dashboard__form">
-      <form name="register" action="./admin_classes.php" method="post" class="form"
-        onsubmit="return validateForm()">
+      <form name="class" action="./admin_classes.php" method="post" class="form"
+        onsubmit="return validateClassForm()">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="classId" value="<?= $class['ID'] ?>">
 
         <input type="text" name="title" placeholder="Τίτλος" value="<?= $class['title'] ?>"
           class="form_input">
+        <p class="error_title">Παρακαλώ πληκρολογήστε τίτλο</p>
 
-        <textarea id="description" name="description" rows="8" cols="80" class="form_input form__textearea"
-          placeholder="Περιγραφή Μαθήματος"> <?= $class['description'] ?></textarea class="form_input">
+        <textarea id="description" name="description" rows="8" cols="80"
+          class="form_input form__textearea" placeholder="Περιγραφή Μαθήματος"> <?= $class['description'] ?></textarea class="form_input">
+          <p class="error_desc">Παρακαλώ πληκρολογήστε περιγραφή του μαθήματος</p>
 
         <label for="mandatory" class=" checkbox__label">Βασικό</label>
         <input type="checkbox" id="mandatory" name="mandatory" value=1
@@ -49,6 +51,7 @@ include('./view/navbar.php');
             <?= $teacher['lastName'] ?> <?= $teacher['name'] ?></option>
           <?php } ?>
         </select>
+        <p class="error_teacher">Παρακαλώ επιλέξτε καθηγητή</p>
 
         <select name="semester" id="semester" class="form_input">
           <option value="" disabled selected hidden>Παρακαλώ επιλέξτε εξάμηνο</option>
@@ -62,6 +65,7 @@ include('./view/navbar.php');
                               echo ("selected");
                             } ?>>3</option>
         </select>
+        <p class="error_semester">Παρακαλώ επιλέξτε καθηγητή</p>
         <input type="submit" value="επεξεργασια" class="btn btn-dark" />
       </form>
     </div>

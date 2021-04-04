@@ -6,7 +6,8 @@ require('./model/class_db.php');
 session_start();
 
 // Αρχικοποίηση μεταβλητών
-$name = $role = $avatar = $action = $mandatory = '';
+$name = $role = $avatar = $action =  '';
+$mandatory = 0;
 
 // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
   $points = filter_input(INPUT_POST, 'points', FILTER_SANITIZE_STRING);
-  $mandatory = $_POST["mandatory"];
+  $mandatory = filter_input(INPUT_POST, 'mandatory', FILTER_SANITIZE_NUMBER_INT);
   $teacher = filter_input(INPUT_POST, 'teacher', FILTER_SANITIZE_STRING);
   $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
   $classId = filter_input(INPUT_POST, 'classId', FILTER_SANITIZE_STRING);
@@ -51,12 +52,12 @@ switch ($action) {
   }
     break;
   case 'update':
-    if($title && $description && $points && $mandatory && $teacher && $semester && $classId){
+    if($title && $description && $teacher && $semester){
     update_class($title, $description, $points, $mandatory, $teacher, $semester, $classId);
     header("location: dashboard_admin.php?page=classes");
     } else {
       $error_message = 'Η επεξεργασία του μαθήματος απέτυχε.';
-      $link = "admin_classes.php";
+      $link = "dashboard_admin.php?page=classes";
       include('view/error.php');
     }
     break;

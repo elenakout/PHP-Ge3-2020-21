@@ -264,5 +264,5 @@ function validateClassForm() {
     semester.style.borderBottom = "1px solid var(--primary)";
     semester_error.classList.remove('show');
   }
-  return true
+  return true;
 }
