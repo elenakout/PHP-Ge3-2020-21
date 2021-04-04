@@ -4,27 +4,6 @@ include('./view/navbar.php');
 ?>
 
 <main class="main">
-  <!-- <section class="dashboard"> -->
-  <!-- <aside class="dashboard__aside">
-      <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>" />
-      <div class="aside__info">
-        <p><?= $lastname ?></p>
-        <p><?= $name ?></p>
-        <?php if($role === 'admin') { ?>
-        <p><span>Γραμματεία</span></p>
-        <?php }else { ?>
-        <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
-        <?php } ?>
-      </div>
-      <a href="./dashboard_admin.php" class="dashboard__link"><img
-          src="./assets/icons/user-avatar-filled.svg" alt="avatar icon"> Μαθητές</a>
-      <a href="./dashboard_admin.php?page=teacher" class="dashboard__link"><img
-          src="./assets/icons/teacher-ico.svg" alt="avatar icon">Καθηγητές</a>
-      <a href="./dashboard_admin.php?page=admin" class="dashboard__link"><img
-          src="./assets/icons/admin-ico.svg" alt="avatar icon">Γραμματεία</a>
-      <a href="./dashboard_admin.php?page=classes" class="dashboard__link"><img
-          src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
-    </aside> -->
   <div class="dashboard_profile">
     <form name="update" action="./admin_users.php" method="post" class="form form__profile">
       <h3 class="subtitle">Επεξεργασία Προφίλ</h3>
@@ -256,8 +235,6 @@ include('./view/navbar.php');
       </div>
     </div>
   </div>
-
-  <!-- </section> -->
 </main>
 
 <?php

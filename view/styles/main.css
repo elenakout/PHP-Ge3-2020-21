@@ -467,6 +467,10 @@ th {
   font-weight: bold;
 }
 
+.form__textearea {
+  height: 12rem;
+}
+
 .help-block {
   color: red;
   text-align: center;

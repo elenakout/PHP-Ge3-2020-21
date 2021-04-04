@@ -25,24 +25,21 @@ include('./view/navbar.php');
       <a href="./dashboard_admin.php?page=classes" class="dashboard__link"><img
           src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
-    <div class="dashboard__main">
+    <div class="dashboard__form">
       <form name="register" action="./admin_classes.php" method="post" class="form"
         onsubmit="return validateForm()">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="classId" value="<?= $class['ID'] ?>">
 
-        <input type="text" name="title" placeholder="Τίτλος" value="<?= $class['title'] ?>">
+        <input type="text" name="title" placeholder="Τίτλος" value="<?= $class['title'] ?>"
+          class="form_input">
 
-        <textarea id="description" name="description" rows="7" cols="80" class="form_input"
-          placeholder="Περιγραφή Μαθήματος"> <?= $class['description'] ?></textarea>
+        <textarea id="description" name="description" rows="8" cols="80" class="form_input form__textearea"
+          placeholder="Περιγραφή Μαθήματος"> <?= $class['description'] ?></textarea class="form_input">
 
-        <input type="text" name="points" placeholder="Διαδακτικές Μονάδες"
-          value="<?= $class['points'] ?>" class="form_input">
-        <p class="error_regnum">Παρακαλώ πληκρολογήστε διδακτικές μονάδες</p>
-
-        <label for="mandatory">Βασικό</label>
+        <label for="mandatory" class=" checkbox__label">Βασικό</label>
         <input type="checkbox" id="mandatory" name="mandatory" value=1
-          <?php if ($class['mandatory']) {echo ("checked");} ?> class="form_input">
+          <?php if ($class['mandatory']) {echo ("checked");} ?> >
 
         <select name="teacher" id="teacher" class="form_input">
           <option value="" disabled selected hidden>Παρακαλώ επιλέξτε καθηγητή</option>
@@ -65,7 +62,7 @@ include('./view/navbar.php');
                               echo ("selected");
                             } ?>>3</option>
         </select>
-        <input type="submit" value="υποβολη" class="btn" />
+        <input type="submit" value="επεξεργασια" class="btn btn-dark" />
       </form>
     </div>
   </section>

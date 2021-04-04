@@ -4,21 +4,38 @@ include('./view/navbar.php');
 ?>
 
 <main class="main">
-  <section class="admin_students">
-    <aside class="admin_aside">
-      <a href="./dashboard_admin.php" class="post__title">Students</a>
-      <a href="./dashboard_admin.php?page=teacher" class="post__title">Teachers</a>
-      <a href="./dashboard_admin.php?page=admin" class="post__title">Admins</a>
-      <a href="./dashboard_admin.php?page=classes" class="post__title">Classes</a>
+  <section class="dashboard">
+    <aside class="dashboard__aside">
+      <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>" />
+      <div class="aside__info">
+        <p><?= $lastname ?></p>
+        <p><?= $name ?></p>
+        <?php if($role === 'admin') { ?>
+        <p><span>Γραμματεία</span></p>
+        <?php }else { ?>
+        <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
+        <?php } ?>
+      </div>
+      <a href="./dashboard_admin.php" class="dashboard__link "><img
+          src="./assets/icons/user-avatar-filled.svg" alt="avatar icon"> Μαθητές</a>
+      <a href="./dashboard_admin.php?page=teacher" class="dashboard__link"><img
+          src="./assets/icons/teacher-ico.svg" alt="avatar icon">Καθηγητές</a>
+      <a href="./dashboard_admin.php?page=admin" class="dashboard__link"><img
+          src="./assets/icons/admin-ico.svg" alt="avatar icon">Γραμματεία</a>
+      <a href="./dashboard_admin.php?page=classes" class="dashboard__link "><img
+          src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
     </aside>
-    <div class="admin_main">
+    <div class="dashboard__form">
       <form name="update" action="./admin_users.php" method="post" class="form">
         <input type="hidden" name="action" value="update">
         <input type="hidden" name="roleuser" value="<?= $user['role'] ?>">
         <input type="hidden" name="userId" value="<?= $user['ID'] ?>">
-        <input type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>">
-        <input type="text" name="lastName" placeholder="Επίθετο" value="<?= $user['lastName'] ?>">
-        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου" value="<?= $user['regNum'] ?>">
+        <input type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>"
+          class="form_input">
+        <input type="text" name="lastName" placeholder="Επίθετο" value="<?= $user['lastName'] ?>"
+          class="form_input">
+        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου"
+          value="<?= $user['regNum'] ?>" class="form_input">
         <select name="gender" id="gender" class="form_input">
           <option value="male" <?php if ($user['gender'] == 'male') {
                                   echo ("selected");
@@ -29,9 +46,12 @@ include('./view/navbar.php');
         </select>
 
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="Όνομα" value="<?= $user['email'] ?>">
-        <input type="submit" value="υποβολη" class="btn" />
-        <a href="./reset_password.php?userId=<?= $user['ID'] ?>" class="btn">επαναφορα κωδικού προσβασης</a>
+        <input type="text" name="email" id="email" placeholder="Όνομα" value="<?= $user['email'] ?>"
+          class="form_input">
+        <input type="submit" value="επεξεργασια" class="btn btn-dark" />
+        <a href="./reset_password.php?userId=<?= $user['ID'] ?>" class="btn btn-dark">επαναφορα
+          κωδικου
+          προσβασης</a>
       </form>
     </div>
 
