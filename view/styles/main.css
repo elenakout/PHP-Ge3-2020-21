@@ -90,28 +90,22 @@ th {
 
 /* BUTTONS */
 .btn {
-  background-color: var(--primary);
-  border: 1px solid var(--primary);
-  color: var(--text-light);
-  padding: 8px 16px;
   border-radius: 4px;
   text-transform: uppercase;
   text-decoration: none;
-  font-size: 1.6rem;
+  text-align: center;
   font-weight: 400;
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  background-color: transparent;
-}
+
 
 .btn-outline {
   border: 1px solid var(--text-light);
+  padding: 8px 16px;
+  font-size: 1.6rem;
 }
 
 .btn-outline:hover {
@@ -119,25 +113,46 @@ th {
   color: var(--primary);
 }
 
+.btn-dark {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  color: var(--text-light);
+  padding: 8px 16px;
+  font-size: 1.6rem;
+}
+
+.btn-dark:hover {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
 .btn-light {
   background-color: var(--secondary);
   border: 1px solid var(--secondary);
   color: var(--text-light);
   padding: 4px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-  text-decoration: none;
   font-size: 1.4rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+}
+
+.btn-light:hover {
+  background-color: var(--text-light);
+  color: var(--primary);
 }
 
 .btn-small {
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  color: var(--text-light);
   padding: 3px 6px;
   font-size: 1.4rem;
   margin-bottom: 5px;
+}
+
+.btn-small:hover{
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
 }
 
 .exit {
@@ -170,8 +185,13 @@ th {
 }
 
 .subtitle {
-  font-weight: 300;
-  font-size: 1.4rem
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.6rem;
+  background-color: var(--primary);
+  color: var(--text-light);
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 
 .header__user {
@@ -455,6 +475,7 @@ th {
   padding-bottom: 8px;
 }
 
+label,
 .checkbox__label {
   font-size: 1.4rem;
   color: var(--text-dark);
@@ -684,19 +705,6 @@ input[type='checkbox'] {
 
 }
 
-
-.form__profile {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  flex-wrap: wrap;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-
-
 .field_semester {
   display: none;
 }
@@ -733,5 +741,80 @@ option:first {
 }
 
 .dashboard_profile {
-  flex-direction: row;
+  display: flex;
+  flex-basis: 83%;
+}
+
+.form__profile {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  flex-wrap: wrap;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  margin-right: 1rem;
+  padding: 1rem 2rem;
+}
+
+.profile__statistics {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+.statistics__container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.statistics__box {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  width: 25rem;
+  height: 12rem;
+  padding: 1rem 2rem;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "icon title"
+    "icon number";
+  column-gap: 2px;
+}
+
+.box__image{
+  grid-area: icon;
+  align-self: center;
+  width: 7rem;
+  height: 7rem;
+}
+
+.box__title {
+  grid-area: title;
+  justify-self: center;
+  align-self: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+}
+
+.box__number {
+  grid-area: number;
+  justify-self: center;
+  align-self: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+
+}
+
+.profile__table {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }

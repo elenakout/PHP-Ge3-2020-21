@@ -75,8 +75,8 @@
         <p class="error_length_password">Ο κωδικός πρόσβασης πρέπει να έχει τουλαχιστο 8 χαρακτήρες
         </p>
 
-        <input type="submit" value="εγγραφη χρηστη" class="btn" />
-        <a href="./dashboard_admin.php" class="btn">πισω</a>
+        <input type="submit" value="εγγραφη χρηστη" class="btn btn-dark" />
+        <a href="./dashboard_admin.php" class="btn btn-dark">πισω</a>
       </form>
     </div>
   </section>

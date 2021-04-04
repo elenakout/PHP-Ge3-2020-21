@@ -57,7 +57,7 @@ include('./view/navbar.php');
           <option value="3">3</option>
         </select>
         <p class="error_semester">Παρακαλώ επιλέξτε καθηγητή</p>
-        <input type="submit" value="δημιουργια μαθηματος" class="btn" />
+        <input type="submit" value="δημιουργια μαθηματος" class="btn btn-dark" />
       </form>
     </div>
   </section>

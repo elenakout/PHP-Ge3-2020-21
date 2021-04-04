@@ -4,8 +4,8 @@ include('./view/navbar.php');
 ?>
 
 <main class="main">
-  <section class="dashboard">
-    <aside class="dashboard__aside">
+  <!-- <section class="dashboard"> -->
+  <!-- <aside class="dashboard__aside">
       <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>" />
       <div class="aside__info">
         <p><?= $lastname ?></p>
@@ -24,61 +24,105 @@ include('./view/navbar.php');
           src="./assets/icons/admin-ico.svg" alt="avatar icon">Γραμματεία</a>
       <a href="./dashboard_admin.php?page=classes" class="dashboard__link"><img
           src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
-    </aside>
-    <div class="dashboard__main dashboard_profile">
-      <form name="update" action="./admin_users.php" method="post" class="form form__profile">
-        <input type="hidden" name="action" value="update">
-        <input type="hidden" name="roleuser" value="<?= $user['role'] ?>">
-        <input type="hidden" name="userId" value="<?= $user['ID'] ?>">
-        <input id="stdName" type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>"
-          class="form_input input__student">
-        <input type="text" name="lastName" placeholder="Επίθετο" value="<?= $user['lastName'] ?>"
-          class="form_input input__student">
-        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου"
-          value="<?= $user['regNum'] ?>" class="form_input input__student">
-        <select name="gender" id="gender" class="form_input input__student">
-          <option value="male" <?php if ($user['gender'] == 'male') {
+    </aside> -->
+  <div class="dashboard_profile">
+    <form name="update" action="./admin_users.php" method="post" class="form form__profile">
+      <h3 class="subtitle">Επεξεργασία Προφίλ</h3>
+      <input type="hidden" name="action" value="update">
+      <input type="hidden" name="roleuser" value="<?= $user['role'] ?>">
+      <input type="hidden" name="userId" value="<?= $user['ID'] ?>">
+      <label for="stdname">Όνομα</label>
+      <input id="stdName" type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>"
+        class="form_input input__student">
+      <label for="stdlastname">Επίθετο</label>
+      <input id="stdlastname " type="text" name="lastName" placeholder="Επίθετο"
+        value="<?= $user['lastName'] ?>" class="form_input input__student">
+      <label for="regnum">Αριθμός Μητρώου</label>
+      <input type="text" name="regNum" id="regnum" placeholder="Αριθμός Μητρώου"
+        value="<?= $user['regNum'] ?>" class="form_input input__student">
+
+      <label for="gender">Φύλλο</label>
+      <select name="gender" id="gender" class="form_input input__student">
+        <option value="male" <?php if ($user['gender'] == 'male') {
                                   echo ("selected");
                                 } ?>>Άρρεν</option>
-          <option value="female" <?php if ($user['gender'] == 'female') {
+        <option value="female" <?php if ($user['gender'] == 'female') {
                                     echo ("selected");
                                   } ?>>Θήλυ</option>
-        </select>
+      </select>
 
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" placeholder="Όνομα" value="<?= $user['email'] ?>"
-          class="form_input input__student">
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" value="<?= $user['email'] ?>"
+        class="form_input input__student">
 
-        <label for="phone">Τηλέφωνο</label>
-        <input type="text" name="phone" id="phone" value="<?= $user['phone'] ?>"
-          class="form_input input__student" disabled>
+      <label for="phone">Τηλέφωνο</label>
+      <input type="text" name="phone" id="phone" value="<?= $user['phone'] ?>"
+        class="form_input input__student" disabled>
 
-        <label for="birthday">Ημ. Γέννησης</label>
-        <input type="text" id="birthday" value="<?= $user['birthday'] ?>"
-          class="form_input input__student" disabled>
+      <label for="birthday">Ημ. Γέννησης</label>
+      <input type="text" id="birthday" value="<?= $user['birthday'] ?>"
+        class="form_input input__student" disabled>
 
-        <label for="street">Οδός</label>
-        <input type="text" id="street" value="<?= $address['street'] ?> <?= $address['strnum']?>"
-          class="form_input input__student" disabled>
+      <label for="street">Οδός</label>
+      <input type="text" id="street" value="<?= $address['street'] ?> <?= $address['strnum']?>"
+        class="form_input input__student" disabled>
 
-        <label for="city">Πόλη</label>
-        <input type="text" id="city" value="<?= $address['city'] ?> <?= $address['postalCode']?>"
-          class="form_input input__student" disabled>
+      <label for="city">Πόλη</label>
+      <input type="text" id="city" value="<?= $address['city'] ?> <?= $address['postalCode']?>"
+        class="form_input input__student" disabled>
 
-        <input type="submit" value="επεξεργασια" class="btn btn-small" />
-        <a href="./reset_password.php?userId=<?= $user['ID'] ?>" class="btn btn-small">επαναφορα
-          κωδικου</a>
-      </form>
-      <div>
-        <div class="dashboard__main">
-          <h2>Statistics</h2>
-          <p>Semester: <?= $stusemester['semesterNum'] ?> Βασικά μαθήματα με προβιβάσιμο βαθμό:
-            <?= $manPass ?></p>
-          <p>Βασικά μαθήματα για πτυχίο: <?= $manRem ?> Μαθήματα που έχουν δηλωθεί:
-            <?= $registerClasses ?> Μαθήματα Επιλογής με προβιβάσιμο βαθμό: <?= $nomanPass ?></p>
-          <p>Μαθήματα επιλογής για πτυχίο: <?= $nomanRem ?> Διδακτικές Μονάδες: <?= $points ?>
-            Διδακτικές μονάδες για πτυχίο: <?= $pointsRem  ?> </p>
+      <input type="submit" value="επεξεργασια" class="btn btn-small" />
+      <a href="./reset_password.php?userId=<?= $user['ID'] ?>" class="btn btn-small">επαναφορα
+        κωδικου</a>
+    </form>
+    <div class="profile__main">
+      <div class="profile__statistics">
+        <h3 class="subtitle">Στατιστικά</h3>
+        <div class="statistics__container">
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
+            <span class="box__title">Εξάμηνο</span>
+            <span class="box__number"><?= $stusemester['semesterNum'] ?></span>
+          </div>
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-2.png" alt="icon" />
+            <span class="box__title">Βασικά μαθήματα με προβιβάσιμο βαθμό</span>
+            <span class="box__number"><?= $manPass ?></span>
+          </div>
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-3.png" alt="icon" />
+            <span class="box__title">Βασικά μαθήματα για πτυχίο</span>
+            <span class="box__number"><?= $manRem ?></span>
+          </div>
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-4.png" alt="icon" />
+            <span class="box__title">Μαθήματα που έχουν δηλωθεί</span>
+            <span class="box__number"><?= $registerClasses ?></span>
+          </div>
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-5.png" alt="icon" />
+            <span class="box__title">Μαθήματα Επιλογής με προβιβάσιμο βαθμό</span>
+            <span class="box__number"><?= $nomanPass ?></span>
+          </div>
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-6.png" alt="icon" />
+            <span class="box__title">Μαθήματα επιλογής για πτυχίο</span>
+            <span class="box__number"><?= $nomanRem ?></span>
+          </div>
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-7.png" alt="icon" />
+            <span class="box__title">Διδακτικές Μονάδες</span>
+            <span class="box__number"><?= $points ?></span>
+          </div>
+          <div class="statistics__box">
+            <img class="box__image" src="./assets/icons/st-8.png" alt="icon" />
+            <span class="box__title">Διδακτικές μονάδες για πτυχίο</span>
+            <span class="box__number"><?= $pointsRem  ?></span>
+          </div>
         </div>
+      </div>
+      <div class="profile__table">
+        <h3 class="subtitle">Μαθήματα</h3>
         <table class="table__dashboard">
           <thead>
             <tr>
@@ -211,8 +255,9 @@ include('./view/navbar.php');
         </table>
       </div>
     </div>
+  </div>
 
-  </section>
+  <!-- </section> -->
 </main>
 
 <?php

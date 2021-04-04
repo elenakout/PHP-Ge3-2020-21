@@ -7,7 +7,7 @@
 <main class="main">
   <section class="container single-post">
 
-  <?php foreach ($results as $result) {
+    <?php foreach ($results as $result) {
     $id = $result['ID'];
     $title = $result['title'];
     $description = $result['description'];
@@ -17,15 +17,11 @@
     <h3 class="single__title">
       <?= $title ?>
     </h3>
-    <img
-      class="single__image"
-      src="./assets/images/<?= $image ?>"
-      alt="<?= $altText ?>"
-    />
-    <p class="single__text" >
+    <img class="single__image" src="./assets/images/<?= $image ?>" alt="<?= $altText ?>" />
+    <p class="single__text">
       <?= $description ?>
     </p>
-    <a href="./posts.php" class="btn">ολες οι ανακοινωσεις</a>
+    <a href="./posts.php" class="btn btn-dark">ολες οι ανακοινωσεις</a>
   </section>
 </main>
 

@@ -14,7 +14,8 @@ include('./view/navbar.php');
     </aside>
     <section class="admin_main">
       <h1>teacher profile</h1>
-      <p><?= $teacher['lastName'] ?> <?= $teacher['name'] ?> <?= $teacher['email'] . $teacher['regNum'] ?></p>
+      <p><?= $teacher['lastName'] ?> <?= $teacher['name'] ?>
+        <?= $teacher['email'] . $teacher['regNum'] ?></p>
       <form name="register" action="./dashboard_teacher.php" method="post" class="form">
         <input type="hidden" name="action" value="update">
         <input type="text" name="phone" placeholder="Τηλέφωνο" value="<?= $teacher['phone'] ?>">
@@ -23,8 +24,9 @@ include('./view/navbar.php');
         <input type="text" name="street" placeholder="Οδός" value="<?= $address['street'] ?>">
         <input type="text" name="strnum" placeholder="Αριθμός" value="<?= $address['strnum'] ?>">
         <input type="text" name="city" placeholder="Πόλη" value="<?= $address['city'] ?>">
-        <input type="text" name="postalcode" placeholder="Ταχυδρομικός Κώδικας" value="<?= $address['postalCode'] ?>">
-        <input type="submit" value="υποβολη" class="btn"/>
+        <input type="text" name="postalcode" placeholder="Ταχυδρομικός Κώδικας"
+          value="<?= $address['postalCode'] ?>">
+        <input type="submit" value="επεξεργασια" class="btn btn-dark" />
       </form>
     </section>
   </section>

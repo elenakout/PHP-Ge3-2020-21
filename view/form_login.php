@@ -15,7 +15,7 @@
       <input type="email" name="email" placeholder="Email" value="<?= $email ? $email : ''?>"
         class="form_input" />
       <input type="password" name="password" placeholder="Κωδικός" class="form_input" />
-      <input type="submit" value="υποβολη" class="btn" />
+      <input type="submit" value="υποβολη" class="btn btn-dark" />
     </form>
     <p class="help-block"><?php echo $error; ?> <?php echo $name; ?> <?php echo $lastName; ?></p>
   </div>
