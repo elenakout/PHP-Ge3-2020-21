@@ -25,7 +25,6 @@ include('./view/navbar.php');
         <img src="./assets/icons/book-ico-alt.svg" alt="avatar icon">
         Μαθήματα
       </a>
-
     </aside>
     <section class="dashboard__main">
       <div class="profile__main">

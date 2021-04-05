@@ -109,7 +109,7 @@ function update_student_semester($id, $semester){
 
 function get_teacher_students($teacherId){
   global $db;
-  $query = 'SELECT R.ID as regId, R.grade, R.register, S.ID as stdId, S.name, S.lastName, S.regNum, S.avatar, C.ID as classId, C.title, C.classSemester
+  $query = 'SELECT R.ID as regId, R.grade, R.register, S.ID as stdId, S.name, S.lastName, S.regNum, S.avatar, S.email, C.ID as classId, C.title, C.classSemester
             FROM classregistration R
             LEFT JOIN user S ON R.studentId = S.ID
             LEFT JOIN class C ON R.classId = C.ID

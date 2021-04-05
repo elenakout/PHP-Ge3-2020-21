@@ -88,6 +88,13 @@ th {
   color: #f1f1f1;
 }
 
+.center {
+  width:100%;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
 /* BUTTONS */
 .btn {
   border-radius: 4px;
@@ -184,6 +191,8 @@ th {
 .exit {
   margin-left: 1rem;
 }
+
+
 
 /* Κεφαλίδα - Header */
 .header {
@@ -846,6 +855,14 @@ option:first {
 
 .profile__table {
   padding: 1rem 2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.class__container{
+  width: 100%;
+  padding: 2rem 4rem;
+  margin-bottom: 2rem;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
