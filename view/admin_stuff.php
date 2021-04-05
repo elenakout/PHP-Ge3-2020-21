@@ -52,7 +52,7 @@
             <td class="left">
               <span class="center">
                 <img class="header__image" src="./assets/images/<?= $avatar ?>" alt="<?= $lastName ?>" />
-                <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                <a href="./dashboard_admin.php?page=profile&userId=<?= $id ?>">
                   <?= $lastName ?> <?= $name ?>
                 </a>
               </span>

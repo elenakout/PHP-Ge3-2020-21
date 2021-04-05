@@ -71,6 +71,8 @@ include('./view/navbar.php');
           value="<?= $address['postalCode'] ?>" class="form_input">
 
         <input type="submit" value="επεξεργασια" class="btn btn-dark" />
+        <a href="./reset_password.php?userId=<?= $teacher['ID'] ?>" class="btn btn-dark">αλλαγη
+        κωδικου</a>
       </form>
     </section>
   </section>

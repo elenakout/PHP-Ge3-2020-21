@@ -73,6 +73,8 @@ include('./view/navbar.php');
         <input type="text" name="postalcode" placeholder="Ταχυδρομικός Κώδικας"
           value="<?= $address['postalCode'] ?>" class="form_input">
         <input type="submit" value="επεξεργασια" class="btn btn-dark" />
+        <a href="./reset_password.php?userId=<?= $student['ID'] ?>" class="btn btn-dark">αλλαγη
+        κωδικου</a>
       </form>
     </section>
   </section>

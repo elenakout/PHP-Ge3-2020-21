@@ -36,7 +36,7 @@ include('./view/navbar.php');
             <tr>
               <th>Ονοματεπώνυμο</th>
               <th>Email</th>
-              <th>Αριθμός Μητρόου</th>
+              <th>Αριθμός Μητρώου</th>
               <th>Βαθμός</th>
             </tr>
           </thead>
