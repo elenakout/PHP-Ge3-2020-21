@@ -34,6 +34,7 @@ include('./view/navbar.php');
         <input type="text" name="name" placeholder="Όνομα" value="<?= $user['name'] ?>"
           class="form_input">
         <p class="error_name">Παρακαλώ πληκρολογήστε όνομα</p>
+
         <input type="text" name="lastName" placeholder="Επίθετο" value="<?= $user['lastName'] ?>"
           class="form_input">
         <p class="error_lastname">Παρακαλώ πληκρολογήστε επίθετο</p>

@@ -29,7 +29,8 @@ include('./view/navbar.php');
     </aside>
     <section class="dashboard__form">
 
-      <form name="register" action="./dashboard_student.php" method="post" class="form">
+      <form name="info" action="./dashboard_student.php" method="post" class="form">
+
         <input type="hidden" name="action" value="update">
 
         <label for="stdname">Όνομα</label>
