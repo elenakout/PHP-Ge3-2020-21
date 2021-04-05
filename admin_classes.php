@@ -48,7 +48,7 @@ switch ($action) {
     foreach($students as $student){
       add_students_to_class($student['ID'], $idclass, $teacher);
     }
-
+    $_SESSION['msg'] = 'Το μάθημα δημιουργήθηκε με επιτυχία';
     header("location: dashboard_admin.php?page=classes");
   } else {
     $error_message = 'Η δημιουργία του μαθήματος απέτυχε.';
@@ -59,6 +59,7 @@ switch ($action) {
   case 'update':
     if($title && $description && $teacher && $semester){
     update_class($title, $description, $points, $mandatory, $teacher, $semester, $classId);
+    $_SESSION['msg'] = 'Το μάθημα ενημερώθηκε με επιτυχία';
     header("location: dashboard_admin.php?page=classes");
     } else {
       $error_message = 'Η επεξεργασία του μαθήματος απέτυχε.';
@@ -69,6 +70,7 @@ switch ($action) {
   case 'delete':
     delete_class_registration($classId);
     delete_class($classId);
+    $_SESSION['msg'] = 'Το μάθημα διαγράφηκε με επιτυχία';
     header("location: dashboard_admin.php?page=classes");
     break;
   default:

@@ -31,7 +31,8 @@
 
   if($action == 'reset') {
     $count = reset_user_password($id, $newPassword);
-    header("location: dashboard_admin.php");
+    $_SESSION['msg'] = 'Ο κωδικός πρόσβασης ενημερώθηκε με επιτυχία';
+    header("location: login.php");
     exit;
   }else {
     $genPassword = random_password();

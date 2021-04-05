@@ -4,6 +4,9 @@ include('./view/navbar.php');
 ?>
 
 <main class="main">
+  <?php if(isset($_SESSION['msg'])){ ?>
+    <h2 class="success"><?= $_SESSION['msg'] ?></h2>
+  <?php unset($_SESSION['msg']); } ?>
   <section class="dashboard">
     <aside class="dashboard__aside">
       <img src="./assets/images/<?= $avatar ?>" alt="<?= $lastname ?>" />

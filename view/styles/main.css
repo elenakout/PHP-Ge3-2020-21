@@ -879,3 +879,12 @@ option:first {
 .green {
   color:green;
 }
+
+.success {
+  width:max-content;
+  text-align: center;
+  padding: 5px;
+  background-color: green;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}

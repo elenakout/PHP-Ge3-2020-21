@@ -53,6 +53,7 @@
     case 'update':
       update_user_info($userId, $phone, $birthday);
       update_user_address($userId, $street, $strnum, $city, $postalcode);
+      $_SESSION['msg'] = 'Τα στοιχεία ενημερώθηκαν με επιτυχία';
       header("location: dashboard_teacher.php");
       break;
     case 'profile':

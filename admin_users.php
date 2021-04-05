@@ -69,6 +69,7 @@
         register_student_to_semester($id, $semester);
         add_classes($id);
       }
+      $_SESSION['msg'] = 'Ο χρήστης δημιουργήθηκε με επιτυχία';
       header("location: dashboard_admin.php");
       } else {
         $error_message = 'Η εγγραφή του χρήστη απέτυχε.';
@@ -79,6 +80,7 @@
     case 'update':
       if($username && $userlastname && $email && $regNum && $gender && $userId){
       update_user($username, $userlastname, $regNum, $gender, $email, $userId);
+      $_SESSION['msg'] = 'Τα στοιχεία του χρήστη ενημερώθηκαν με επιτυχία';
       header("location: dashboard_admin.php");
     } else {
       $error_message = 'Η διόρθωση των στοιχείων του χρήστη απέτυχε.';
