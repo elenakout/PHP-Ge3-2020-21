@@ -2,6 +2,7 @@
 require('./model/database.php');
 require('./model/user_db.php');
 require('./model/class_db.php');
+require('./model/student_db.php');
 
 session_start();
 
@@ -29,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
   $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
-  $points = filter_input(INPUT_POST, 'points', FILTER_SANITIZE_STRING);
   $mandatory = filter_input(INPUT_POST, 'mandatory', FILTER_SANITIZE_NUMBER_INT);
   $teacher = filter_input(INPUT_POST, 'teacher', FILTER_SANITIZE_STRING);
   $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
@@ -42,8 +42,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 switch ($action) {
   case 'create':
-    if($title && $description && $points && $teacher && $semester){
-    create_class($title, $description, $points, $mandatory, $teacher, $semester);
+    if($title && $description && $teacher && $semester){
+    $idclass = create_class($title, $description, $mandatory, $teacher, $semester);
+    $students = get_all_students();
+    foreach($students as $student){
+      add_students_to_class($student['ID'], $idclass, $teacher);
+    }
+
     header("location: dashboard_admin.php?page=classes");
   } else {
     $error_message = 'Η δημιουργία του μαθήματος απέτυχε.';

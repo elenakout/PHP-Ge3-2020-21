@@ -38,17 +38,16 @@ function get_teacher_classes($teacherId){
   return $classes;
 }
 
-function create_class($title, $description, $points, $mandatory, $teacher, $semester)
+function create_class($title, $description, $mandatory, $teacher, $semester)
 {
   global $db;
   $query = "INSERT INTO class
-              (title, description, points, mandatory, teacherId, classSemester)
+              (title, description, mandatory, teacherId, classSemester)
             VALUES
-              (:title, :description, :points, :mandatory, :teacherId, :semester)";
+              (:title, :description, :mandatory, :teacherId, :semester)";
   $statement = $db->prepare($query);
   $statement->bindValue(':title', $title);
   $statement->bindValue(':description', $description);
-  $statement->bindValue(':points', $points);
   $statement->bindValue(':mandatory', $mandatory);
   $statement->bindValue(':teacherId', $teacher);
   $statement->bindValue(':semester', $semester);
@@ -114,6 +113,24 @@ function add_classes($id) {
       $count = $statement->rowCount();
     };
   }
+  $statement->closeCursor();
+  return $count;
+}
+
+function add_students_to_class($stdId, $classId, $teacherId){
+ global $db;
+    $query = "INSERT INTO classregistration
+                (studentId, teacherId, classId)
+              VALUES
+                (:studentid, :teacherid, :classid)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':studentid', $stdId);
+    $statement->bindValue(':teacherid', $teacherId);
+    $statement->bindValue(':classid', $classId);
+    if ($statement->execute()) {
+      $count = $statement->rowCount();
+    };
+
   $statement->closeCursor();
   return $count;
 }
