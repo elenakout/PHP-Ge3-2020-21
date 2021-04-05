@@ -123,6 +123,19 @@ function get_teacher_students($teacherId){
   return $students;
 }
 
+function check_student_grades($id) {
+  global $db;
+  $query = 'SELECT grade, classId, register
+            FROM classregistration
+            WHERE studentId = :stdid AND grade > 0' ;
+  $statement = $db->prepare($query);
+  $statement->bindValue(':stdid', $id);
+  $statement->execute();
+  $grades = $statement->fetchAll();
+  $statement->closeCursor();
+  return $grades;
+}
+
 function mandatory_passed($classes){
   $count = 0;
   foreach($classes as $class) {

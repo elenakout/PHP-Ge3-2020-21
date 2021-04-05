@@ -68,6 +68,7 @@ include('./view/navbar.php');
                   <input type="hidden" name="stdId" value="<?= $stdId ?>">
                   <select name="grade" id="grade" class="form_input">
                     <option value="" disabled selected hidden>Βαθμός μαθητή</option>
+                    <option value="0" <?php if ($grade == 0) {echo ("selected");} ?>>-</option>
                     <option value="1" <?php if ($grade == 1) {echo ("selected");} ?>>1</option>
                     <option value="2" <?php if ($grade == 2) {echo ("selected");} ?>>2</option>
                     <option value="3" <?php if ($grade == 3) {echo ("selected");} ?>>3</option>
@@ -79,7 +80,7 @@ include('./view/navbar.php');
                     <option value="9" <?php if ($grade == 9) {echo ("selected");} ?>>9</option>
                     <option value="10" <?php if ($grade == 10) {echo ("selected");} ?>>10</option>
                   </select>
-                  <input type="submit" value="Βαθμος" class="btn btn-light exit" />
+                  <input type="submit" value="εισαγωγη" class="btn btn-light exit" />
                 </form>
               </td>
             </tr>

@@ -28,9 +28,13 @@
   }
 
   if($_SERVER["REQUEST_METHOD"] == "POST"){
+
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
-    $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
-    $grade = filter_input(INPUT_POST, 'grade', FILTER_SANITIZE_NUMBER_INT);
+    if($action === 'submit_grade'){
+      $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
+      $grade = filter_input(INPUT_POST, 'grade', FILTER_SANITIZE_NUMBER_INT);
+      $stdId = filter_input(INPUT_POST, 'stdId', FILTER_SANITIZE_NUMBER_INT);
+    }
     if($action === 'update'){
       $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
       $birthday = trim($_POST["birthday"]);
@@ -58,7 +62,19 @@
       break;
     case 'submit_grade':
       update_student_grade($regid, $grade);
-      header("location: dashboard_teacher.php");
+      $semester = get_student_semester($stdId);
+      $grades = check_student_grades($stdId);
+      if($semester['semesterNum'] === 3) {
+        header("location: dashboard_teacher.php");
+      }
+      $classes = $semester['semesterNum'] * 3;
+      if($classes === count($grades)) {
+        $newsemester = $semester['semesterNum'] + 1;
+        update_student_semester($stdId, $newsemester);
+        header("location: dashboard_teacher.php");
+      } else {
+        header("location: dashboard_teacher.php");
+      }
       break;
     default:
       $students = get_teacher_students($userId);
