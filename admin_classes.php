@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $mandatory = filter_input(INPUT_POST, 'mandatory', FILTER_SANITIZE_NUMBER_INT);
   $teacher = filter_input(INPUT_POST, 'teacher', FILTER_SANITIZE_STRING);
   $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
-  $classId = filter_input(INPUT_POST, 'classId', FILTER_SANITIZE_STRING);
+  $classId = filter_input(INPUT_POST, 'classId', FILTER_SANITIZE_NUMBER_INT);
   if(!$mandatory) {
     $mandatory = 0;
   }
@@ -60,6 +60,11 @@ switch ($action) {
       $link = "dashboard_admin.php?page=classes";
       include('view/error.php');
     }
+    break;
+  case 'delete':
+    delete_class_registration($classId);
+    delete_class($classId);
+    header("location: dashboard_admin.php?page=classes");
     break;
   default:
     $teachers = get_users_by_role('teacher');

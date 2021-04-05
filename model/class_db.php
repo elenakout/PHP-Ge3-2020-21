@@ -147,3 +147,31 @@ function unregister_student_to_class($id) {
   $statement->closeCursor();
   return $count;
 }
+
+function delete_class_registration($id){
+  global $db;
+  $count = 0;
+  $query = 'DELETE FROM classregistration
+            WHERE classId = :classid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':classid', $id);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}
+
+function delete_class($id){
+  global $db;
+  $count = 0;
+  $query = 'DELETE FROM class
+            WHERE ID = :classid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':classid', $id);
+  if ($statement->execute()) {
+    $count = $statement->rowCount();
+  };
+  $statement->closeCursor();
+  return $count;
+}

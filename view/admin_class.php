@@ -65,8 +65,14 @@ include('./view/navbar.php');
                               echo ("selected");
                             } ?>>3</option>
         </select>
-        <p class="error_semester">Παρακαλώ επιλέξτε καθηγητή</p>
+        <p class="error_semester">Παρακαλώ επιλέξτε εξάμηνο φοίτησης</p>
         <input type="submit" value="επεξεργασια" class="btn btn-dark" />
+      </form>
+      <form class="form" action="./admin_classes.php" method="post">
+        <input type="hidden" name="action" value="delete">
+        <input type="hidden" name="classId" value="<?= $class['ID'] ?>">
+        <input type="submit" value="διαγραφη" class="btn btn-outline-red" />
+        <p class="help">Προσοχή η ενέργεια αυτή είναι μη αναστρέψιμη.</p>
       </form>
     </div>
   </section>

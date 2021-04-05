@@ -514,6 +514,13 @@ th {
   padding-bottom: 8px;
 }
 
+.help {
+  color: red;
+  width: 100%;
+  font-size: 1.4rem;
+  padding-top: 8px;
+}
+
 label,
 .checkbox__label {
   font-size: 1.4rem;
