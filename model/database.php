@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=ge3-test';
+    $dsn = 'mysql:host=localhost;dbname=koutousi';
     $username = 'root';
 
 

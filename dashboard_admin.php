@@ -59,8 +59,8 @@
       $nomanPass = nomandatory_passed($classes);
       $registerClasses = $regClass - $manPass - $nomanPass;
       $nomanRem = 2 - $nomanPass;
-      $points = 5 * $manPass + $nomanPass;
-      $pointsRem = 45 - (5 * $manPass + $nomanPass);
+      $points = 5 * ($manPass + $nomanPass);
+      $pointsRem = 45 - (5 * ($manPass + $nomanPass));
       $semester1 = get_student_classes_by_semester($userId, 1);
       $semester2 = get_student_classes_by_semester($userId, 2);
       $semester3 = get_student_classes_by_semester($userId, 3);

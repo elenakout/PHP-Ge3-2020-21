@@ -21,11 +21,11 @@
   </div>
   <div class="form__demo">
     <h2>Λογαριασμοί επίδειξης</h2>
-    <p><span class="span_bold">Admin:</span> adm000000@uni.thess.gr <span
+    <p><span class="span_bold">Admin:</span> adm483713@uni.thess.gr <span
         class="span_bold">password:</span> demo1234</p>
-    <p><span class="span_bold">Student:</span> stu000000@uni.thess.gr <span
+    <p><span class="span_bold">Student:</span> stu203042@uni.thess.gr <span
         class="span_bold">password:</span> demo1234</p>
-    <p><span class="span_bold">Teacher:</span> sep000000@uni.thess.gr <span
+    <p><span class="span_bold">Teacher:</span> sep028331@uni.thess.gr <span
         class="span_bold">password:</span> demo1234</p>
   </div>
 

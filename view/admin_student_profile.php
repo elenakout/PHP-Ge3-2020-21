@@ -140,13 +140,8 @@ include('./view/navbar.php');
               <?php if($passed) { ?>
               <td class="width-10"></td>
               <?php } else { ?>
-              <td class="width-5">
-                <?php
-                  if(!$register){ ?>
-                Μη Εγγραμμένος
-                <?php  } else { ?>
-                Εγγεγραμμενος
-                <?php } ?>
+              <td class="width-5 <?= $register ? 'green' : 'red'?>">
+                <?= $register ? 'Εγγεγραμμενος' : 'Μη Εγγραμμένος' ?>
               </td>
               <?php } ?>
             </tr>
@@ -179,14 +174,9 @@ include('./view/navbar.php');
               <?php if($passed || $active) { ?>
               <td class="width-10"></td>
               <?php } else { ?>
-              <td class="width-5">
-                <?php
-                  if(!$register){ ?>
-                Μη Εγγραμμένος
-                <?php  } else { ?>
-                Εγγεγραμμενος
-                <?php } ?>
-              </td>
+                <td class="width-5 <?= $register ? 'green' : 'red'?>">
+                  <?= $register ? 'Εγγεγραμμενος' : 'Μη Εγγραμμένος' ?>
+                </td>
               <?php } ?>
             </tr>
             <?php } ?>
@@ -218,14 +208,9 @@ include('./view/navbar.php');
               <?php if($passed || $active) { ?>
               <td class="width-10"></td>
               <?php } else { ?>
-              <td class="width-5">
-                <?php
-                  if(!$register){ ?>
-                Μη Εγγραμμένος
-                <?php  } else { ?>
-                Εγγεγραμμενος
-                <?php } ?>
-              </td>
+                <td class="width-5 <?= $register ? 'green' : 'red'?>">
+                  <?= $register ? 'Εγγεγραμμενος' : 'Μη Εγγραμμένος' ?>
+                </td>
               <?php } ?>
             </tr>
             <?php } ?>

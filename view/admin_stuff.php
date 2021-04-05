@@ -50,9 +50,12 @@
         ?>
           <tr>
             <td class="left">
-              <a href="./dashboard_admin.php?page=profile&userId=<?= $id ?>">
-                <?= $lastName ?> <?= $name ?>
-              </a>
+              <span class="center">
+                <img class="header__image" src="./assets/images/<?= $avatar ?>" alt="<?= $lastName ?>" />
+                <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                  <?= $lastName ?> <?= $name ?>
+                </a>
+              </span>
             </td>
             <td class="left"><?= $email ?></td>
             <td class="width-5"><?= $phone ?></td>

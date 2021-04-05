@@ -31,7 +31,7 @@
 
   if($action == 'reset') {
     $count = reset_user_password($id, $newPassword);
-    header("location: dashboard_admin.php?page=profile&userId=" . $id);
+    header("location: dashboard_admin.php");
     exit;
   }else {
     $genPassword = random_password();

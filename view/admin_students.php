@@ -11,9 +11,9 @@
         <p><?= $lastname ?></p>
         <p><?= $name ?></p>
         <?php if($role === 'admin') { ?>
-        <p><span>Γραμματεία</span></p>
+          <p><span>Γραμματεία</span></p>
         <?php }else { ?>
-        <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
+          <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
         <?php } ?>
       </div>
       <a href="./dashboard_admin.php" class="dashboard__link link__active"><img
@@ -56,9 +56,12 @@
             <td rowspan="<?= count($stdSem1)?>" class="width-5"><?= $semesterNum ?></td>
             <?php } ?>
             <td class="left">
-              <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
-                <?= $lastName ?> <?= $name ?>
-              </a>
+              <span class="center">
+                <img class="header__image" src="./assets/images/<?= $avatar ?>" alt="<?= $lastName ?>" />
+                <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                  <?= $lastName ?> <?= $name ?>
+                </a>
+              </span>
             </td>
             <td class="left"><?= $email ?></td>
             <td><?= $phone ?></td>
@@ -82,9 +85,12 @@
             <td rowspan="<?= count($stdSem2)?>" class="width-5"><?= $semesterNum ?></td>
             <?php } ?>
             <td class="left">
-              <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
-                <?= $lastName ?> <?= $name ?>
-              </a>
+              <span class="center">
+                <img class="header__image" src="./assets/images/<?= $avatar ?>" alt="<?= $lastName ?>" />
+                <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                  <?= $lastName ?> <?= $name ?>
+                </a>
+              </span>
             </td>
             <td class="left"><?= $email ?></td>
             <td><?= $phone ?></td>
@@ -108,9 +114,12 @@
             <td rowspan="<?= count($stdSem3)?>" class="width-5"><?= $semesterNum ?></td>
             <?php } ?>
             <td class="left">
-              <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
-                <?= $lastName ?> <?= $name ?>
-              </a>
+              <span class="center">
+                <img class="header__image" src="./assets/images/<?= $avatar ?>" alt="<?= $lastName ?>" />
+                <a href="./dashboard_admin.php?page=student_profile&userId=<?= $id ?>">
+                  <?= $lastName ?> <?= $name ?>
+                </a>
+              </span>
             </td>
             <td class="left"><?= $email ?></td>
             <td><?= $phone ?></td>

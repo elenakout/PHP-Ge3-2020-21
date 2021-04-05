@@ -315,7 +315,6 @@ th {
   min-width: 38rem;
   z-index: 1;
   background-color: var(--primary-dark);
-  /* border: 1px solid red; */
 }
 
 .dropdown a {
@@ -454,7 +453,6 @@ th {
 .form__container {
   width: 30%;
   margin: 4rem auto;
-  /* border: 1px solid red; */
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
@@ -872,4 +870,12 @@ option:first {
   margin-bottom: 2rem;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color:green;
 }

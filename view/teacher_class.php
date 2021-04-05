@@ -56,9 +56,12 @@ include('./view/navbar.php');
             ?>
             <?php if($class['ID'] === $classId) { ?>
             <tr>
-              <td class="left width-10"><span class="center"><img class="header__image"
-                    src="./assets/images/<?= $stdavatar ?>"
-                    alt="<?= $stdlastname ?>" /><?= $stdlastname ?> <?= $stdname ?></span></td>
+              <td class="left width-10">
+                <span class="center">
+                  <img class="header__image" src="./assets/images/<?= $stdavatar ?>" alt="<?= $stdlastname ?>" />
+                  <?= $stdlastname ?> <?=$stdname ?>
+                </span>
+              </td>
               <td class="left width-10"><?= $stdemail ?></td>
               <td class="width-10"><?= $stdregNum ?></td>
               <td class="width-5">
