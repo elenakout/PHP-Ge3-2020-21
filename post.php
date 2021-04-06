@@ -5,7 +5,7 @@
   session_start();
 
   // Αρχικοποίηση μεταβλητών
-  $name = $role = $userId = $avatart = '';
+  $name = $role = $userId = $avatar = '';
 
   // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
@@ -21,4 +21,3 @@
   $results = get_single_post($postId);
 
   include('./view/single_post.php');
-  // TODO if else statement if not posts show error page

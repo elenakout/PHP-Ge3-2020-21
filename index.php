@@ -5,7 +5,7 @@
   session_start();
 
   // Αρχικοποίηση μεταβλητών
-  $name = $role = $userId = $avatart = '';
+  $name = $role = $userId = $avatar = '';
 
   // Τα τρία ποιό πρόσφατα άρθρα
   $results = get_limit_posts();
@@ -21,4 +21,3 @@
   }
 
   include('./view/home_posts.php');
-  // TODO if else statement if not posts show error page

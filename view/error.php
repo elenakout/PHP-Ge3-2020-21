@@ -6,8 +6,5 @@
   <a href="<?= $link?>" class="btn">επιστροφη</a>
 </main>
 
-
 <br>
 <?php include('footer.php') ?>
-
-// TODO refactor error page

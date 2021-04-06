@@ -489,7 +489,7 @@ th {
 
 
 .form__demo {
-  /* text-align: center; */
+  margin: 0 auto;
   width: 35%;
   padding: 2rem 4rem;
   border-radius: 5px;
@@ -886,5 +886,5 @@ option:first {
   padding: 5px;
   background-color: green;
   color: var(--text-light);
-  margin-bottom: 1rem;
+  margin: 1rem auto;
 }

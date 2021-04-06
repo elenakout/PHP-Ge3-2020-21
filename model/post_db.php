@@ -1,5 +1,6 @@
 <?php
 
+  // Ανάκτηση όλων των άρθρων
   function get_posts() {
     global $db;
     $query = 'SELECT * FROM post
@@ -11,6 +12,7 @@
     return $results;
   }
 
+  // Ανάντηση το 3 πιο πρόσφατων άρθρων
   function get_limit_posts() {
     global $db;
     $query = 'SELECT * FROM post
@@ -23,6 +25,7 @@
     return $results;
   }
 
+  // Ανάκτηση ενός άρθρου με βάση την ID του άρθρου
   function get_single_post($id) {
     global $db;
     $query = 'SELECT * FROM post
