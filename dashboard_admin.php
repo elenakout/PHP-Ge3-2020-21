@@ -15,6 +15,7 @@
     $role = $_SESSION['role'];
     $avatar = $_SESSION['avatar'];
     $lastname = $_SESSION["lastName"];
+    $usrId = $_SESSION['userId'];
     // Έλαγχος αν ο χρήστης είναι admin
     if($role != 'admin') {
       header("location: index.php");
@@ -75,6 +76,11 @@
       $teachers = get_users_by_role('teacher');
       $class = get_class_by_id($classId);
       include('./view/admin_class.php');
+      break;
+    case 'admin_profile':
+      $admin = get_user_by_id($usrId);
+      $address = get_user_address($userId);
+      include('./view/admin_info.php');
       break;
     default:
       $stdSem1 = get_students_by_semester(1);

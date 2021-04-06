@@ -48,6 +48,15 @@
       $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_STRING);
       $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     }
+    if($action === 'update_admin') {
+      $userId = filter_input(INPUT_POST, 'userId', FILTER_SANITIZE_STRING);
+      $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
+      $birthday = trim($_POST["birthday"]);
+      $street = filter_input(INPUT_POST, 'street', FILTER_SANITIZE_STRING);
+      $strnum = filter_input(INPUT_POST, 'strnum', FILTER_SANITIZE_STRING);
+      $city = filter_input(INPUT_POST, 'city', FILTER_SANITIZE_STRING);
+      $postalcode = filter_input(INPUT_POST, 'postalcode', FILTER_SANITIZE_STRING);
+    }
   }
 
   if($_SERVER["REQUEST_METHOD"] == "GET"){
@@ -88,6 +97,11 @@
       include('view/error.php');
     }
       break;
+    case 'update_admin':
+      update_user_info($userId, $phone, $birthday);
+      update_user_address($userId, $street, $strnum, $city, $postalcode);
+      $_SESSION['msg'] = 'Τα στοιχεία ενημερώθηκαν με επιτυχία';
+      header("location: dashboard_admin.php");
     default:
     include('./view/form_register.php');
     break;

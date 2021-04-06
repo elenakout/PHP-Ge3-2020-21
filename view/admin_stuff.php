@@ -16,14 +16,26 @@
         <p><?= $role === 'teacher' ? 'Καθηγητής' : 'Μαθητης' ?> </p>
         <?php } ?>
       </div>
-      <a href="./dashboard_admin.php" class="dashboard__link "><img
-          src="./assets/icons/user-avatar-filled.svg" alt="avatar icon"> Μαθητές</a>
-      <a href="./dashboard_admin.php?page=teacher" class="dashboard__link "><img
-          src="./assets/icons/teacher-ico.svg" alt="avatar icon">Καθηγητές</a>
-      <a href="./dashboard_admin.php?page=admin" class="dashboard__link link__active"><img
-          src="./assets/icons/admin-ico-alt.svg" alt="avatar icon">Γραμματεία</a>
-      <a href="./dashboard_admin.php?page=classes" class="dashboard__link "><img
-          src="./assets/icons/book-ico.svg" alt="avatar icon">Μαθήματα</a>
+      <a href="./dashboard_admin.php?page=admin_profile" class="dashboard__link ">
+        <img src="./assets/icons/user-avatar-filled.svg" alt="avatar icon">
+        Προφίλ
+      </a>
+      <a href="./dashboard_admin.php" class="dashboard__link ">
+        <img src="./assets/icons/users.svg" alt="avatar icon">
+        Φοιτητές
+      </a>
+      <a href="./dashboard_admin.php?page=teacher" class="dashboard__link">
+        <img src="./assets/icons/teacher-ico.svg" alt="avatar icon">
+        Καθηγητές
+      </a>
+      <a href="./dashboard_admin.php?page=admin" class="dashboard__link link__active">
+        <img src="./assets/icons/admin-ico-alt.svg" alt="avatar icon">
+        Γραμματεία
+      </a>
+      <a href="./dashboard_admin.php?page=classes" class="dashboard__link ">
+        <img src="./assets/icons/book-ico.svg" alt="avatar icon">
+        Μαθήματα
+      </a>
       <a href="./admin_users.php?role=admin" class="dashboard__link link__active "><img
           src="./assets/icons/insert-alt.svg" alt="avatar icon">Εγγραφή
         Γραμματείας</a>
