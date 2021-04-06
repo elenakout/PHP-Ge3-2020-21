@@ -15,7 +15,7 @@
     $avatar = $_SESSION['avatar'];
   }
 
-
+  // Μθήματα ανα εξάμηνο
   $semester1 = get_classes_by_semester(1);
   $semester2 = get_classes_by_semester(2);
   $semester3 = get_classes_by_semester(3);

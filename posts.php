@@ -19,4 +19,3 @@
   $results = get_posts();
 
   include('./view/all_posts.php');
-  // TODO if else statement if not posts show error page

@@ -3,7 +3,7 @@
   include('./view/navbar.php');
 ?>
 
-<!-- Περιεχόμενο Σελίδας - Main -->
+<!-- Περιεχόμενο Σελίδας - Μαθήματα -->
 <main class="main">
   <section class="posts">
     <h2 class="page-title">μαθηματα</h2>
@@ -77,7 +77,6 @@
           <td class="left width-10"><?= $mandarory ?></td>
         </tr>
         <?php } ?>
-
       </tbody>
     </table>
   </section>

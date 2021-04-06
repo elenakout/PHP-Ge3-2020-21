@@ -4,7 +4,7 @@
   include('./view/navbar.php');
 ?>
 
-<!-- Περιεχόμενο Σελίδας - Main -->
+<!-- Περιεχόμενο Σελίδας - Ανακοινώσεις -->
 <main class="main">
   <h2 class="page-title">Ανακοινωσεις</h2>
   <section class="container posts">
