@@ -1,5 +1,6 @@
 <?php
 
+// Αυθεντικοποίηση χρήστη
 function user_login($email, $password) {
   global $db;
   $query = 'SELECT *

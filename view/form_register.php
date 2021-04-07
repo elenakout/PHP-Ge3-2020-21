@@ -60,7 +60,7 @@
         </select>
         <p class="error_semester">Παρακαλώ εισάγετε εξάμηνο φοίτησης</p>
         <?php } ?>
-        <input type="submit" value="εγγραφη φοιτητη" class="btn btn-dark" />
+        <input type="submit" value="εγγραφη" class="btn btn-dark" />
       </form>
     </div>
   </section>

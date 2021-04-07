@@ -3,7 +3,7 @@
   include('./view/navbar.php');
 ?>
 
-<!-- Περιεχόμενο Σελίδας - Main -->
+<!-- Περιεχόμενο Σελίδας - Είσοδος -->
 <main class="main">
   <div class="form__container">
     <div class="form__header">
@@ -28,11 +28,6 @@
     <p><span class="span_bold">Teacher:</span> sep028331@uni.thess.gr <span
         class="span_bold">password:</span> demo1234</p>
   </div>
-
-
-
-
-
 </main>
 
 <?php

@@ -8,7 +8,7 @@
   // Έλεγχος άν ο χρήστης είναι ήδη συνδεμένος
   if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     $role = $_SESSION['role'];
-    // Επιλογή σελίδας ανάλογα με το ρόλο του χρήστη
+    // Επιλογή σελίδας αναδρομολογησης ανάλογα με το ρόλο του χρήστη
     switch($role) {
       case 'teacher':
         header("location: dashboard_teacher.php");
@@ -41,6 +41,7 @@
     } else if($user === -1){
       $error = 'Εσφαλμένος κωδικός password';
     } else {
+      // Αποθήκευση μεταβλητών στο Session
       session_start();
       $_SESSION["loggedin"] = true;
       $_SESSION["name"] = $user["name"];
