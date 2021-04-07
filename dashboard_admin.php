@@ -26,29 +26,33 @@
     exit;
   }
 
-
+  // Έλεγχος για ποια σελίδα επέλεξε ο χρήστης
   if($_SERVER["REQUEST_METHOD"] == "GET"){
     $page = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_STRING);
     $userId = filter_input(INPUT_GET, 'userId', FILTER_SANITIZE_STRING);
     $classId = filter_input(INPUT_GET, 'classId', FILTER_SANITIZE_STRING);
   }
 
-
+  // Εμφάνιση της αντίστοιχης σελίδας ανάλογα με την επιλογή του χρήστη
   switch($page) {
+    // Σελίδα Καθηγητών
     case 'teacher':
       $teachers = get_users_by_role($page);
       include('./view/admin_teachers.php');
       break;
+    // Σελίδα Γραμματείας
     case 'admin':
       $admins = get_users_by_role($page);
       include('./view/admin_stuff.php');
       break;
+    // Σελίδα Μαθημάτων
     case 'classes':
       $semester1 = get_classes_by_semester(1);
       $semester2 = get_classes_by_semester(2);
       $semester3 = get_classes_by_semester(3);
       include('./view/admin_classes.php');
       break;
+    // Σελίδα Φοιτητή
     case 'student_profile':
       $user = get_user_by_id($userId);
       $address = get_user_address($userId);
@@ -67,21 +71,25 @@
       $semester3 = get_student_classes_by_semester($userId, 3);
       include('./view/admin_student_profile.php');
       break;
+    // Σελίδα προφίλ Καθηγητών και Γραμματείας
     case 'profile':
       $user = get_user_by_id($userId);
       $address = get_user_address($userId);
       include('./view/admin_profile.php');
       break;
+    // Σελίδα Μαθήματος
     case 'class':
       $teachers = get_users_by_role('teacher');
       $class = get_class_by_id($classId);
       include('./view/admin_class.php');
       break;
+    // Σελίδα προφίλ χρήστη
     case 'admin_profile':
       $admin = get_user_by_id($usrId);
       $address = get_user_address($userId);
       include('./view/admin_info.php');
       break;
+    // Σελίδα Μαθημάτων
     default:
       $stdSem1 = get_students_by_semester(1);
       $stdSem2 = get_students_by_semester(2);

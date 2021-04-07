@@ -27,7 +27,7 @@
     exit;
   }
 
-
+  // Δημιουργία μεταβλητών μέτα την υποβολή φόρμας από το χρήστη
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     $username = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
@@ -63,6 +63,9 @@
     $roleuser = filter_input(INPUT_GET, 'role', FILTER_SANITIZE_STRING);
   }
 
+  // Διαχείριση λειτουργίας ανάλογα με την εργασιά για την οποία δημιουργήθηκε η φόρμα
+  // Δημιουργία χρήστη (submit, create)
+  // Ενημέρωση στοιχείων χρήστη (update, update_admin)
   switch($action) {
     // Αν η φόρμα υποβληθεί δημιουργούμε αντίστοιχο email χρήστη και τυχαίο password
     case 'submit':

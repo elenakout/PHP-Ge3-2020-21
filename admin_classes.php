@@ -26,6 +26,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
   exit;
 }
 
+// Δημιουργία μεταβλητών μέτα την υποβολή φόρμας από το χρήστη
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
   $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
@@ -39,7 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
-
+// Διαχείριση λειτουργίας ανάλογα με την εργασιά για την οποία δημιουργήθηκε η φόρμα
+// Δημιουργία μαθήματος(create)
+// Ενημέρωση στοιχείων μαθήματος (update)
+// Διαγραφή μαθήματος
 switch ($action) {
   case 'create':
     if($title && $description && $teacher && $semester){
