@@ -1,5 +1,6 @@
 <?php
 
+// Ανάκτηση όλων των μαθηματων
 function get_all_classes() {
   global $db;
   $query = 'SELECT *
@@ -11,6 +12,7 @@ function get_all_classes() {
   return $results;
 }
 
+// Ανάκτηση μαθημάτων με βάση το εξάμηνο
 function get_classes_by_semester($semester) {
   global $db;
   $query = 'SELECT C.ID, C.title, C.points, C.mandatory, C.classSemester, T.name, T.lastName
@@ -25,6 +27,7 @@ function get_classes_by_semester($semester) {
   return $results;
 }
 
+// Ανάκτηση μαθημάτων με βάση το καθηγητή
 function get_teacher_classes($teacherId){
   global $db;
   $query = 'SELECT ID, title, classSemester
@@ -38,6 +41,7 @@ function get_teacher_classes($teacherId){
   return $classes;
 }
 
+// Δημιουργία μαθήματος
 function create_class($title, $description, $mandatory, $teacher, $semester)
 {
   global $db;
@@ -57,6 +61,7 @@ function create_class($title, $description, $mandatory, $teacher, $semester)
   return $id;
 }
 
+// Ενημέρωση στοιχείων μαθημάτων
 function update_class($title, $description, $points, $mandatory, $teacher, $semester, $classId)
 {
   global $db;
@@ -79,6 +84,7 @@ function update_class($title, $description, $points, $mandatory, $teacher, $seme
   return $count;
 }
 
+// Ανάκτηση μαθήματος με βάση το ID
 function get_class_by_id($id)
 {
   global $db;
@@ -93,6 +99,7 @@ function get_class_by_id($id)
   return $class;
 }
 
+// Δημιουργία εγγραφών στον πίνακα classregistration μετά την εγγραφή φοιτητή
 function add_classes($id) {
   $classes = get_all_classes();
   global $db;
@@ -117,6 +124,7 @@ function add_classes($id) {
   return $count;
 }
 
+// Προσθήκη φοιτητή σε μάθημα
 function add_students_to_class($stdId, $classId, $teacherId){
  global $db;
     $query = "INSERT INTO classregistration
@@ -135,6 +143,7 @@ function add_students_to_class($stdId, $classId, $teacherId){
   return $count;
 }
 
+// Εγγραφή φοιτητή σε μάθημα
 function register_student_to_class($id) {
   global $db;
   $count = 0;
@@ -150,6 +159,7 @@ function register_student_to_class($id) {
   return $count;
 }
 
+// Απεγγραφή μαθητή σε μάθημα
 function unregister_student_to_class($id) {
   global $db;
   $count = 0;
@@ -165,6 +175,7 @@ function unregister_student_to_class($id) {
   return $count;
 }
 
+// Διαγραφή μαθήματος από το πίνακα classregistration
 function delete_class_registration($id){
   global $db;
   $count = 0;
@@ -179,6 +190,7 @@ function delete_class_registration($id){
   return $count;
 }
 
+// Διαγραφή μαθήματος
 function delete_class($id){
   global $db;
   $count = 0;

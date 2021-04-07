@@ -1,5 +1,6 @@
 <?php
 
+// Ανάκτηση όλων των μαθητών
 function get_all_students(){
   global $db;
   $query = 'SELECT *
@@ -12,6 +13,7 @@ function get_all_students(){
   return $results;
 }
 
+// Ανάκτηση φοιτητών ανα εξάμηνο
 function get_students_by_semester($semester){
   global $db;
   $query = 'SELECT R.semesterNum, S.ID, S.name, S.lastName, S.phone, S.email, S.regNum, S.avatar
@@ -27,6 +29,7 @@ function get_students_by_semester($semester){
   return $results;
 }
 
+// Εγραφή φοιτητή σε εξάμηνο
 function register_student_to_semester($id, $semester){
   global $db;
   $count = 0;
@@ -44,6 +47,7 @@ function register_student_to_semester($id, $semester){
   return $count;
 }
 
+// Ανάκτηση εξαμήνου φοίτησης μαθητή
 function get_student_semester($id) {
   global $db;
   $query = 'SELECT semesterNum
@@ -57,6 +61,7 @@ function get_student_semester($id) {
   return $semester;
 }
 
+// Ανάκτηση μαθημάτων φοιτητή ανα εξάμηνο
 function get_student_classes_by_semester($id, $semester) {
   global $db;
   $query = 'SELECT R.grade, R.ID as regId, R.register, C.ID as classid, C.title, C.points, C.mandatory, C.classSemester, C.teacherId, T.name, T.lastName
@@ -73,6 +78,7 @@ function get_student_classes_by_semester($id, $semester) {
   return $classes;
 }
 
+// Ανάκτηση μαθημάτων φοιτητή
 function get_student_classes($id) {
   global $db;
   $query = 'SELECT R.grade, R.ID as regId, R.register, C.ID as classid, C.points, C.mandatory, C.classSemester
@@ -87,6 +93,7 @@ function get_student_classes($id) {
   return $classes;
 }
 
+// Ενημέρωση βαθμού φοιτητή
 function update_student_grade($regId, $grade) {
   global $db;
   $count = 0;
@@ -103,6 +110,7 @@ function update_student_grade($regId, $grade) {
   return $count;
 }
 
+// Ενημέρωση εξανήνου φοίτησης φοιτητή
 function update_student_semester($id, $semester){
   global $db;
   $count = 0;
@@ -119,6 +127,7 @@ function update_student_semester($id, $semester){
   return $count;
 }
 
+// Ανάκτηση φοιτητών του καθηγητή
 function get_teacher_students($teacherId){
   global $db;
   $query = 'SELECT R.ID as regId, R.grade, R.register, S.ID as stdId, S.name, S.lastName, S.regNum, S.avatar, S.email, C.ID as classId, C.title, C.classSemester
@@ -135,6 +144,7 @@ function get_teacher_students($teacherId){
   return $students;
 }
 
+// Έλεγχος βαθμών μαθητή
 function check_student_grades($id) {
   global $db;
   $query = 'SELECT grade, classId, register
@@ -148,6 +158,7 @@ function check_student_grades($id) {
   return $grades;
 }
 
+// Συνάρτηση για τον υπολογισμό για το σύνολο των βασικών μαθημάτων
 function mandatory_passed($classes){
   $count = 0;
   foreach($classes as $class) {
@@ -158,6 +169,7 @@ function mandatory_passed($classes){
   return $count;
 }
 
+// Συνάρτηση για τον υπολογισμό για το σύνολο των μαθημάτων
 function register_classes($classes){
   $count = 0;
   foreach($classes as $class) {
@@ -168,6 +180,7 @@ function register_classes($classes){
   return $count;
 }
 
+// Συνάρτηση για τον υπολογισμό για το σύνολο των μη-βασικών μαθημάτων
 function nomandatory_passed($classes){
   $count = 0;
   foreach($classes as $class) {

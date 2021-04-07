@@ -31,6 +31,7 @@ function user_login($email, $password) {
 
 }
 
+// Δημιουργία χρήστη
 function create_user($username, $lastname, $email, $password, $regNum, $gender, $userrole){
   global $db;
   $hashpassword = password_hash($password, PASSWORD_DEFAULT);
@@ -52,6 +53,7 @@ function create_user($username, $lastname, $email, $password, $regNum, $gender, 
   return $id;
 }
 
+// Δημιουργία εγγραφής στο πίνακα Διεύθυνση
 function create_address($id) {
   global $db;
   $query = 'INSERT INTO address
@@ -67,6 +69,7 @@ function create_address($id) {
   return $count;
 }
 
+// Ενημέρωση βασικών στοιχείων του χρήστη στο πίνακα χρήστης
 function update_user($username, $lastname, $regNum, $gender, $email, $userId){
   global $db;
   $count = 0;
@@ -88,6 +91,7 @@ function update_user($username, $lastname, $regNum, $gender, $email, $userId){
   return $count;
 }
 
+// Ενημέρωση λοιπων στοιχείων του χρήστη στο πίνακα χρήστης
 function update_user_info($userId, $phone, $birthday) {
   global $db;
   $count = 0;
@@ -105,6 +109,7 @@ function update_user_info($userId, $phone, $birthday) {
   return $count;
 }
 
+// Ενημέρωση στοιχείων διεύθυνσης του χρήστη στο πίνακα διέυθυνση
 function update_user_address($userId, $street, $strnum, $city, $postalcode) {
   global $db;
   $count = 0;
@@ -124,6 +129,7 @@ function update_user_address($userId, $street, $strnum, $city, $postalcode) {
   return $count;
 }
 
+// Ανάκτηση χρήστη με βάση την ΙD του χρήστη
 function get_user_by_id($userId) {
   global $db;
   $query = 'SELECT *
@@ -137,6 +143,7 @@ function get_user_by_id($userId) {
   return $user;
 }
 
+// Ανάκτηση διεύθυνσης χρήστη
 function get_user_address($userId) {
   global $db;
   $query = 'SELECT *
@@ -150,6 +157,7 @@ function get_user_address($userId) {
   return $address;
 }
 
+// Ανάκτηση χρηστών με βάση το ρόλο τους
 function get_users_by_role($role) {
   global $db;
   $query = 'SELECT *
@@ -163,6 +171,7 @@ function get_users_by_role($role) {
   return $users;
 }
 
+// Επαναφορά κωδικού πρόσβασης χρήστη
 function reset_user_password($id, $newPassword) {
   global $db;
   $hashpassword = password_hash($newPassword, PASSWORD_DEFAULT);
