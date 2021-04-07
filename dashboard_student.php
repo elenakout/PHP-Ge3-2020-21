@@ -28,6 +28,7 @@
     exit;
   }
 
+  // Δημιουργία μεταβλητών μέτα την υποβολή φόρμας από το χρήστη
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
     $regid = filter_input(INPUT_POST, 'regId', FILTER_SANITIZE_NUMBER_INT);
@@ -45,6 +46,12 @@
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
   }
 
+  // Διαχείριση λειτουργίας ανάλογα με την εργασιά για την οποία δημιουργήθηκε η φόρμα
+  // Εγγραφή σε μάθημα(register)
+  // Απεγραφή από μάθημα (unregister)
+  // Εμφάνιση Προφίλ (profile)
+  // Ενημέρωση στοιχείων (update)
+  // Εμφάνιση στατιστικών και πίνακα μαθημάτων(default)
   switch ($action) {
     case 'register':
       $count = register_student_to_class($regid);

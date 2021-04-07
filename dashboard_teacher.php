@@ -27,6 +27,7 @@
     exit;
   }
 
+  // Δημιουργία μεταβλητών μέτα την υποβολή φόρμας από το χρήστη
   if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
@@ -49,6 +50,12 @@
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
   }
 
+  // Διαχείριση λειτουργίας ανάλογα με την εργασιά για την οποία δημιουργήθηκε η φόρμα
+  // Ενημέρωση στοιχείων (update)
+  // Εμφάνιση Προφίλ (profile)
+  // Εισαγωγή βαθμού(submit_grade)
+  // Απεγραφή από μάθημα (unregister)
+  // Εμφάνιση πίνακα φοιτητών ανα μάθημα(default)
   switch ($action) {
     case 'update':
       update_user_info($userId, $phone, $birthday);

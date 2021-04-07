@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Διαχείριση λειτουργίας ανάλογα με την εργασιά για την οποία δημιουργήθηκε η φόρμα
 // Δημιουργία μαθήματος(create)
 // Ενημέρωση στοιχείων μαθήματος (update)
-// Διαγραφή μαθήματος
+// Διαγραφή μαθήματος (delete)
 switch ($action) {
   case 'create':
     if($title && $description && $teacher && $semester){
