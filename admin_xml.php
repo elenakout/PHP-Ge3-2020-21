@@ -3,6 +3,8 @@ require('./model/database.php');
 require('./model/user_db.php');
 require('./utils/xml_functions.php');
 
+session_start();
+
 // Αρχικοποίηση μεταβλητών
 $name = $role = $avatar = $action =  '';
 
