@@ -17,10 +17,16 @@
     <completed>5</completed>
     <average>10</average>
   </student>
-  <student id="2">
+  <student id="3">
     <name>stasis</name>
     <lastname>akouim</lastname>
     <completed>5</completed>
     <average>8</average>
+  </student>
+  <student id="4">
+    <name>elisabet</name>
+    <lastname>pegia</lastname>
+    <completed>8</completed>
+    <average>5</average>
   </student>
 </report>

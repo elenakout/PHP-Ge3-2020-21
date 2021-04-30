@@ -18,14 +18,17 @@
     </xsl:for-each>
   </xsl:variable>
 
+  <xsl:variable name="avg">
+    <xsl:value-of select="sum(report/student/average) div count(report/student)"/>
+  </xsl:variable>
+
     <html>
       <body>
         <main class="main">
           <h2 class="header">Students</h2>
-          <p>Total students: <xsl:value-of select="report/statistics/totalstudents"/></p>
-          <p>Total average: <xsl:value-of select="report/statistics/totalaverage"/></p>
-          <p>Max: <xsl:value-of select="$max"/></p>
-          <table class="table">
+          <p>Total students: <xsl:value-of select="count(report/student)"/></p>
+          <p>Total average: <xsl:value-of select='format-number($avg, "#.#")'/></p>
+          <table class="table table__dashboard">
             <tr>
               <th>Name</th>
               <th>Last Name</th>
