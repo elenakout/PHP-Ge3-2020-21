@@ -2,9 +2,9 @@
 <!ELEMENT statistics (totalstudents, totalaverage)>
 <!ELEMENT totalstudents (#PCDATA)>
 <!ELEMENT totalaverage (#PCDATA)>
-<!ELEMENT student (name, lastname, completed, avarage)>
+<!ELEMENT student (name, lastname, completed, average)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT lastname (#PCDATA)>
 <!ELEMENT completed (#PCDATA)>
 <!ELEMENT average (#PCDATA)>
-<!ATTLIST student id ID #REQUIRED>
+<!ATTLIST student id CDATA #REQUIRED>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE report SYSTEM "report.dtd">
+<report>
+  <statistics>
+    <totalstudents>25</totalstudents>
+    <totalaverage>50</totalaverage>
+  </statistics>
+  <student id="1">
+    <name>elena</name>
+    <lastname>kout</lastname>
+    <completed>10</completed>
+    <average>6.5</average>
+  </student>
+  <student id="2">
+    <name>thanos</name>
+    <lastname>kouim</lastname>
+    <completed>5</completed>
+    <average>8</average>
+  </student>
+</report>
