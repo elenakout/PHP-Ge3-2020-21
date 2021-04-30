@@ -15,6 +15,12 @@
     <name>thanos</name>
     <lastname>kouim</lastname>
     <completed>5</completed>
+    <average>10</average>
+  </student>
+  <student id="2">
+    <name>stasis</name>
+    <lastname>akouim</lastname>
+    <completed>5</completed>
     <average>8</average>
   </student>
 </report>

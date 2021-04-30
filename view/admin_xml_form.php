@@ -6,7 +6,6 @@
 <main class="main">
   <section>
     <?= $xmlhtml ?>
-    XML Form
   </section>
 </main>
 <?php

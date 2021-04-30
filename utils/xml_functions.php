@@ -2,9 +2,6 @@
 
 function convertXMLToHTML() {
 
-// Μετατροπή του αρχείου σε HTML με τη βοήθεια του XSL προτύπου.
-
-
 // Τοποθεσία αποθήκευσης .xml & .xsl
 $xml_filename = "./assets/files/report.xml";
 $xsl_filename  = "./assets/files/report.xsl";
@@ -19,7 +16,7 @@ $xsl->load($xsl_filename);
 
 if (!$xml->validate()) {
 
-  echo "<p>Το XML αρχείο δεν είναι έγκυρο σύμφωνα με το DTD. Παρακαλώ επικοινωνήστε με την τεχνική υποστήριξη.</p>";
+  return "<p>Το XML αρχείο δεν είναι έγκυρο σύμφωνα με το DTD. Παρακαλώ επικοινωνήστε με την τεχνική υποστήριξη.</p>";
 
 } else {
 
