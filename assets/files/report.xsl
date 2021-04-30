@@ -4,6 +4,7 @@
   <xsl:output method = "html"></xsl:output>
   <xsl:template match="/">
 
+  <!-- Μεταβλητή για το μέγιστο βαθμό -->
   <xsl:variable name="max">
     <xsl:for-each select="report/student/average">
       <xsl:sort select="." data-type="number" order="descending"/>
@@ -11,6 +12,7 @@
     </xsl:for-each>
   </xsl:variable>
 
+  <!-- Μεταβλητή για το δεύτερο μέγιστο βαθμό -->
   <xsl:variable name="second">
     <xsl:for-each select="report/student/average">
       <xsl:sort select="." data-type="number" order="descending"/>
@@ -18,6 +20,7 @@
     </xsl:for-each>
   </xsl:variable>
 
+  <!-- Μεταβλητή για το μέσο όρο όλων των μαθητών -->
   <xsl:variable name="avg">
     <xsl:value-of select="sum(report/student/average) div count(report/student)"/>
   </xsl:variable>
