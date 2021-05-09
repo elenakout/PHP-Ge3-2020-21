@@ -10,6 +10,7 @@ $name = $role = $avatar = $action =  '';
 
 // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+  $userId = $_SESSION["userId"];
   $name = $_SESSION["name"];
   $lastname = $_SESSION["lastName"];
   $role = $_SESSION['role'];
@@ -23,31 +24,24 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 
 // Δημιουργία μεταβλητών μέτα την υποβολή φόρμας από το χρήστη
 if ($_SERVER["REQUEST_METHOD"] == "POST") {};
-$xmlhtml = convertXMLToHTML();
-include('./view/admin_xml_form.php');
 
-// switch ($action) {
-//   case 'create':
-//     if($title && $description && $teacher && $semester){
-//     $idclass = create_class($title, $description, $mandatory, $teacher, $semester);
-//     $students = get_all_students();
-//     foreach($students as $student){
-//       add_students_to_class($student['ID'], $idclass, $teacher);
-//     }
-//     $_SESSION['msg'] = 'Το μάθημα δημιουργήθηκε με επιτυχία';
-//     header("location: dashboard_admin.php?page=classes");
-//   } else {
-//     $error_message = 'Η δημιουργία του μαθήματος απέτυχε.';
-//     $link = "admin_classes.php";
-//     include('view/error.php');
-//   }
-//     break;
-//   case '':
-//     break;
-//   default:
-//     include('./view/admin_xml_form.php');
-//     break;
-// }
+
+switch ($action) {
+  case 'create':
+    $imp = new DOMImplementation;
+    $dtd = $imp->createDocumentType('report','','report.dtd');
+    $xml_filename = "./assets/files/report_".$userId.".xml";
+    $xml = $imp->createDocument("","",$dtd);
+    $xml->encoding = 'UTF-8';
+    $xml->formatOutput = true;
+    break;
+  case '':
+    break;
+  default:
+    $xmlhtml = convertXMLToHTML();
+    include('./view/admin_xml_form.php');
+  break;
+}
 
 // $error_message = 'Η επεξεργασία του μαθήματος απέτυχε.';
 // $link = "dashboard_admin.php?page=classes";
