@@ -1,12 +1,13 @@
 <?php
 require('./model/database.php');
 require('./model/user_db.php');
+require('./model/student_db.php');
 require('./utils/xml_functions.php');
 
 session_start();
 
 // Αρχικοποίηση μεταβλητών
-$name = $role = $avatar = $action =  '';
+$name = $role = $avatar = $action = '';
 
 // Ανάθεση μεταβλητών αν ο χρήστης είναι συνδεμενος
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -23,22 +24,24 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 }
 
 // Δημιουργία μεταβλητών μέτα την υποβολή φόρμας από το χρήστη
-if ($_SERVER["REQUEST_METHOD"] == "POST") {};
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
+  $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
+};
 
 
 switch ($action) {
   case 'create':
-    $imp = new DOMImplementation;
-    $dtd = $imp->createDocumentType('report','','report.dtd');
-    $xml_filename = "./assets/files/report_".$userId.".xml";
-    $xml = $imp->createDocument("","",$dtd);
-    $xml->encoding = 'UTF-8';
-    $xml->formatOutput = true;
-    break;
-  case '':
+    $students = get_students_by_semester($semester);
+    $created = createXML($students, $userId);
+    if($created) {
+      $xmlhtml = convertXMLToHTML($userId);
+    } else {
+      $xmlhtml = 'Sorry no data';
+    }
+    include('./view/admin_display_xml.php');
     break;
   default:
-    $xmlhtml = convertXMLToHTML();
     include('./view/admin_xml_form.php');
   break;
 }

@@ -1,7 +1,4 @@
-<!ELEMENT report (statistics, student*)>
-<!ELEMENT statistics (totalstudents, totalaverage)>
-<!ELEMENT totalstudents (#PCDATA)>
-<!ELEMENT totalaverage (#PCDATA)>
+<!ELEMENT report (student*)>
 <!ELEMENT student (name, lastname, completed, average)>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT lastname (#PCDATA)>

@@ -1,9 +1,28 @@
 <?php
 
-function convertXMLToHTML() {
+function createXML($students, $userId) {
+  $imp = new DOMImplementation;
+  $dtd = $imp->createDocumentType('report','','report.dtd');
+  $xml_filename = "./assets/files/report_".$userId.".xml";
+  $xml = $imp->createDocument("","",$dtd);
+  $xml->encoding = 'UTF-8';
+  $xml->formatOutput = true;
+
+  // Δημιουργούμε το στοιχείο - ρίζα και το προσθέτουμε στο xml.
+  $record = $xml->createElement("record");
+  $xml->appendChild($record);
+
+  // Ολοκλήρωση της δημιουργίας του xml αρχείου κι αποθήκευση στον κατάλογο 'files' με το όνομα 'transactions+κωδικό πελάτη.xml'
+  $xml->saveXML();
+  $xml->save($xml_filename);
+
+  return true;
+}
+
+function convertXMLToHTML($xmlId) {
 
 // Τοποθεσία αποθήκευσης .xml & .xsl
-$xml_filename = "./assets/files/report.xml";
+$xml_filename = "./assets/files/report_".$xmlId.".xml";
 $xsl_filename  = "./assets/files/report.xsl";
 
 // Φόρτωση του xml
@@ -16,7 +35,7 @@ $xsl->load($xsl_filename);
 
 if (!$xml->validate()) {
 
-  return "<p>Το XML αρχείο δεν είναι έγκυρο σύμφωνα με το DTD. Παρακαλώ επικοινωνήστε με την τεχνική υποστήριξη.</p>";
+  return "<p class='red'>Το XML αρχείο δεν είναι έγκυρο σύμφωνα με το DTD. Παρακαλώ επικοινωνήστε με την τεχνική υποστήριξη.</p>";
 
 } else {
 
