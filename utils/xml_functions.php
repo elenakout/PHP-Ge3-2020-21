@@ -9,10 +9,20 @@ function createXML($students, $userId) {
   $xml->formatOutput = true;
 
   // Δημιουργούμε το στοιχείο - ρίζα και το προσθέτουμε στο xml.
-  $record = $xml->createElement("record");
-  $xml->appendChild($record);
+  $report = $xml->createElement("report");
+  $xml->appendChild($report);
 
-  // Ολοκλήρωση της δημιουργίας του xml αρχείου κι αποθήκευση στον κατάλογο 'files' με το όνομα 'transactions+κωδικό πελάτη.xml'
+  foreach ($students as $std) {
+    $student = $xml->createElement("student");
+    $student->setAttribute("id", $std['ID']);
+    $report->appendChild($student);
+    $student->appendChild($xml->createElement("name", $std['name']));
+    $student->appendChild($xml->createElement("lastname", $std['lastName']));
+    $student->appendChild($xml->createElement("completed", $std['completed']));
+    $student->appendChild($xml->createElement("average", $std['average']));
+  }
+
+  // Ολοκλήρωση της δημιουργίας του xml αρχείου κι αποθήκευση στον κατάλογο 'files' με το όνομα 'report_<ID>.xml'
   $xml->saveXML();
   $xml->save($xml_filename);
 

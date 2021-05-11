@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE report SYSTEM "report.dtd">
+<report>
+  <student id="37">
+    <name>Έλενα</name>
+    <lastname>Κουτούση</lastname>
+    <completed>5</completed>
+    <average>6.2000</average>
+  </student>
+  <student id="6">
+    <name>Ζωή</name>
+    <lastname>Παπαστάμου</lastname>
+    <completed>2</completed>
+    <average>9.0000</average>
+  </student>
+</report>

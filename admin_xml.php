@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 switch ($action) {
   case 'create':
-    $students = get_students_by_semester($semester);
+    $students = averageGrades($semester);
     $created = createXML($students, $userId);
     if($created) {
       $xmlhtml = convertXMLToHTML($userId);

@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=koutousi';
+    $dsn = 'mysql:host=localhost;dbname=ge3-test';
     $username = 'root';
 
     // χρησιμοποιούμε τον βρόχο try/catch της php
