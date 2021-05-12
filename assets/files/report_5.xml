@@ -5,12 +5,12 @@
     <name>Έλενα</name>
     <lastname>Κουτούση</lastname>
     <completed>5</completed>
-    <average>6.2000</average>
+    <average>6.2</average>
   </student>
   <student id="6">
     <name>Ζωή</name>
     <lastname>Παπαστάμου</lastname>
     <completed>2</completed>
-    <average>9.0000</average>
+    <average>9.0</average>
   </student>
 </report>

@@ -32,7 +32,7 @@ function get_students_by_semester($semester){
 // Ανάκτηση μέσου όρου μαθημάτων ανά εξάμηνο
 function averageGrades($semester){
   global $db;
-  $query = 'SELECT S.name, S.lastName, S.ID, COUNT(C.grade) as completed, AVG(C.grade) as average
+  $query = 'SELECT S.name, S.lastName, S.ID, COUNT(C.grade) as completed, ROUND(AVG(C.grade),1) as average
             FROM user S
             LEFT JOIN semesterregistration R ON R.studentId = S.ID
             LEFT JOIN classregistration C ON C.studentId = S.ID
