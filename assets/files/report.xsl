@@ -28,32 +28,46 @@
     <html>
       <body>
         <main class="main">
-          <h2 class="header">Students</h2>
-          <p>Total students: <xsl:value-of select="count(report/student)"/></p>
-          <p>Total average: <xsl:value-of select='format-number($avg, "#.#")'/></p>
-          <table class="table table__dashboard">
-            <tr>
-              <th>Name</th>
-              <th>Last Name</th>
-              <th>Total class</th>
-              <th>average</th>
-            </tr>
-            <xsl:for-each select="report/student">
-            <xsl:sort select="lastname"/>
-            <tr>
-              <xsl:attribute name="class">
-                <xsl:if test="average = $max">green</xsl:if>
-                <xsl:if test="average = $second">green</xsl:if>
-              </xsl:attribute>
-              <td><xsl:value-of select="lastname"/></td>
-              <td><xsl:value-of select="name"/></td>
-              <td><xsl:value-of select="completed"/></td>
-              <td><xsl:value-of select="average"/></td>
-            </tr>
-            </xsl:for-each>
-          </table>
-        </main>
-      </body>
+          <div class="profile__main">
+            <div class="profile__statistics">
+              <h3 class="subtitle">Στατιστικά</h3>
+              <div class="statistics__container">
+                <div class="statistics__box single__text">
+                  <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
+                  <span class="box__title">Εξάμηνο</span>
+                  <span class="box__number"><xsl:value-of select="count(report/student)"/></span>
+                </div>
+                <div class="statistics__box">
+                  <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
+                  <span class="box__title">Εξάμηνο</span>
+                  <span class="box__number"><xsl:value-of select='format-number($avg, "#.#")'/></span>
+                </div>
+              </div>
+              <table class="table table__dashboard">
+                <tr>
+                  <th>Name</th>
+                  <th>Last Name</th>
+                  <th>Total class</th>
+                  <th>average</th>
+                </tr>
+                <xsl:for-each select="report/student">
+                <xsl:sort select="lastname"/>
+                <tr>
+                  <xsl:attribute name="class">
+                    <xsl:if test="average = $max">green</xsl:if>
+                    <xsl:if test="average = $second">green</xsl:if>
+                  </xsl:attribute>
+                  <td><xsl:value-of select="lastname"/></td>
+                  <td><xsl:value-of select="name"/></td>
+                  <td><xsl:value-of select="completed"/></td>
+                  <td><xsl:value-of select="average"/></td>
+                </tr>
+              </xsl:for-each>
+            </table>
+          </div>
+        </div>
+          </main>
+        </body>
     </html>
   </xsl:template>
 </xsl:stylesheet>

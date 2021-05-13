@@ -6,6 +6,9 @@
 <main class="main">
   <section>
   <?= $xmlhtml ?>
+  <a href="./assets/files/report.xml" target="pdf-frame"
+        >ΕΔΩ</a
+      >
   </section>
 </main>
 <?php
