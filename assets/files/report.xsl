@@ -30,8 +30,12 @@
         <main class="main">
           <div class="profile__main">
             <div class="profile__statistics">
-              <h3 class="subtitle">Στατιστικά</h3>
               <div class="statistics__container">
+                <div class="statistics__box single__text">
+                  <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
+                  <span class="box__title">Εξάμηνο</span>
+                  <span class="box__number"><xsl:value-of select="count(report/student)"/></span>
+                </div>
                 <div class="statistics__box single__text">
                   <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
                   <span class="box__title">Εξάμηνο</span>
@@ -43,6 +47,9 @@
                   <span class="box__number"><xsl:value-of select='format-number($avg, "#.#")'/></span>
                 </div>
               </div>
+            </div>
+            <div class="profile__statistics">
+              <h3 class="subtitle">Πίνακας Μαθητών</h3>
               <table class="table table__dashboard">
                 <tr>
                   <th>Name</th>
@@ -54,8 +61,8 @@
                 <xsl:sort select="lastname"/>
                 <tr>
                   <xsl:attribute name="class">
-                    <xsl:if test="average = $max">green</xsl:if>
-                    <xsl:if test="average = $second">green</xsl:if>
+                    <xsl:if test="average = $max">success</xsl:if>
+                    <xsl:if test="average = $second">success</xsl:if>
                   </xsl:attribute>
                   <td><xsl:value-of select="lastname"/></td>
                   <td><xsl:value-of select="name"/></td>

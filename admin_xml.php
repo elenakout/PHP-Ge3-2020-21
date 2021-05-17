@@ -36,10 +36,12 @@ switch ($action) {
     $created = createXML($students, $userId);
     if($created) {
       $xmlhtml = convertXMLToHTML($userId);
+      include('./view/admin_display_xml.php');
     } else {
-      $xmlhtml = 'Sorry no data';
+      $error_message = 'Η επεξεργασία του μαθήματος απέτυχε.';
+      $link = "dashboard_admin.php?page=classes";
+      include('view/error.php');
     }
-    include('./view/admin_display_xml.php');
     break;
   default:
     include('./view/admin_xml_form.php');

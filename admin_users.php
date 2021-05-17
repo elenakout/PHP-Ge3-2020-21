@@ -106,6 +106,7 @@
       $_SESSION['msg'] = 'Τα στοιχεία ενημερώθηκαν με επιτυχία';
       header("location: dashboard_admin.php");
     default:
+    $regNum = random_num();
     include('./view/form_register.php');
     break;
   }
