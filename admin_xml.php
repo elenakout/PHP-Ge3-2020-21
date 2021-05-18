@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 switch ($action) {
   case 'create':
     $students = averageGrades($semester);
-    $created = createXML($students, $userId);
+    $created = createXML($students, $userId, $semester);
     if($created) {
       $xmlhtml = convertXMLToHTML($userId);
       include('./view/admin_display_xml.php');

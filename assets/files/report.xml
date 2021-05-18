@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE report SYSTEM "report.dtd">
 <report>
+  <semester>1</semester>
   <student id="1">
     <name>elena</name>
     <lastname>kout</lastname>

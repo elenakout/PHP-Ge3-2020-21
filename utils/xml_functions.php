@@ -1,6 +1,6 @@
 <?php
 
-function createXML($students, $userId) {
+function createXML($students, $userId, $semester) {
   $imp = new DOMImplementation;
   $dtd = $imp->createDocumentType('report','','report.dtd');
   $xml_filename = "./assets/files/report_".$userId.".xml";
@@ -11,6 +11,10 @@ function createXML($students, $userId) {
   // Δημιουργούμε το στοιχείο - ρίζα και το προσθέτουμε στο xml.
   $report = $xml->createElement("report");
   $xml->appendChild($report);
+
+  // Προσθήκη εξάμηνου που επιλέχτηκε στο xml αρχείο
+  $smstr = $xml->createElement("semester", $semester);
+  $report->appendChild($smstr);
 
   foreach ($students as $std) {
     $student = $xml->createElement("student");

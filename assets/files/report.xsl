@@ -34,16 +34,16 @@
                 <div class="statistics__box single__text">
                   <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
                   <span class="box__title">Εξάμηνο</span>
-                  <span class="box__number"><xsl:value-of select="count(report/student)"/></span>
+                  <span class="box__number"><xsl:value-of select="report/semester"/></span>
                 </div>
                 <div class="statistics__box single__text">
-                  <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
-                  <span class="box__title">Εξάμηνο</span>
+                  <img class="box__image" src="./assets/icons/st-5.png" alt="icon" />
+                  <span class="box__title">Αριθμός Μαθητών</span>
                   <span class="box__number"><xsl:value-of select="count(report/student)"/></span>
                 </div>
                 <div class="statistics__box">
-                  <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
-                  <span class="box__title">Εξάμηνο</span>
+                  <img class="box__image" src="./assets/icons/st-8.png" alt="icon" />
+                  <span class="box__title">Συνολικός Μέσος Όρος</span>
                   <span class="box__number"><xsl:value-of select='format-number($avg, "#.#")'/></span>
                 </div>
               </div>
