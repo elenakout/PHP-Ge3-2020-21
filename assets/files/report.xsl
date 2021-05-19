@@ -30,18 +30,19 @@
         <main class="main">
           <div class="profile__main">
             <div class="profile__statistics">
+              <h3 class="subtitle">Στοιχεία XML</h3>
               <div class="statistics__container">
                 <div class="statistics__box single__text">
                   <img class="box__image" src="./assets/icons/st-1.png" alt="icon" />
                   <span class="box__title">Εξάμηνο</span>
                   <span class="box__number"><xsl:value-of select="report/semester"/></span>
                 </div>
-                <div class="statistics__box single__text">
+                <div class="statistics__box single__text ml-2">
                   <img class="box__image" src="./assets/icons/st-5.png" alt="icon" />
                   <span class="box__title">Αριθμός Μαθητών</span>
                   <span class="box__number"><xsl:value-of select="count(report/student)"/></span>
                 </div>
-                <div class="statistics__box">
+                <div class="statistics__box ml-2">
                   <img class="box__image" src="./assets/icons/st-8.png" alt="icon" />
                   <span class="box__title">Συνολικός Μέσος Όρος</span>
                   <span class="box__number"><xsl:value-of select='format-number($avg, "#.#")'/></span>
@@ -52,10 +53,10 @@
               <h3 class="subtitle">Πίνακας Μαθητών</h3>
               <table class="table table__dashboard">
                 <tr>
-                  <th>Name</th>
-                  <th>Last Name</th>
-                  <th>Total class</th>
-                  <th>average</th>
+                  <th>Επίθετο</th>
+                  <th >Όνομα</th>
+                  <th class="width-10">Μαθήματα</th>
+                  <th class="width-10">Μέσος όρος</th>
                 </tr>
                 <xsl:for-each select="report/student">
                 <xsl:sort select="lastname"/>

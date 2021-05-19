@@ -33,13 +33,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 switch ($action) {
   case 'create':
     $students = averageGrades($semester);
+    if (!$students) {
+      $error_message = 'Δεν βρέθηκαν μαθητές για το συγκεκριμένο εξάμηνο';
+      $link = "admin_xml.php";
+      include('view/error.php');
+    }
     $created = createXML($students, $userId, $semester);
     if($created) {
       $xmlhtml = convertXMLToHTML($userId);
       include('./view/admin_display_xml.php');
     } else {
-      $error_message = 'Η επεξεργασία του μαθήματος απέτυχε.';
-      $link = "dashboard_admin.php?page=classes";
+      $error_message = 'Η δημιουργία του αρχείου xml απέτυχε. Παρακαλώ επικοινωνίστε με τη γραμματεία.';
+      $link = "admin_xml.php";
       include('view/error.php');
     }
     break;
