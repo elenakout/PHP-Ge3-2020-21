@@ -44,7 +44,7 @@ include('./view/navbar.php');
       <h2>Ο μέσος όρος προκύπτει από τα μαθήματα που έχουν περάσει.</h2>
     </div>
       <div class="profile__statistics \">
-      <form action="./admin_xml.php" method="post" class="form">
+      <form name="xml" action="./admin_xml.php" method="post" class="form" onsubmit="return validateXmlForm()">
         <input type="hidden" name="action" value="create">
         <select name="semester" id="semester" class="form_input">
           <option value="" disabled selected hidden>Παρακαλώ επιλέξτε εξάμηνο φοίτησης</option>
@@ -52,6 +52,7 @@ include('./view/navbar.php');
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
+        <p class="error_semester">Παρακαλώ επιλέξτε εξάμηνο</p>
         <input type="submit" value="δημιουργια και εμφανηση xml" class="btn btn-dark btn-wide" />
       </form>
       </div>
