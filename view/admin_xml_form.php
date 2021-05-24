@@ -40,8 +40,8 @@ include('./view/navbar.php');
     </aside>
     <div class="dashboard__xml">
     <div class="profile__statistics single__text">
-      <h2>Στο αρχείο xml εμφανίζονται μόνο οι μαθητές που είναι εγγεγραμένοι στο συγκεκριμένο εξάμηνο.</h2>
-      <h2>Ο μέσος όρος προκύπτει από τα μαθήματα που έχουν περάσει.</h2>
+      <h2 class="title contact">Στο αρχείο xml εμφανίζονται μόνο οι μαθητές που είναι εγγεγραμένοι στο συγκεκριμένο εξάμηνο.</h2>
+      <h2 class="title contact">Ο μέσος όρος προκύπτει από τα μαθήματα που έχουν περάσει.</h2>
     </div>
       <div class="profile__statistics \">
       <form name="xml" action="./admin_xml.php" method="post" class="form" onsubmit="return validateXmlForm()">
