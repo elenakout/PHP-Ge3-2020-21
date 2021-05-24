@@ -86,7 +86,8 @@
     // Σελίδα προφίλ χρήστη
     case 'admin_profile':
       $admin = get_user_by_id($usrId);
-      $address = get_user_address($userId);
+      $address = get_user_address($usrId);
+
       include('./view/admin_info.php');
       break;
     // Σελίδα Μαθημάτων

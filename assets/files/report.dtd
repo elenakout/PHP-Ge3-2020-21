@@ -1,0 +1,8 @@
+<!ELEMENT report (semester, student*)>
+<!ELEMENT semester (#PCDATA)>
+<!ELEMENT student (name, lastname, completed, average)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
+<!ELEMENT completed (#PCDATA)>
+<!ELEMENT average (#PCDATA)>
+<!ATTLIST student id CDATA #REQUIRED>

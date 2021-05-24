@@ -29,6 +29,23 @@ function get_students_by_semester($semester){
   return $results;
 }
 
+// Ανάκτηση μέσου όρου μαθημάτων ανά εξάμηνο
+function averageGrades($semester){
+  global $db;
+  $query = 'SELECT S.name, S.lastName, S.ID, COUNT(C.grade) as completed, ROUND(AVG(C.grade),1) as average
+            FROM user S
+            LEFT JOIN semesterregistration R ON R.studentId = S.ID
+            LEFT JOIN classregistration C ON C.studentId = S.ID
+            WHERE C.grade > 4 AND R.semesterNum = :semester
+            GROUP BY S.lastName';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':semester', $semester);
+  $statement->execute();
+  $results = $statement->fetchAll();
+  $statement->closeCursor();
+  return $results;
+}
+
 // Εγραφή φοιτητή σε εξάμηνο
 function register_student_to_semester($id, $semester){
   global $db;

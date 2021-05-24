@@ -375,3 +375,19 @@ function validateUserForm() {
 
   return true;
 }
+
+function validateXmlForm() {
+  let semester = document.forms["xml"]["semester"];
+  let semester_error = document.querySelector('.error_semester');
+
+  if (semester.value === "" || semester.value === null) {
+    semester.style.borderBottom = "1px solid red";
+    semester.focus();
+    semester_error.classList.add('show');
+    return false;
+  } else {
+    semester.style.borderBottom = "1px solid var(--primary)";
+    semester_error.classList.remove('show');
+  }
+  return true;
+}

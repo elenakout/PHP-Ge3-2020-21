@@ -25,3 +25,9 @@
     $password = substr( str_shuffle( $chars ), 0, $length );
     return $password;
   }
+
+  function random_num( $length = 6){
+    $chars = "0123456789";
+    $password = substr( str_shuffle( $chars ), 0, $length );
+    return $password;
+  }

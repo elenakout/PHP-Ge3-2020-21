@@ -41,7 +41,7 @@
         <p class="error_name">Παρακαλώ πληκρολογήστε όνομα</p>
         <input type="text" name="lastName" placeholder="Επίθετο" class="form_input">
         <p class="error_lastname">Παρακαλώ πληκρολογήστε επίθετο</p>
-        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου" class="form_input">
+        <input type="text" name="regNum" placeholder="Αριθμός Μητρώου" class="form_input" value="<?= $regNum ?>">
         <p class="error_regnum">Παρακαλώ πληκρολογήστε αριθμό μητρώου</p>
         <p class="error_regnum_length">Ο αριθμός μητρώου πρέπει να έχει 6 χαρακτήρες</p>
         <p class="error_regnum_numbers">Ο αριθμός μητρώου πρέπει να είναι αριθμός</p>

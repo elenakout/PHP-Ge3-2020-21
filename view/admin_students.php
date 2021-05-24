@@ -39,6 +39,8 @@
           <img src="./assets/icons/book-ico.svg" alt="avatar icon">
           Μαθήματα
         </a>
+        <a href="./admin_xml.php" class="dashboard__link "><img
+            src="./assets/icons/insert.svg" alt="avatar icon">Δημιουργία XML</a>
         <a href="./admin_users.php?role=student" class="dashboard__link link__active"><img
             src="./assets/icons/insert-alt.svg" alt="avatar icon">Εγγραφή
           Φοιτητή</a>
