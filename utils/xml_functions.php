@@ -35,28 +35,27 @@ function createXML($students, $userId, $semester) {
 
 function convertXMLToHTML($xmlId) {
 
-// Τοποθεσία αποθήκευσης .xml & .xsl
-$xml_filename = "./assets/files/report_".$xmlId.".xml";
-$xsl_filename  = "./assets/files/report.xsl";
+  // Τοποθεσία αποθήκευσης .xml & .xsl
+  $xml_filename = "./assets/files/report_".$xmlId.".xml";
+  $xsl_filename  = "./assets/files/report.xsl";
 
-// Φόρτωση του xml
-$xml = new DOMDocument();
-$xml->load($xml_filename);
+  // Φόρτωση του xml
+  $xml = new DOMDocument();
+  $xml->load($xml_filename);
 
-// Φόρτωση του xsl
-$xsl = new DOMDocument();
-$xsl->load($xsl_filename);
+  // Φόρτωση του xsl
+  $xsl = new DOMDocument();
+  $xsl->load($xsl_filename);
 
-if (!$xml->validate()) {
+  if (!$xml->validate()) {
 
-  return false;
+    return false;
 
-} else {
+  } else {
 
-  // Επεξεργασία κι εξαγωγή αποτελεσμάτων
-  $proc = new XSLTProcessor();
-  $proc->importStyleSheet($xsl);
-  return $proc->transformToXML($xml);
-
-}
+    // Επεξεργασία κι εξαγωγή αποτελεσμάτων
+    $proc = new XSLTProcessor();
+    $proc->importStyleSheet($xsl);
+    return $proc->transformToXML($xml);
+  }
 }
