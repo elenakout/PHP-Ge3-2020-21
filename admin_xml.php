@@ -31,16 +31,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 switch ($action) {
+  // Δημιουργία και εμφάνιση XML αρχείου
   case 'create':
     $students = averageGrades($semester);
+    // Έλεγχος αν υπάρχουν μαθητές
     if (!$students) {
       $error_message = 'Δεν βρέθηκαν μαθητές για το συγκεκριμένο εξάμηνο';
       $link = "admin_xml.php";
       include('view/error.php');
     }
+    // Έλεγχος γαι τη σωστή δημιουργία του xml αρχείου
     $created = createXML($students, $userId, $semester);
     if($created) {
       $xmlhtml = convertXMLToHTML($userId);
+      if(!$xmlhtml){
+        $error_message = 'Το XML αρχείο δεν είναι έγκυρο σύμφωνα με το DTD. Παρακαλώ επικοινωνήστε με την τεχνική υποστήριξη.';
+        $link = "admin_xml.php";
+        include('view/error.php');
+      }
       include('./view/admin_display_xml.php');
     } else {
       $error_message = 'Η δημιουργία του αρχείου xml απέτυχε. Παρακαλώ επικοινωνίστε με τη γραμματεία.';
@@ -52,7 +60,3 @@ switch ($action) {
     include('./view/admin_xml_form.php');
   break;
 }
-
-// $error_message = 'Η επεξεργασία του μαθήματος απέτυχε.';
-// $link = "dashboard_admin.php?page=classes";
-// include('view/error.php');

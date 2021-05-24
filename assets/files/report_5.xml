@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE report SYSTEM "report.dtd">
 <report>
-  <semester>1</semester>
-  <student id="64">
-    <name>Αποστολία</name>
-    <lastname>Αργυρού</lastname>
-    <completed>2</completed>
-    <average>7.0</average>
+  <semester>2</semester>
+  <student id="65">
+    <name>Ευλαμπία</name>
+    <lastname>Κοκκίνου</lastname>
+    <completed>4</completed>
   </student>
-  <student id="70">
-    <name>Κλέαρχος</name>
-    <lastname>Μαυρλίδης</lastname>
-    <completed>1</completed>
-    <average>6.0</average>
+  <student id="37">
+    <name>Έλενα</name>
+    <lastname>Κουτούση</lastname>
+    <completed>5</completed>
   </student>
-  <student id="67">
-    <name>Μαργαρίτα</name>
-    <lastname>Οικονομίδου</lastname>
+  <student id="68">
+    <name>Νεφέλη</name>
+    <lastname>Παπαδοπούλου</lastname>
+    <completed>3</completed>
+  </student>
+  <student id="6">
+    <name>Ζωή</name>
+    <lastname>Παπαστάμου</lastname>
     <completed>2</completed>
-    <average>7.5</average>
   </student>
 </report>

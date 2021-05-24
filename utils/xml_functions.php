@@ -49,7 +49,7 @@ $xsl->load($xsl_filename);
 
 if (!$xml->validate()) {
 
-  return "<p class='red'>Το XML αρχείο δεν είναι έγκυρο σύμφωνα με το DTD. Παρακαλώ επικοινωνήστε με την τεχνική υποστήριξη.</p>";
+  return false;
 
 } else {
 
