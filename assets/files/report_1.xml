@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE report SYSTEM "report.dtd">
 <report>
-  <semester>3</semester>
-  <student id="13">
-    <name>Εύα</name>
-    <lastname>Αγγελίδου</lastname>
-    <completed>3</completed>
-    <average>7.7</average>
-  </student>
-  <student id="21">
-    <name>Σωκράτης</name>
-    <lastname>Αντωνόπουλος</lastname>
-    <completed>4</completed>
-    <average>7.8</average>
-  </student>
-  <student id="22">
-    <name>Σοφοκλής</name>
-    <lastname>Αξιώτης</lastname>
-    <completed>3</completed>
-    <average>8.7</average>
-  </student>
-  <student id="10">
-    <name>Μιχαήλ</name>
-    <lastname>Νικολόπουλος</lastname>
+  <semester>2</semester>
+  <student id="12">
+    <name>Κασσιανή</name>
+    <lastname>Βαριμπόμπη</lastname>
     <completed>2</completed>
-    <average>8.5</average>
+    <average>7.0</average>
   </student>
-  <student id="23">
-    <name>Λεωνίδας</name>
-    <lastname>Παπανικολάου</lastname>
-    <completed>6</completed>
-    <average>7.7</average>
+  <student id="9">
+    <name>Μαρία</name>
+    <lastname>Θεωδωροπούλου</lastname>
+    <completed>1</completed>
+    <average>7.0</average>
+  </student>
+  <student id="18">
+    <name>Ορφέας</name>
+    <lastname>Οικονομίδης</lastname>
+    <completed>4</completed>
+    <average>8.0</average>
+  </student>
+  <student id="19">
+    <name>Νεφέλη</name>
+    <lastname>Οικονομοπούλου</lastname>
+    <completed>3</completed>
+    <average>6.0</average>
+  </student>
+  <student id="20">
+    <name>Εύα</name>
+    <lastname>Ράφτη</lastname>
+    <completed>5</completed>
+    <average>6.6</average>
   </student>
 </report>
